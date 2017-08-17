@@ -1,0 +1,3 @@
+Template.postlist.onCreated(function () {
+
+});

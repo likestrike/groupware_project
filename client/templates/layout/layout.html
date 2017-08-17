@@ -1,0 +1,18 @@
+
+<template name="layout">
+  {{#unless isReady}}
+    {{> Template.dynamic template=loadingTemplate}}
+  {{else}}
+    <div class="skin-{{skin}}">
+      <div class="wrapper">
+        {{> Template.dynamic template=top}}
+		{{> Template.dynamic template=left}}
+		{{> Template.dynamic template=content}}
+      </div>
+    </div>
+  {{/unless}}
+</template>
+
+<template name="loadingTemplate">
+  <b>Loading</b>
+</template>
