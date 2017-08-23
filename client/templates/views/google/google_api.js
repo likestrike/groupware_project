@@ -11,6 +11,7 @@ Template.google_api.events({
 
     // make users data
     for (var i = 0; i < apidata.length; i++) {
+      console.log(apidata[i].organizations);
       var user = {
         services : {
           google : {
@@ -22,10 +23,12 @@ Template.google_api.events({
             picture : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl
           }
         },
-        profile : {
-          name :apidata[i].name.fullName
-        }
+        orgPath : apidata[i].orgUnitPath, // 조직도 경로
+        department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
+        phones : apidata[i].phones,
+        username : apidata[i].primaryEmail
       };
+
       Meteor.call('addUsers', user, function(error, result) {
         if (error)
           return alert(error.reason);
@@ -101,7 +104,7 @@ function updateSigninStatus(isSignedIn) {
 function listUsers() {
 	gapi.client.directory.users.list({
 		'customer': 'my_customer',
-		'maxResults': 10,
+		'maxResults': 500,
 		'orderBy': 'email'
 	}).then(function(response) {
 	var users = response.result.users;
