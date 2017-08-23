@@ -7,33 +7,31 @@ Template.google_api.events({
     callGoogle();
   },
   'click #btn_save': function (e, t) {
-    console.log(apidata);
     e.preventDefault();
 
-    // Accounts.onCreateUser(function(options, user) {
-    //     user.profile['surname'] = options.surname;
-    //     return user;
-    // });
-
     // make users data
-    // for (var i = 0; i < apidata.length; i++) {
-    //   var user = {
-    //     services : {
-    //       google : {
-    //         id : apidata[i].id,
-    //         email : apidata[i].primaryEmail,
-    //         name : apidata[i].name.fullName,
-    //         given_name : apidata[i].name.givenName,
-    //         family_name : apidata[i].name.familyName,
-    //         picture : apidata[i].thumbnailPhotoUrl===undefined?'':apidata[i].thumbnailPhotoUrl
-    //       }
-    //     },
-    //     profile : {
-    //       name :apidata[i].name.fullName
-    //     }
-    //   };
+    for (var i = 0; i < apidata.length; i++) {
+      var user = {
+        services : {
+          google : {
+            id : apidata[i].id,
+            email : apidata[i].primaryEmail,
+            name : apidata[i].name.fullName,
+            given_name : apidata[i].name.givenName,
+            family_name : apidata[i].name.familyName,
+            picture : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl
+          }
+        },
+        profile : {
+          name :apidata[i].name.fullName
+        }
+      };
+      Meteor.call('addUsers', user, function(error, result) {
+        if (error)
+          return alert(error.reason);
+      });
 
-    // }
+    }
   }
 });
 function callGoogle() {

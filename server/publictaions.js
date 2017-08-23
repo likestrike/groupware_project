@@ -1,4 +1,8 @@
 
 Meteor.publish("user", function () {
-	return Meteor.users.find({_id: this.userId});
+	return Meteor.users.find();
+});
+Meteor.publish("userlist", function (limit) {
+	check(limit, Number);
+	return Meteor.users.find({limit : limit});
 });
