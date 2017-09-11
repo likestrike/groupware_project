@@ -5,15 +5,15 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">LOCUS 직원 여러분들은 최하단 Google+로 들어가기를 클릭하세요.</p>
 
-    <form action="../../index2.html" method="post">
+    <form>
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input type="email" class="form-control" placeholder="Email" id="email" required>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" id="password" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -26,7 +26,7 @@
         </div> -->
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" id="login">들어가기</button>
         </div>
         <!-- /.col -->
       </div>
@@ -34,14 +34,14 @@
 
     <div class="social-auth-links text-center">
       <p>- OR -</p>
-      <a href="" class="btn btn-block btn-social btn-google btn-flat" id="sign-google"><i class="fa fa-google-plus"></i> Sign in using
-        Google+</a>
+      <a href="" class="btn btn-block btn-social btn-google btn-flat" id="sign-google"><i class="fa fa-google-plus"></i>Google+로 들어가기</a>
     </div>
     <!-- /.social-auth-links -->
-    <a href="{{pathFor '/signup'}}" class="text-center">Register a new membership</a>
+    <a href="{{pathFor '/signup'}}" class="text-center">새로 등록하고 싶어요.</a>
 
   </div>
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
 </template>
+

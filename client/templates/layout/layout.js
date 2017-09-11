@@ -72,7 +72,11 @@ Template.layout.events({
       }
     }
   },
+  'click [data-toggle=dropdown]': function (e, t) {
+    var $this = $(e.currentTarget);
+    $(e.currentTarget).parent().toggleClass('open');
 
+  },
   'click .content-wrapper': function (e, t) {
     //Enable hide menu when clicking on the content-wrapper on small screens
     if ($(window).width() <= (screenSizes.sm - 1) && $("body").hasClass("sidebar-open")) {
@@ -82,7 +86,7 @@ Template.layout.events({
 
   'click .sidebar li a': function (e, t) {
     //Get the clicked link and the next element
-    var $this = $(e.currentTarget);
+    var $this = $(e.currentTarget);true
     var checkElement = $this.next();
 
     //Check if the next element is a menu and is visible

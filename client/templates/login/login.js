@@ -1,6 +1,6 @@
-// Accounts.ui.config({
-//   passwordSignupFields: 'USERNAME_ONLY' //  One of 'USERNAME_AND_EMAIL', 'USERNAME_AND_OPTIONAL_EMAIL', 'USERNAME_ONLY', or 'EMAIL_ONLY' (default).
-// });
+Accounts.ui.config({
+  passwordSignupFields: 'USERNAME_ONLY' //  One of 'USERNAME_AND_EMAIL', 'USERNAME_AND_OPTIONAL_EMAIL', 'USERNAME_ONLY', or 'EMAIL_ONLY' (default).
+});
 // google login 의 계정을 locus.com 으로 제한 한다. config
 Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
 
@@ -16,5 +16,18 @@ Template.login.events({
 		    FlowRouter.go('/');
 		  }
 		});
-	}
+	},
+	'submit form': function(event){
+        event.preventDefault();
+        var email = $('#email').val();
+        var password = $('#password').val();
+
+        Meteor.loginWithPassword(email, password, function(error){
+		    if(error){
+		        console.log(error.reason);
+		    } else {
+		        FlowRouter.go('/');
+		    }
+		});
+    }
 });

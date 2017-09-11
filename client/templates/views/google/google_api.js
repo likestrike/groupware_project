@@ -9,9 +9,12 @@ Template.google_api.events({
   'click #btn_save': function (e, t) {
     e.preventDefault();
 
+    var test = {};
     // make users data
     for (var i = 0; i < apidata.length; i++) {
-      console.log(apidata[i].organizations);
+      var mail_num = apidata[i].primaryEmail.indexOf("@");
+      var user_id = apidata[i].primaryEmail.substring(0,mail_num);
+
       var user = {
         services : {
           google : {
@@ -26,15 +29,24 @@ Template.google_api.events({
         orgPath : apidata[i].orgUnitPath, // 조직도 경로
         department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
         phones : apidata[i].phones,
-        username : apidata[i].primaryEmail
+        username : user_id,
+        fullname : apidata[i].name.fullName,
+        thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
+        password : "locusmail"
       };
+      test.push(user);
 
       Meteor.call('addUsers', user, function(error, result) {
         if (error)
           return alert(error.reason);
       });
+      // Accounts.createUser(user, function(error){
+      //    if (error)
+      //     console.log(error.reason);
+      // });
 
     }
+
   }
 });
 function callGoogle() {
