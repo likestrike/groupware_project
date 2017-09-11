@@ -9,7 +9,6 @@ Template.google_api.events({
   'click #btn_save': function (e, t) {
     e.preventDefault();
 
-    var test = {};
     // make users data
     for (var i = 0; i < apidata.length; i++) {
       var mail_num = apidata[i].primaryEmail.indexOf("@");
@@ -34,7 +33,6 @@ Template.google_api.events({
         thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
         password : "locusmail"
       };
-      test.push(user);
 
       Meteor.call('addUsers', user, function(error, result) {
         if (error)
