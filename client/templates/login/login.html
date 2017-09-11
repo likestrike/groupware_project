@@ -1,4 +1,5 @@
 <template name="login">
+
 <div class="login-box">
   <div class="login-logo">
     <b>LOCUS</b>groupware
@@ -14,6 +15,13 @@
       </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Password" id="password" required>
+    <form id="login-form" action="action">
+      <div class="form-group has-feedback">
+        <input type="email" id="login-email" class="form-control" placeholder="Email" required>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" id="login-password" class="form-control" placeholder="Password" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
