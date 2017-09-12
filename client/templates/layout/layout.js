@@ -58,6 +58,7 @@ Template.layout.helpers({
 Template.layout.events({
   'click [data-toggle=push-menu]': function (e, t) {
     e.preventDefault();
+
     //Enable sidebar push menu
     if ($(window).width() > (screenSizes.sm - 1)) {
       $("body").toggleClass('sidebar-collapse');
@@ -72,11 +73,7 @@ Template.layout.events({
       }
     }
   },
-  'click [data-toggle=dropdown]': function (e, t) {
-    var $this = $(e.currentTarget);
-    $(e.currentTarget).parent().toggleClass('open');
 
-  },
   'click .content-wrapper': function (e, t) {
     //Enable hide menu when clicking on the content-wrapper on small screens
     if ($(window).width() <= (screenSizes.sm - 1) && $("body").hasClass("sidebar-open")) {
@@ -86,7 +83,7 @@ Template.layout.events({
 
   'click .sidebar li a': function (e, t) {
     //Get the clicked link and the next element
-    var $this = $(e.currentTarget);true
+    var $this = $(e.currentTarget);
     var checkElement = $this.next();
 
     //Check if the next element is a menu and is visible
@@ -120,16 +117,20 @@ Template.layout.events({
     if (checkElement.is('.treeview-menu')) {
       e.preventDefault();
     }
+  },
+  'click #logout' : function (e, t) {
+    Meteor.logout();
+    FlowRouter.go('/login');
   }
 });
 
 function cssUrl () {
-  return Meteor.absoluteUrl('packages/mfactory_admin-lte/css/AdminLTE.min.css');
+  return Meteor.absoluteUrl('packages/supaseca_admin-lte/css/AdminLTE.min.css');
 }
 
 function skinUrl (name) {
   return Meteor.absoluteUrl(
-    'packages/mfactory_admin-lte/css/skins/skin-' + name + '.min.css');
+    'packages/supaseca_admin-lte/css/skins/skin-' + name + '.min.css');
 }
 
 function waitOnCSS (url, timeout) {
@@ -183,4 +184,3 @@ function waitOnCSS (url, timeout) {
     }
   };
 }
-

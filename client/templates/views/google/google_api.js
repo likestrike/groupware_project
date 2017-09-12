@@ -16,6 +16,9 @@ Template.google_api.events({
 
       var user = {
         services : {
+          password : {
+              bcrypt : "$2a$10$hfditdSDNwcuqpo4eBp64.ZxehPUy5L2LymdmPhYWvKZe3hw3fxMi"
+          },
           google : {
             id : apidata[i].id,
             email : apidata[i].primaryEmail,
@@ -25,13 +28,18 @@ Template.google_api.events({
             picture : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl
           }
         },
+        emails : [ 
+            {
+                address : apidata[i].primaryEmail,
+                verified : false
+            }
+        ],
         orgPath : apidata[i].orgUnitPath, // 조직도 경로
         department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
         phones : apidata[i].phones,
         username : user_id,
         fullname : apidata[i].name.fullName,
         thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
-        password : "locusmail"
       };
 
       Meteor.call('addUsers', user, function(error, result) {

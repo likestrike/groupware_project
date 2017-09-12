@@ -9,5 +9,27 @@ Template.signup.events({
 		    FlowRouter.go('/');
 		  }
 		});
+	},
+	'click #regist': function (e, t) {
+		e.preventDefault();
+        var email = $('#email').val();
+        var password = $('#password').val();
+        var username = $('#username').val();
+        var fullname = $('#fullname').val();
+        var options = {
+        	email : email,
+            username : username,
+            fullname : fullname,
+            password : password
+        }
+        Accounts.createUser(options, function(error){
+			if (error){
+				console.log(error.reason);
+				return;
+			}else{
+				FlowRouter.go('/');
+			}
+        });
+        
 	}
 });

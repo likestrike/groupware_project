@@ -21,7 +21,6 @@ mizzao:bootstrap-3
 underscore
 kadira:flow-router
 kadira:blaze-layout
-mfactory:admin-lte
 fortawesome:fontawesome
 accounts-password
 accounts-ui
@@ -35,3 +34,4 @@ audit-argument-checks
 check
 natestrauser:animate-css
 session
+supaseca:admin-lte
