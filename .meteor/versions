@@ -4,6 +4,7 @@ accounts-oauth@1.1.15
 accounts-password@1.4.0
 accounts-ui@1.1.9
 accounts-ui-unstyled@1.2.1
+alanning:roles@1.2.16
 allow-deny@1.0.6
 arillo:flow-router-helpers@0.5.2
 audit-argument-checks@1.0.7

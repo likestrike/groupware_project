@@ -31,5 +31,6 @@ Template.signup.events({
 			}
         });
         
+        
 	}
 });

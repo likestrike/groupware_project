@@ -52,6 +52,7 @@
             <i class="fa fa-question"></i> <span>FAQ게시판</span>
           </a>
         </li>
+        {{#if isInRole 'admin' 'default-group'}}
         <li class="treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>ADMIN Menu</span>
@@ -64,6 +65,7 @@
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Settings</a></li>
           </ul>
         </li>
+        {{/if}}
       </ul>
     </section>
     <!-- /.sidebar -->

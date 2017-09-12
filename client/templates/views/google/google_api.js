@@ -15,6 +15,7 @@ Template.google_api.events({
       var user_id = apidata[i].primaryEmail.substring(0,mail_num);
 
       var user = {
+        username : user_id,
         services : {
           password : {
               bcrypt : "$2a$10$hfditdSDNwcuqpo4eBp64.ZxehPUy5L2LymdmPhYWvKZe3hw3fxMi"
@@ -34,12 +35,13 @@ Template.google_api.events({
                 verified : false
             }
         ],
-        orgPath : apidata[i].orgUnitPath, // 조직도 경로
-        department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
-        phones : apidata[i].phones,
-        username : user_id,
-        fullname : apidata[i].name.fullName,
-        thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
+        profile: {
+          orgPath : apidata[i].orgUnitPath, // 조직도 경로
+          department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
+          phones : apidata[i].phones,
+          fullname : apidata[i].name.fullName,
+          thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
+        }
       };
 
       Meteor.call('addUsers', user, function(error, result) {

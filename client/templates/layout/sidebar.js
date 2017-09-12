@@ -2,13 +2,13 @@ Template.sidebar.helpers({
 	username: function(){
 		var user = Meteor.user();
 		if (user) {
-			return user.fullname;
+			return user.profile.fullname;
 		}
 	},
 	profileURL: function() {
 		var user = Meteor.user();
 		if (user) {
-			return user.thumbnail;
+			return user.profile.thumbnail;
 		}
 	}
 });

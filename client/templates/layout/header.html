@@ -18,15 +18,15 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{currentUser.thumbnail}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{currentUser.fullname}}</span>
+              <img src="{{currentUser.profile.thumbnail}}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{currentUser.profile.fullname}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{currentUser.thumbnail}}" class="img-circle" alt="User Image">
+                <img src="{{currentUser.profile.thumbnail}}" class="img-circle" alt="User Image">
                 <p>
-                  {{currentUser.fullname}}
+                  {{currentUser.profile.fullname}}
                 </p>
               </li>
               <li class="user-footer">
