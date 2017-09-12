@@ -21,8 +21,8 @@ Template.login.events({
 		  requestPermissions: ['email']
 		}, function(error) {
 		  if (error) {
-		    console.log(error); //If there is any error, will get error here
-		    Session.set('displayMessage', err.reason);
+		    Bert.alert(error.reason, 'danger');
+		    // Session.set('displayMessage', err.reason);
 		  }else{
 		    FlowRouter.go('/');
 		  }
@@ -35,8 +35,9 @@ Template.login.events({
 
         Meteor.loginWithPassword(email, password, function(error){
 		    if(error){
-		        console.log(error.reason);
+		        Bert.alert(error.reason, 'danger');
 		    } else {
+            $('body').removeClass('hold-transition').removeClass('login-page');
 		        FlowRouter.go('/');
 		    }
 		});

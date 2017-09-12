@@ -23,7 +23,6 @@ kadira:flow-router
 kadira:blaze-layout
 fortawesome:fontawesome
 accounts-password
-accounts-ui
 accounts-google
 google-config-ui
 accounts-base
@@ -36,3 +35,6 @@ natestrauser:animate-css
 session
 supaseca:admin-lte
 alanning:roles
+accounts-ui
+themeteorchef:bert
+ddp-rate-limiter

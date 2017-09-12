@@ -33,6 +33,7 @@ Template.layout.onCreated(function () {
       self.isReady.set(true);
     }
   });
+
 });
 
 Template.layout.onDestroyed(function () {

@@ -9,51 +9,87 @@ Template.google_api.events({
   'click #btn_save': function (e, t) {
     e.preventDefault();
 
+    var options = [];
     // make users data
     for (var i = 0; i < apidata.length; i++) {
       var mail_num = apidata[i].primaryEmail.indexOf("@");
       var user_id = apidata[i].primaryEmail.substring(0,mail_num);
-
       var user = {
         username : user_id,
-        services : {
-          password : {
-              bcrypt : "$2a$10$hfditdSDNwcuqpo4eBp64.ZxehPUy5L2LymdmPhYWvKZe3hw3fxMi"
-          },
-          google : {
-            id : apidata[i].id,
-            email : apidata[i].primaryEmail,
-            name : apidata[i].name.fullName,
-            given_name : apidata[i].name.givenName,
-            family_name : apidata[i].name.familyName,
-            picture : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl
-          }
-        },
-        emails : [ 
-            {
-                address : apidata[i].primaryEmail,
-                verified : false
-            }
-        ],
+        email : apidata[i].primaryEmail,
+        password: "locusmail",
         profile: {
           orgPath : apidata[i].orgUnitPath, // 조직도 경로
           department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
           phones : apidata[i].phones,
           fullname : apidata[i].name.fullName,
           thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
-        }
+        },
+        roles:[]
       };
+      // var user = {
+      //   username : user_id,
+      //   services : {
+      //     password : {
+      //         bcrypt : "$2a$10$hfditdSDNwcuqpo4eBp64.ZxehPUy5L2LymdmPhYWvKZe3hw3fxMi"
+      //     },
+      //     google : {
+      //       id : apidata[i].id,
+      //       email : apidata[i].primaryEmail,
+      //       name : apidata[i].name.fullName,
+      //       given_name : apidata[i].name.givenName,
+      //       family_name : apidata[i].name.familyName,
+      //       picture : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl
+      //     }
+      //   },
+      //   emails : [
+      //       {
+      //           address : apidata[i].primaryEmail,
+      //           verified : false
+      //       }
+      //   ],
+      //   profile: {
+      //     orgPath : apidata[i].orgUnitPath, // 조직도 경로
+      //     department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
+      //     phones : apidata[i].phones,
+      //     fullname : apidata[i].name.fullName,
+      //     thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
+      //   }
+      // };
 
-      Meteor.call('addUsers', user, function(error, result) {
-        if (error)
-          return alert(error.reason);
-      });
+      // Meteor.call('addUsers', user, function(error, result) {
+      //   if (error)
+      //     return alert(error.reason);
+      // });
       // Accounts.createUser(user, function(error){
       //    if (error)
       //     console.log(error.reason);
       // });
-
+      options.push(user);
     }
+    console.log(options);
+
+    _.each(options, function (user) {
+      var id;
+
+      id = Accounts.createUser({
+        email: user.email,
+        password: "locusmail",
+        profile: user.profile
+      }, function(error) {
+        if (error) {
+            console.log(error.reason);
+        } else {
+            console.log('suc')
+        }
+    });
+      console.log(id);
+      if (user.roles.length > 0) {
+        // Need _id of existing user record so this call must come
+        // after `Accounts.createUser` or `Accounts.onCreate`
+        Roles.addUsersToRoles(id, user.roles, 'default-group');
+      }
+    });
 
   }
 });
