@@ -38,3 +38,11 @@
 .content-wrapper {
     padding: 0 20px;
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
+}
