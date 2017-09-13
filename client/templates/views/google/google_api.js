@@ -11,12 +11,13 @@ Template.google_api.events({
 
     var options = [];
     // make users data
-    // 구글과 로그인을 동시에 사용하기 위해 별의 별 짓을 다해봤지만. 
-    // 결국 무슨 짓거리를 해봐도 DB에 다이렉트로 때려넣는게 베스트이다. 
+    // 구글과 로그인을 동시에 사용하기 위해 별의 별 짓을 다해봤지만.
+    // 결국 무슨 짓거리를 해봐도 DB에 다이렉트로 때려넣는게 베스트이다.
     for (var i = 0; i < apidata.length; i++) {
       var mail_num = apidata[i].primaryEmail.indexOf("@");
       var user_id = apidata[i].primaryEmail.substring(0,mail_num);
-      var user = {
+      if(user_id != 'admin'){
+        var user = {
           username : user_id,
           services : {
             password : {
@@ -40,12 +41,14 @@ Template.google_api.events({
                   verified : false
               }
           ],
+          name : apidata[i].name,
           profile: {
             orgPath : apidata[i].orgUnitPath, // 조직도 경로
             department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
             phones : apidata[i].phones,
             fullname : apidata[i].name.fullName,
             thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
+            title : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].title,
           }
         };
 
@@ -53,9 +56,9 @@ Template.google_api.events({
           if (error)
             return alert(error.reason);
         });
-      
+      }
     }
-   
+
   }
 });
 function callGoogle() {

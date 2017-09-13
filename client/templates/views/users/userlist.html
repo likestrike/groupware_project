@@ -8,6 +8,7 @@
 			<li class="active">임직원명단</li>
 		</ol>
 		</section>
+		{{> EasySearch.Input index=playersIndex}}
 		<section class="content">
 			<div class="row">
 				{{#each users}}
@@ -17,10 +18,13 @@
 	                        <img alt="image" class="img-circle" src="{{profile.thumbnail}}">
 	                        <h3 class="m-b-xs"><strong>{{profile.fullname}}</strong></h3>
 
-	                        <div class="font-bold">Developer</div>
+	                        <div class="font-bold">{{profile.title}}</div>
 	                        <address class="m-t-md">
-	                            <strong>LOCUS Studios</strong><br>
-	                            <abbr title="Phone">P:</abbr> 010-0222-5548
+	                            <strong>LOCUS {{profile.department}}</strong><br>
+	                            <abbr title="Phone">P:</abbr>
+	                            {{#each profile.phones}}
+	                            	{{value}}
+	                            {{/each}}
 	                        </address>
 	                    </a>
 	                    <div class="contact-box-footer">
@@ -37,5 +41,5 @@
 		</section>
 	</div>
 
-	
+
 </template>
