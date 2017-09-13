@@ -11,86 +11,51 @@ Template.google_api.events({
 
     var options = [];
     // make users data
+    // 구글과 로그인을 동시에 사용하기 위해 별의 별 짓을 다해봤지만. 
+    // 결국 무슨 짓거리를 해봐도 DB에 다이렉트로 때려넣는게 베스트이다. 
     for (var i = 0; i < apidata.length; i++) {
       var mail_num = apidata[i].primaryEmail.indexOf("@");
       var user_id = apidata[i].primaryEmail.substring(0,mail_num);
       var user = {
-        username : user_id,
-        email : apidata[i].primaryEmail,
-        password: "locusmail",
-        profile: {
-          orgPath : apidata[i].orgUnitPath, // 조직도 경로
-          department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
-          phones : apidata[i].phones,
-          fullname : apidata[i].name.fullName,
-          thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
-        },
-        roles:[]
-      };
-      // var user = {
-      //   username : user_id,
-      //   services : {
-      //     password : {
-      //         bcrypt : "$2a$10$hfditdSDNwcuqpo4eBp64.ZxehPUy5L2LymdmPhYWvKZe3hw3fxMi"
-      //     },
-      //     google : {
-      //       id : apidata[i].id,
-      //       email : apidata[i].primaryEmail,
-      //       name : apidata[i].name.fullName,
-      //       given_name : apidata[i].name.givenName,
-      //       family_name : apidata[i].name.familyName,
-      //       picture : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl
-      //     }
-      //   },
-      //   emails : [
-      //       {
-      //           address : apidata[i].primaryEmail,
-      //           verified : false
-      //       }
-      //   ],
-      //   profile: {
-      //     orgPath : apidata[i].orgUnitPath, // 조직도 경로
-      //     department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
-      //     phones : apidata[i].phones,
-      //     fullname : apidata[i].name.fullName,
-      //     thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
-      //   }
-      // };
+          username : user_id,
+          services : {
+            password : {
+                bcrypt : "$2a$10$hfditdSDNwcuqpo4eBp64.ZxehPUy5L2LymdmPhYWvKZe3hw3fxMi" // locusmail 로 bcrypt 한 값
+            },
+            resume : {
+              loginTokens : []
+            },
+            google : {
+              id : apidata[i].id,
+              email : apidata[i].primaryEmail,
+              name : apidata[i].name.fullName,
+              given_name : apidata[i].name.givenName,
+              family_name : apidata[i].name.familyName,
+              picture : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl
+            }
+          },
+          emails : [
+              {
+                  address : apidata[i].primaryEmail,
+                  verified : false
+              }
+          ],
+          profile: {
+            orgPath : apidata[i].orgUnitPath, // 조직도 경로
+            department : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].department,
+            phones : apidata[i].phones,
+            fullname : apidata[i].name.fullName,
+            thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
+          }
+        };
 
-      // Meteor.call('addUsers', user, function(error, result) {
-      //   if (error)
-      //     return alert(error.reason);
-      // });
-      // Accounts.createUser(user, function(error){
-      //    if (error)
-      //     console.log(error.reason);
-      // });
-      options.push(user);
+        Meteor.call('addUsers', user, function(error, result) {
+          if (error)
+            return alert(error.reason);
+        });
+      
     }
-    console.log(options);
-
-    _.each(options, function (user) {
-      var id;
-
-      id = Accounts.createUser({
-        email: user.email,
-        password: "locusmail",
-        profile: user.profile
-      }, function(error) {
-        if (error) {
-            console.log(error.reason);
-        } else {
-            console.log('suc')
-        }
-    });
-      console.log(id);
-      if (user.roles.length > 0) {
-        // Need _id of existing user record so this call must come
-        // after `Accounts.createUser` or `Accounts.onCreate`
-        Roles.addUsersToRoles(id, user.roles, 'default-group');
-      }
-    });
-
+   
   }
 });
 function callGoogle() {
@@ -111,7 +76,14 @@ function callGoogle() {
 }
 
 // Client ID and API key from the Developer Console
-var CLIENT_ID = '1000699696059-bta1aomjalap2249j68g0ct9f8mo32tj.apps.googleusercontent.com';
+var domain = process.env.ROOT_URL;
+var server, clientId, secret;
+if(domain == 'http://localhost:3000/'){
+  clientId = '1000699696059-bta1aomjalap2249j68g0ct9f8mo32tj.apps.googleusercontent.com';
+}else{
+  clientId = '722330995079-vjvi89ltdo7cjigaleb33rdnd0hhm2qb.apps.googleusercontent.com';
+}
+var CLIENT_ID = clientId;
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/admin/directory_v1/rest"];

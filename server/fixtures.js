@@ -15,5 +15,5 @@ if(Meteor.users.find().count() === 0){
 	var id;
 	id = Accounts.createUser(options);
 	Roles.addUsersToRoles(id, ['admin'], 'default-group');
-	
+
 }

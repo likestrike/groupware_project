@@ -21,6 +21,7 @@ Template.login.events({
 		  requestPermissions: ['email']
 		}, function(error) {
 		  if (error) {
+		  	console.log(error);
 		    Bert.alert(error.reason, 'danger');
 		    // Session.set('displayMessage', err.reason);
 		  }else{
