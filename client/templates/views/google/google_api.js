@@ -76,14 +76,7 @@ function callGoogle() {
 }
 
 // Client ID and API key from the Developer Console
-var domain = process.env.ROOT_URL;
-var server, clientId, secret;
-if(domain == 'http://localhost:3000/'){
-  clientId = '1000699696059-bta1aomjalap2249j68g0ct9f8mo32tj.apps.googleusercontent.com';
-}else{
-  clientId = '722330995079-vjvi89ltdo7cjigaleb33rdnd0hhm2qb.apps.googleusercontent.com';
-}
-var CLIENT_ID = clientId;
+var CLIENT_ID = '1000699696059-bta1aomjalap2249j68g0ct9f8mo32tj.apps.googleusercontent.com';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/admin/directory_v1/rest"];
