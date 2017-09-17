@@ -4,11 +4,10 @@
 			<h1>임직원 명단<small>User list</small>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
 			<li class="active">임직원명단</li>
 		</ol>
 		</section>
-		{{> EasySearch.Input index=playersIndex}}
 		<section class="content">
 			<div class="row">
 				{{#each users}}
