@@ -4,6 +4,6 @@ Template.postItem.helpers({
 		return Meteor.users.findOne(this.userId);
 	},
 	formattedDate: function(){
-		return moment(this.submitted).format("dddd, MMMM Do YYYY, h:mm:ss a");
+		return moment(this.submitted).format("dddd, MMMM Do YYYY, h:mm:ss");
 	}
 });

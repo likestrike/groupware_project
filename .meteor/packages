@@ -41,3 +41,5 @@ ddp-rate-limiter
 service-configuration
 easy:search
 momentjs:moment
+rzymek:moment-locale-ko
+summernote:standalone

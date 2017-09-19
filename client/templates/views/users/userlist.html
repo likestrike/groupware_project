@@ -1,44 +1,41 @@
 <template name="userlist">
-	<div class="content-wrapper wrapper-content ">
-		<section class="content-header">
-			<h1>임직원 명단<small>User list</small>
-		</h1>
-		<ol class="breadcrumb">
-			<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">임직원명단</li>
-		</ol>
-		</section>
-		<section class="content">
-			<div class="row">
-				{{#each users}}
-				<div class="col-lg-3">
-	                <div class="contact-box center-version">
-	                    <a href="">
-	                        <img alt="image" class="img-circle" src="{{profile.thumbnail}}">
-	                        <h3 class="m-b-xs"><strong>{{profile.fullname}}</strong></h3>
+<section class="content-header">
+		<h1>임직원 명단<small>User list</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">임직원명단</li>
+	</ol>
+	</section>
+	<section class="content">
+		<div class="row">
+			{{#each users}}
+			<div class="col-lg-3">
+                <div class="contact-box center-version">
+                	<a href="{{pathFor '/profile/:id' id=_id}}">
+                    <!-- <a href="{{pathFor 'userpage'}}"> -->
+                        <img alt="image" class="img-circle" src="{{profile.thumbnail}}">
+                        <h3 class="m-b-xs"><strong>{{profile.fullname}}</strong></h3>
 
-	                        <div class="font-bold">{{profile.title}}</div>
-	                        <address class="m-t-md">
-	                            <strong>LOCUS {{profile.department}}</strong><br>
-	                            <abbr title="Phone">P:</abbr>
-	                            {{#each profile.phones}}
-	                            	{{value}}
-	                            {{/each}}
-	                        </address>
-	                    </a>
-	                    <div class="contact-box-footer">
-	                        <div class="m-t-xs btn-group">
-	                            <a class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>
-	                            <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
-	                        </div>
-	                    </div>
+                        <div class="font-bold">{{profile.title}}</div>
+                        <address class="m-t-md">
+                            <strong>LOCUS {{profile.department}}</strong><br>
+                            <abbr title="Phone">P:</abbr>
+                            {{#each profile.phones}}
+                            	{{value}}
+                            {{/each}}
+                        </address>
+                    </a>
+                    <div class="contact-box-footer">
+                        <div class="m-t-xs btn-group">
+                            <a class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>
+                            <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
+                        </div>
+                    </div>
 
-	                </div>
-	            </div>
-	            {{/each}}
-			</div>
-		</section>
-	</div>
-
-
+                </div>
+            </div>
+            {{/each}}
+		</div>
+	</section>
 </template>

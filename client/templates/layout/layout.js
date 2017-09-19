@@ -16,7 +16,14 @@ Template.layout.onCreated(function () {
     fixed = this.data.fixed || fixed;
     sidebarMini = this.data.sidebarMini || sidebarMini;
   }
+  // content wrapper
+  if(fixed){
+    self.minHeight = new ReactiveVar($(window).height() - $('.main-header').height() - $('.main-footer').height());
 
+    $(window).resize(function () {
+      self.minHeight.set($(window).height() - $('.main-header').height()  - $('.main-footer').height());
+    });
+  }
   self.isReady = new ReactiveVar(false);
   self.style = waitOnCSS(cssUrl());
   self.skin = waitOnCSS(skinUrl(skin));
@@ -53,6 +60,9 @@ Template.layout.helpers({
 
   skin: function () {
     return this.skin || 'blue';
+  },
+  minHeight: function () {
+    return Template.instance().minHeight.get() + 'px'
   }
 });
 
