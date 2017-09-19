@@ -2,9 +2,9 @@
 	<div class="box box-widget">
         <div class="box-header with-border">
           <div class="user-block">
-            <img class="img-circle" src="" alt="User Image">
-            <span class="username"><a href="#">{{writer}}</a></span>
-            <span class="description">{{submitted}}</span>
+            <img class="img-circle" src="{{writer.profile.thumbnail}}" alt="User Image">
+            <span class="username"><a href="#">{{writer.profile.fullname}}</a></span>
+            <span class="description">{{formattedDate}}</span>
           </div>
           <!-- /.user-block -->
           <div class="box-tools">
@@ -41,5 +41,5 @@
         <!-- /.box-footer -->
       </div>
       <!-- /.box -->
-      
+
 </template>
