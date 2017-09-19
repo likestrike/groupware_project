@@ -1,10 +1,12 @@
 
-Meteor.publish("user", function () {
-	return Meteor.users.find();
+// Meteor.publish("user", function () {
+// 	return Meteor.users.find();
+// });
+Meteor.publish('user', function () {
+  return Meteor.users.find({}, {fields: {profile: 1}});
 });
-Meteor.publish("userlist", function (limit) {
-	check(limit, Number);
-	return Meteor.users.find({limit : limit});
+Meteor.publish('posts', function() {
+  return Posts.find();
 });
 // Give authorized users access to sensitive data by group
 Meteor.publish('secrets', function (group) {
