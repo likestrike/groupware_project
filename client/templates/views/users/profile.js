@@ -1,15 +1,14 @@
 Template.profile.helpers({
 	test: function() {
-	    var imageId = FlowRouter.getParam('_id');
-	    console.log(imageId);
-	    if ( imageId !== undefined ) {
-	      return Meteor.users.find({ _id: imageId });
+	    var userId = FlowRouter.getParam('_id');
+	    if ( userId !== undefined ) {
+	      return Meteor.users.findOne({'_id': userId});
 	    }
 	  }
 });
 Template.profile.onCreated(function () {
-	 var imageId = FlowRouter.getParam('_id');
-	if ( imageId !== undefined ) {
-		Meteor.subscribe('userProfile', imageId);
+	var userId = FlowRouter.getParam('_id');
+	if ( userId !== undefined ) {
+		Meteor.subscribe('userProfile', userId);
 	}
 });
