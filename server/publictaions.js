@@ -5,9 +5,11 @@
 Meteor.publish('user', function () {
   return Meteor.users.find({}, {fields: {profile: 1}});
 });
-Meteor.publish('userfind', function (id) {
-	check(id, Object);
-  return Meteor.users.findOne({_id : id});
+Meteor.publish('userProfile', function (id) {
+	console.log(id);
+  check(id, String);
+
+  return Meteor.users.find({_id : id}, {fields: {profile: 1}});
 });
 Meteor.publish('posts', function() {
   return Posts.find();

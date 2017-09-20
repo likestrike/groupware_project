@@ -1,4 +1,4 @@
-Meteor.subscribe('user');
+// Meteor.subscribe('user');
 Meteor.subscribe('posts');
 
 Accounts.ui.config({
