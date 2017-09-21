@@ -1,5 +1,4 @@
 // set google config
-console.log(process.env.ROOT_URL);
 var domain = process.env.ROOT_URL;
 var server, clientId, secret;
 if(domain == 'http://localhost:3000/'){

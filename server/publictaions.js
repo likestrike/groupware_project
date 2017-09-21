@@ -3,16 +3,18 @@
 // 	return Meteor.users.find();
 // });
 Meteor.publish('user', function () {
-  return Meteor.users.find({}, {fields: {profile: 1}});
+  return Meteor.users.find({}, {fields: {'profile': 1}});
 });
-Meteor.publish('userProfile', function (id) {
-	console.log(id);
-  check(id, String);
-
-  return Meteor.users.find({_id : id}, {fields: {profile: 1}});
+Meteor.publish('userProfile', function (param) {
+  check(param, Object);
+  return Meteor.users.find({_id : param._id}, {fields: {profile: 1}});
 });
 Meteor.publish('posts', function() {
   return Posts.find();
+});
+Meteor.publish('comments', function(postId) {
+  check(postId, String);
+  return Comments.find({postId: postId});
 });
 // Give authorized users access to sensitive data by group
 Meteor.publish('secrets', function (group) {

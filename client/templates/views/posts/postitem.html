@@ -3,7 +3,7 @@
         <div class="box-header with-border">
           <div class="user-block">
             <img class="img-circle" src="{{writer.profile.thumbnail}}" alt="User Image">
-            <span class="username"><a href="#">{{writer.profile.fullname}}</a></span>
+            <span class="username"><a href="{{pathFor '/profile/:id' id=writer._id}}">{{writer.profile.fullname}}</a></span>
             <span class="description">{{formattedDate}}</span>
           </div>
           <!-- /.user-block -->
@@ -22,17 +22,19 @@
           <!-- Social sharing buttons -->
           <!-- <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
           <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button> -->
-          <!-- <span class="pull-right text-muted">{{commentCount}}comments</span> -->
+          <span class="pull-right text-muted">{{commentsCount}} comments</span>
         </div>
-      
+          {{#each comments}}
+            {{> commentItem}}
+          {{/each}}
         <!-- /.box-footer -->
         <div class="box-footer">
         <form class="comment form">
         	<img class="img-responsive img-circle img-sm" src="{{currentUser.profile.thumbnail}}" alt="Alt Text">
             <div class="input-group img-push">
-              <input type="text" name="message" placeholder="댓글을 입력하세요." class="form-control">
+              <div class="form-control comment-form" id="comment" contenteditable="true" placeholder="댓글을 입력하세요.."></div>
                   <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary btn-flat">Send</button>
+                    <button type="submit" id="comment_submit" class="btn btn-primary btn-flat">Send</button>
                   </span>
             </div>
           </form>

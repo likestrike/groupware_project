@@ -7,8 +7,8 @@ Template.profile.helpers({
 	  }
 });
 Template.profile.onCreated(function () {
-	var userId = FlowRouter.getParam('_id');
-	if ( userId !== undefined ) {
-		Meteor.subscribe('userProfile', userId);
-	}
+	// var userId = FlowRouter.getParam('_id');
+	// if ( userId !== undefined ) {
+	// 	Meteor.subscribe('userProfile', userId);
+	// }
 });

@@ -70,3 +70,13 @@
   font-size: 10px;
   text-transform: uppercase;
 }
+
+/*comment*/
+.comment-form{
+  min-height: 34px;
+  height: auto;;
+}
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  color : #9b9b9b;
+}

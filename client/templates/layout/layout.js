@@ -120,13 +120,30 @@ Template.layout.events({
       checkElement.slideDown('normal', function () {
         //Add the class active to the parent li
         checkElement.addClass('menu-open');
-        parent.find('li.active').removeClass('active');
+        // parent.find('li.active').removeClass('active');
         parent_li.addClass('active');
       });
+    }
+    else{
+      var parent = $this.parents('ul').first();
+      var ul = parent.find('ul:visible').slideUp('normal');
+      //Remove the menu-open class from the parent
+      ul.removeClass('menu-open');
+      parent.find('li.active').removeClass('active');
+      var parent_li = $this.parent("li");
+      parent_li.addClass('active');
     }
     //if this isn't a link, prevent the page from being redirected
     if (checkElement.is('.treeview-menu')) {
       e.preventDefault();
+      return;
+    }
+    // 모바일에서 닫기. 
+    if ($("body").hasClass('sidebar-open')) {
+      $("body").removeClass('sidebar-open');
+      $("body").removeClass('sidebar-collapse')
+    } else {
+      $("body").addClass('sidebar-open');
     }
   },
   'click #logout' : function (e, t) {
