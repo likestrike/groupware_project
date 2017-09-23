@@ -11,19 +11,14 @@ Template.layout.onCreated(function () {
   var fixed = true;
   var sidebarMini = true;
 
+  document.title = 'LOCUS 그룹웨어';
+
   if (this.data) {
     skin = this.data.skin || skin;
     fixed = this.data.fixed || fixed;
     sidebarMini = this.data.sidebarMini || sidebarMini;
   }
-  // content wrapper
-  if(fixed){
-    self.minHeight = new ReactiveVar($(window).height() - $('.main-header').height() - $('.main-footer').height());
 
-    $(window).resize(function () {
-      self.minHeight.set($(window).height() - $('.main-header').height()  - $('.main-footer').height());
-    });
-  }
   self.isReady = new ReactiveVar(false);
   self.style = waitOnCSS(cssUrl());
   self.skin = waitOnCSS(skinUrl(skin));
@@ -57,12 +52,8 @@ Template.layout.helpers({
   loadingTemplate: function () {
     return this.loadingTemplate || 'AdminLTE_loading';
   },
-
   skin: function () {
     return this.skin || 'blue';
-  },
-  minHeight: function () {
-    return Template.instance().minHeight.get() + 'px'
   }
 });
 
@@ -138,7 +129,7 @@ Template.layout.events({
       e.preventDefault();
       return;
     }
-    // 모바일에서 닫기. 
+    // 모바일에서 닫기.
     if ($("body").hasClass('sidebar-open')) {
       $("body").removeClass('sidebar-open');
       $("body").removeClass('sidebar-collapse')

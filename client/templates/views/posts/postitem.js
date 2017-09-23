@@ -9,7 +9,17 @@ Template.postItem.helpers({
 	},
 	comments: function() {
 		Meteor.subscribe('comments', this._id);
+	    // return Comments.find({postId: this._id}, {sort: {submitted: -1}, limit: 2});
 	    return Comments.find({postId: this._id});
+	},
+	ownPost: function(){
+		var loggedInUser = Meteor.user();
+		if(loggedInUser){
+			if (Roles.userIsInRole(loggedInUser, ['admin'], 'default-group')){
+		  		return true;
+			}
+		}
+		return this.userId === Meteor.userId();
 	}
 });
 
@@ -35,5 +45,13 @@ Template.postlist.events({
 	        $body.empty();
 	      }
 	    });
+	},
+	'click #edit_post':function(e, t){
+		e.preventDefault()
+		var itemId = this._id;
+		Modal.show('postEditModal', function () {
+			return Posts.findOne(itemId);
+		});
+		// Modal.show('postEditModal');
 	}
 });

@@ -1,32 +1,34 @@
 <template name="postlist">
-	<section class="content-header">
-		<h1>사내게시판<small>post</small>
-	</h1>
-	<ol class="breadcrumb">
-		<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li class="active">사내게시판</li>
-	</ol>
-	</section>
-	<section class="content">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="direct-chat-msg" id="post-modal">
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">클릭하세요.</div>
-                  <!-- /.direct-chat-text -->
-                </div>
+	<div class="content-wrapper" >
+		<section class="content-header">
+			<h1>사내게시판<small>post</small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li class="active">사내게시판</li>
+		</ol>
+		</section>
+		<section class="content">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="direct-chat-msg" id="post-modal">
+	                  <!-- /.direct-chat-info -->
+	                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
+	                  <div class="direct-chat-text">클릭하세요.</div>
+	                  <!-- /.direct-chat-text -->
+	                </div>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-				{{#each posts}}
-					{{> postItem}}
-			    {{/each}}
+			<div class="row">
+				<div class="col-md-6">
+					{{#each posts}}
+						{{> postItem}}
+				    {{/each}}
 
-	          <!-- /.box -->
-	        </div>
+		          <!-- /.box -->
+		        </div>
 
-		</div>
-	</section>
+			</div>
+		</section>
+	</div>
 </template>

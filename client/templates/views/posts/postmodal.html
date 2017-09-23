@@ -6,16 +6,45 @@
                     <div class="user-panel">
                         <div class="pull-left image">
                           <img src="{{currentUser.profile.thumbnail}}" class="img-circle" alt="User Image">
-                        </div>                    
+                          {{currentUser.profile.fullname}}
+                        </div>
                     </div>
-                    <h4 class="modal-title">Modal example</h4>
                 </div>
                 <div class="modal-body">
-                    <textarea class="form-control" rows="5" placeholder="Enter ..." style="resize:vertical;" id="post_context"></textarea>
+                    <!-- <div class="post_input" id="post_context_div">{{{postNote}}}</div> -->
+                    <div class="form-control post-form" id="post_context" contenteditable="true" placeholder="쓰거라 상큼한 회사생활." autofocus></div>
+                    <!-- <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context"></textarea> -->
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary disabled" id="submit" name="submit">Submit</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary disabled" id="submit" name="submit">저장하기</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<template name="postEditModal">
+    <div class="modal fade" tabindex='-1'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                          <img src="{{currentUser.profile.thumbnail}}" class="img-circle" alt="User Image">
+                          {{currentUser.profile.fullname}}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <!-- <div class="post_input" id="post_context_div">{{{postNote}}}</div> -->
+                    <div class="form-control post-form" id="post_context" contenteditable="true" placeholder="쓰거라 상큼한 회사생활." autofocus>
+                        {{{context}}}
+                    </div>
+                    <!-- <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context"></textarea> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary disabled" id="update" name="update">수정하기</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
                 </div>
             </div>
         </div>

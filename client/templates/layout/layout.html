@@ -1,4 +1,5 @@
 <template name="layout">
+<title>test</title>
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   {{#unless isReady}}
     {{> Template.dynamic template=loadingTemplate}}
@@ -9,16 +10,8 @@
       <div class="wrapper">
         {{> Template.dynamic template=top}}
     		{{> Template.dynamic template=left}}
-        <div class="content-wrapper" style="min-height: {{minHeight}}">
     		{{> Template.dynamic template=content}}
-        </div>
-        <footer class="main-footer">
-          <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0.0
-          </div>
-          <strong>Copyright &copy; 2017 R&D센터 얼굴미남 심은성</strong> All rights
-          reserved.
-        </footer>
+        {{> Template.dynamic template=fotter}}
       </div>
     </div>
   {{/unless}}

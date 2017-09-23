@@ -71,6 +71,39 @@
   text-transform: uppercase;
 }
 
+/*post*/
+textarea#post_context{
+    background: transparent;
+    border: 0;
+    font-size: 15px;
+    height: 100%;
+    margin: 0;
+    line-height: 18px;
+    min-height: 18px;
+    outline: none;
+    padding: 0;
+    resize: none;
+    width: 100%;
+}
+div#post_context_div{
+    font-size: 15px;
+    color: transparent;
+    line-height: 18px;
+    min-height: 18px;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+.post-form{
+  min-height: 180px;
+  height: auto;
+  border: 0;
+}
+
 /*comment*/
 .comment-form{
   min-height: 34px;

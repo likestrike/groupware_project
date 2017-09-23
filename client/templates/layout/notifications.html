@@ -1,0 +1,29 @@
+<template name="notifications">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="fa fa-bell-o"></i>
+    {{#if notificationCount}}
+      <span class="label label-warning">{{notificationCount}}</span>
+    {{/if}}
+  </a>
+  <ul class="dropdown-menu">
+    <li class="header">You have {{notificationCount}} notifications</li>
+    <li>
+      <!-- inner menu: contains the actual data -->
+      <ul class="menu">
+        {{#if notificationCount}}
+          {{#each notifications}}
+            {{> notificationItem}}
+          {{/each}}
+        {{/if}}
+      </ul>
+    </li>
+  </ul>
+</template>
+
+<template name="notificationItem">
+  <li>
+    <a href="{{notificationPostPath}}">
+      <strong>{{commenterName}}</strong> 님이 댓글을 달았습니다.
+    </a>
+  </li>
+</template>

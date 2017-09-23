@@ -1,18 +1,23 @@
-Template.postModal.profileImage = function() {
-	var user = Meteor.user(); 
-	if (user) {
-		return user.services.google.picture; 
-	} 
-};
+// sesstion post note를 줘서 div에 복사하는 방식. textarea의 스크롤이나 여려 이벤트를 처리할게 많아서 일단 보류.
+// Template.postModal.helpers({
+// 	postNote: function () {
+// 		var postNote = Session.get("postNote");
+// 		//do processing
+// 		if(postNote!='')return postNote;
+// 	}
+// });
+
 Template.postModal.events({
-	'keydown textarea': function (e, t) {
+	'keydown #post_context': function (e, t) {
+		// var value = $(e.target).val();
+  //    	Session.set("postNote", value);
 		if($('#submit').hasClass('disabled')){
 			$('#submit').removeClass('disabled');
 		}
 	},
 	'click #submit' : function (e, t) {
 		var post = {
-			context : $('#post_context').val()
+			context : $('#post_context').html()
 		}
 		Meteor.call('postInsert', post, function(error, result) {
 	      // display the error to the user and abort
@@ -20,11 +25,32 @@ Template.postModal.events({
 	        return Bert.alert(error.reason);
 
 	    	Modal.hide('postModal');
-	      // Router.go('postPage', {_id: result._id});  
+	      // Router.go('postPage', {_id: result._id});
 	        FlowRouter.go('/postlist');
 	    });
-	    
+	},
 
-	}	
 
+});
+Template.postEditModal.events({
+	'keydown #post_context': function (e, t) {
+		if($('#update').hasClass('disabled')){
+			$('#update').removeClass('disabled');
+		}
+	},
+	'click #update' : function (e, t) {
+		var post = {
+			context : $('#post_context').html()
+		}
+		var currentPostId = this._id;
+		Posts.update(currentPostId, {$set: post}, function(error) {
+	      if (error) {
+	        // display the error to the user
+	        return Bert.alert(error.reason);
+	      } else {
+	      	Modal.hide('postModal');
+	        FlowRouter.go('/postlist');
+	      }
+	    });
+	},
 });

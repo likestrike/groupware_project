@@ -14,7 +14,9 @@ Template.login.onCreated(function () {
 		}
 		$('body').addClass('hold-transition').addClass('login-page');
 	});
+
 });
+
 Template.login.events({
 	'click #sign-google': function (e, t) {
 		Meteor.loginWithGoogle({
