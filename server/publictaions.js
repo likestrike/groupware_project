@@ -22,6 +22,10 @@ Meteor.publish('comments', function(postId) {
 Meteor.publish('notifications', function() {
   return Notifications.find({userId: this.userId, read: false});
 });
+// Faq 구독
+Meteor.publish('faqs', function() {
+  return Faqs.find();
+});
 // Give authorized users access to sensitive data by group
 Meteor.publish('secrets', function (group) {
   if (Roles.userIsInRole(this.userId, ['view-secrets','admin'], group)) {
