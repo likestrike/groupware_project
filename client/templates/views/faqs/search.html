@@ -1,10 +1,11 @@
 <template name="search">
   {{! > EasySearch.Autosuggest index=index }}
 
+
   {{> EasySearch.Input index=index attributes=inputAttributes }}
 
   {{#EasySearch.IfInputEmpty index=index }}
-    <div class="padded examples">검색 하려는 단어를 입력하세요.</div>
+    <div class="padded examples">"휴가", "연차" 와 같이 키워드로 찾으면 더 좋아요.</div>
   {{else}}
     {{#if resultsCount}}
       <div class="padded count-results">{{resultsCount}} results found.</div>

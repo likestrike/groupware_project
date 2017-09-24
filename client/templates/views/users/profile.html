@@ -1,71 +1,73 @@
 <template name="profile">
-<section class="content-header">
-		<h1>
-			User Profile
-		</h1>
+	<div class="content-wrapper">
+	<section class="content-header">
+			<h1>
+				User Profile
+			</h1>
 
-		<ol class="breadcrumb">
-			<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">User profile</li>
-		</ol>
-	</section>
-	<!-- Main content -->
-	<section class="content">
-		<div class="row">
-			<div class="col-md-3">
-				{{#with test}}
-				<!-- Profile Image -->
-				<div class="box box-primary">
-					<div class="box-body box-profile">
-						<img class="profile-user-img img-responsive img-circle" src="{{profile.thumbnail}}" alt="User profile picture">
-						<h3 class="profile-username text-center">{{profile.fullname}}</h3>
-						<p class="text-muted text-center">{{profile.title}}</p>
+			<ol class="breadcrumb">
+				<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li class="active">User profile</li>
+			</ol>
+		</section>
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">
+				<div class="col-md-3">
+					{{#with test}}
+					<!-- Profile Image -->
+					<div class="box box-primary">
+						<div class="box-body box-profile">
+							<img class="profile-user-img img-responsive img-circle" src="{{profile.thumbnail}}" alt="User profile picture">
+							<h3 class="profile-username text-center">{{profile.fullname}}</h3>
+							<p class="text-muted text-center">{{profile.title}}</p>
+						</div>
+					<!-- /.box-body -->
 					</div>
-				<!-- /.box-body -->
+					 <!-- About Me Box -->
+					  <div class="box box-primary">
+					    <div class="box-header with-border">
+					      <h3 class="box-title">상세정보</h3>
+					    </div>
+					    <!-- /.box-header -->
+					    <div class="box-body">
+					      <strong><i class="fa fa-fw fa-group margin-r-5"></i> 소속</strong>
+
+					      <p class="text-muted">
+					        로커스{{profile.orgPath}}
+					      </p>
+
+					      <hr>
+
+					      <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+					      <p class="text-muted">서울, 영등포구</p>
+
+					      <hr>
+
+					      <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+
+					      <p>
+					        <span class="label label-danger">UI Design</span>
+					        <span class="label label-success">Coding</span>
+					        <span class="label label-info">Javascript</span>
+					        <span class="label label-warning">PHP</span>
+					        <span class="label label-primary">Node.js</span>
+					      </p>
+
+					      <hr>
+					      <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+					      <p>자유를 꿈꾸다.</p>
+					    </div>
+					    <!-- /.box-body -->
+					  </div>
+					  <!-- /.box -->
+					  {{/with}}
 				</div>
-				 <!-- About Me Box -->
-				  <div class="box box-primary">
-				    <div class="box-header with-border">
-				      <h3 class="box-title">상세정보</h3>
-				    </div>
-				    <!-- /.box-header -->
-				    <div class="box-body">
-				      <strong><i class="fa fa-fw fa-group margin-r-5"></i> 소속</strong>
-
-				      <p class="text-muted">
-				        로커스{{profile.orgPath}}
-				      </p>
-
-				      <hr>
-
-				      <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
-
-				      <p class="text-muted">서울, 영등포구</p>
-
-				      <hr>
-
-				      <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
-
-				      <p>
-				        <span class="label label-danger">UI Design</span>
-				        <span class="label label-success">Coding</span>
-				        <span class="label label-info">Javascript</span>
-				        <span class="label label-warning">PHP</span>
-				        <span class="label label-primary">Node.js</span>
-				      </p>
-
-				      <hr>
-				      <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-				      <p>자유를 꿈꾸다.</p>
-				    </div>
-				    <!-- /.box-body -->
-				  </div>
-				  <!-- /.box -->
-				  {{/with}}
+				{{> profileDetail}}
 			</div>
-			{{> profileDetail}}
-		</div>
-	</section>
+		</section>
+	</div>
 </template>
 
 
