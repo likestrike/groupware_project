@@ -1,6 +1,5 @@
 <template name="postlist">
-	{{#if Template.subscriptionsReady}}
-        <div class="content-wrapper" >
+	<div class="content-wrapper" >
 		<section class="content-header">
 			<h1>사내게시판<small>post</small>
 		</h1>
@@ -25,15 +24,9 @@
 					{{#each posts}}
 						{{> postItem}}
 				    {{/each}}
-
 		          <!-- /.box -->
 		        </div>
-
 			</div>
 		</section>
 	</div>
-    {{else}}
-        {{>spinner}}
-    {{/if}}    
-	
 </template>

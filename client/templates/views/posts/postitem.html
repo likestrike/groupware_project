@@ -30,9 +30,17 @@
           <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button> -->
           <span class="pull-right text-muted">{{commentsCount}} comments</span>
         </div>
+          {{#if Template.subscriptionsReady}}
           {{#each comments}}
             {{> commentItem}}
           {{/each}}
+          {{else}}
+          <div class="box-footer box-comments">
+              <div class="box-comment">
+                laodoiawjfeowiafeoiwjfe
+              </div>
+            </div>
+          {{/if}}
         <!-- /.box-footer -->
         <div class="box-footer">
         <form class="comment form">

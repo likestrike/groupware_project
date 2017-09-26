@@ -7,11 +7,17 @@
                 <small>작성자 : <strong>{{author}}</strong> <i class="fa fa-clock-o"></i> {{submitted}}</small>
             </div>
             <div class="col-md-2 text-right">
-				<span class="glyphicon glyphicon-option-vertical" style="cursor: pointer;" data-toggle="dropdown"></span>
-				<ul class="dropdown-menu" role="menu">
-					<li><a href="#" id="delete_faq">삭제</a></li>
-					<li><a href="#" id="edit_faq">수정하기</a></li>
-				</ul>
+                <div class="box-tools btn-group pull-right">
+                    {{#if ownFaq}}
+                    <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                      <i class="glyphicon glyphicon-option-vertical"></i></button>
+                      <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" id="delete_faq">삭제</a></li>
+                            <li><a href="#" id="edit_faq">수정하기</a></li>
+                      </ul>
+                      {{/if}}
+                  </div>
+				
             </div>
         </div>
         <div class="row">

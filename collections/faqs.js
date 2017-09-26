@@ -6,7 +6,7 @@ FaqsIndex = new Index({
     return { submitted : 0 };
   },
   collection: Faqs,
-  fields: ['title', 'body'],
+  fields: ['title', 'bodytext'],
   engine: new MinimongoEngine(),
 })
 
@@ -25,7 +25,8 @@ Meteor.methods({
     check(this.userId, String);
     check(faqAttribute, {
       title : String,
-      body: String
+      body : String,
+      bodytext: String
     });
 
     var user = Meteor.user();

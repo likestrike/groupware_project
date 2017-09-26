@@ -5,6 +5,25 @@ Template.faqItem.events({
 		Modal.show('faqEditModal', function () {
 			return Faqs.findOne(itemId);
 		});
+	},
+	'click #delete_faq':function(e, t){
+		e.preventDefault()
+		if (confirm("해당 글을 삭제 합니까?")) {
+	      var currentFaqId = this._id;
+	      Faqs.remove(currentFaqId);
+	      FlowRouter.go('/faqlist');
+	    }
+	}
+});
+Template.faqItem.helpers({
+	ownFaq: function(){
+		var loggedInUser = Meteor.user();
+		if(loggedInUser){
+			if (Roles.userIsInRole(loggedInUser, ['admin'], 'default-group')){
+		  		return true;
+			}
+		}
+		return this.userId === Meteor.userId();
 	}
 });
 Template.faqEditModal.onRendered(function () {
@@ -34,4 +53,5 @@ Template.faqEditModal.events({
 	      }
 	    });
 	},
+
 });

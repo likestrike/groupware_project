@@ -30,6 +30,7 @@ Template.faqModal.events({
 
 		var faq = {
 			title : $('#faq_title').val(),
+			bodytext : $(sourceHtmlText).text(),
 			body : sourceHtmlText
 		}
 		Meteor.call('faqInsert', faq, function(error, result) {
@@ -42,4 +43,5 @@ Template.faqModal.events({
 	        FlowRouter.go('/faqlist');
 	    });
 	},
+	
 });

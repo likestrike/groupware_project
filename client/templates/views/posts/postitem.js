@@ -9,8 +9,8 @@ Template.postItem.helpers({
 	},
 	comments: function() {
 		Meteor.subscribe('comments', this._id);
-	    // return Comments.find({postId: this._id}, {sort: {submitted: -1}, limit: 2});
-	    return Comments.find({postId: this._id});
+	    return Comments.find({postId: this._id}, {sort: {submitted: -1}, limit: 2});
+	    // return Comments.find({postId: this._id});
 	},
 	ownPost: function(){
 		var loggedInUser = Meteor.user();
@@ -53,5 +53,17 @@ Template.postlist.events({
 			return Posts.findOne(itemId);
 		});
 		// Modal.show('postEditModal');
+	},
+	'click #delete_post':function(e, t){
+		e.preventDefault()
+		var currentPostId = this._id;
+		var myalert = new MyAlert();
+		var callback = {
+			fn: function() {
+				Posts.remove(currentPostId);
+	      		FlowRouter.go('/postlist');
+			}
+		}
+		myalert.deleteConfirm(callback);
 	}
 });
