@@ -9,8 +9,8 @@ Template.postItem.helpers({
 	},
 	comments: function() {
 		Meteor.subscribe('comments', this._id);
-	    return Comments.find({postId: this._id}, {sort: {submitted: -1}, limit: 2});
-	    // return Comments.find({postId: this._id});
+	    // return Comments.find({postId: this._id}, {sort: {submitted: -1}, limit: 2});
+	    return Comments.find({postId: this._id});
 	},
 	ownPost: function(){
 		var loggedInUser = Meteor.user();

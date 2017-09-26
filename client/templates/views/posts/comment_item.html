@@ -3,20 +3,21 @@
 		<div class="box-comment">
 			<!-- User image -->
 			<img class="img-circle img-sm" src="{{writer.profile.thumbnail}}" alt="User Image">
-
-			<div class="comment-text">
-				<span class="username">{{author}}<span class="text-muted pull-right">{{formattedDate}}</span></span><!-- /.username -->
-				{{{body}}}
-			</div>
-			 {{#if ownComment}}
+			{{#if ownComment}}
 			<div class="box-tools btn-group pull-right">
-	            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
+	            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical"></i></button>
 	              <ul class="dropdown-menu" role="menu">
 	                <li><a href="#" id="delete_comment">삭제</a></li>
 	                <li><a href="#" id="edit_comment">수정</a></li>
 	              </ul>
 	        </div>
 	        {{/if}}
+			<div class="comment-text">
+				<span class="username">{{author}}
+					<span class="text-muted pull-right">{{formattedDate}}</span>
+				</span><!-- /.username -->
+				{{{body}}}
+			</div>
 		<!-- /.comment-text -->
 		</div>
 	</div>
