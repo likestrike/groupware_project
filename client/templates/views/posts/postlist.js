@@ -5,9 +5,7 @@ Template.postlist.helpers({
 	}
 });
 Template.postlist.onRendered(function (){
-	console.log('render');
-	var test = posts;
-	console.log(test)
+
 })
 Template.postlist.events({
 	'click #post-modal': function (e, t) {

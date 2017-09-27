@@ -1,5 +1,5 @@
 Template.profile.helpers({
-	test: function() {
+	user: function() {
 	    var userId = FlowRouter.getParam('_id');
 	    if ( userId !== undefined ) {
 	      return Meteor.users.findOne({'_id': userId});
