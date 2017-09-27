@@ -46,3 +46,6 @@ twbs:bootstrap
 matdutour:popup-confirm
 theduke:bootstrap-modal-prompt
 cleandersonlobo:sweetalert2
+aldeed:autoform
+aldeed:simple-schema
+aldeed:collection2-core
