@@ -26,6 +26,10 @@ Meteor.publish('notifications', function() {
 Meteor.publish('faqs', function() {
   return Faqs.find();
 });
+// 블라인드 구독
+Meteor.publish('blinds', function() {
+  return Blinds.find();
+});
 // Give authorized users access to sensitive data by group
 Meteor.publish('secrets', function (group) {
   if (Roles.userIsInRole(this.userId, ['view-secrets','admin'], group)) {

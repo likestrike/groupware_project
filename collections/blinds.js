@@ -1,62 +1,33 @@
-import SimpleSchema from 'simpl-schema';
-SimpleSchema.extendOptions(['autoform']);
-
-
-Blinds = new Mongo.Collection("blinds");
-Blinds.attachSchema(new SimpleSchema({
-  context: {
-    type: String
-  },
-  userId:{
-    type: String,
-    autoform:{
-      type:"hidden",
-      label: false
-    },
-    autoValue:function(){return Meteor.userId()},
-  },
-  author:{
-    type: String,
-    autoform:{
-      type:"hidden",
-      label: false
-    },
-    autoValue:function(){return 'Unkown'},
-  }, 
-  submitted:{
-    type: Date,
-    autoform:{
-      type:"hidden",
-      label: false
-    },
-    autoValue:function(){return new Date()},
-  }
-},{ tracker: Tracker }));
+Blinds = new Mongo.Collection('blinds');
 
 Blinds.allow({
-  insert: function () { return true; },
-  update: function () { return true; },
-  remove: function () { return true; }
+  update: ownsDocument,
+  remove: ownsDocument
 });
+Blinds.deny({
+  update: function(userId, doc, fieldNames) {
+    return (_.without(fieldNames, 'context').length > 0);
+  }
+});
+
 Meteor.methods({
-  insertBlind: function(blidAttributes) {
-    console.log(blidAttributes);
+  blindInsert: function(Attributes) {
     check(this.userId, String);
-    check(blidAttributes, {
+    check(Attributes, {
       context: String
     });
 
     var user = Meteor.user();
-    var blind = _.extend(blidAttributes, {
+    var doc = _.extend(Attributes, {
       userId: user._id,
-      author: 'Unkown',
+      author: 'Unknown',
       submitted: new Date()
     });
 
-    var postId = Blinds.insert(blind);
+    var blindId = Blinds.insert(doc);
 
     return {
-      _id: postId
+      _id: blindId
     };
   },
 });
