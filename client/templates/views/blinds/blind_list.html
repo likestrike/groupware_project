@@ -1,7 +1,7 @@
 <template name="blindlist">
 	<div class="content-wrapper" >
 		<section class="content-header">
-			<h1>블라인드 게시판<small>post</small>
+			<h1>블라인드 게시판<small>무기명 건의하기</small>
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -9,20 +9,27 @@
 		</ol>
 		</section>
 		<section class="content">
+			<div class="callout callout-info">
+				<h4>블라인드 게시판은 무기명입니다!</h4>
+					특정 인물에 대한 비방이나 실명거론, 욕설 등은 관리자에 의해 삭제 될 수 있음을 알려 드립니다.
+				<a href="#">사장님께 건의하기</a>로 회사를 바꿔보세요.
+			</div>
 			<div class="row">
-				<div class="col-md-6">
-					<div class="direct-chat-msg" id="blind-modal">
-	                  <!-- /.direct-chat-info -->
-	                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
-	                  <div class="direct-chat-text">클릭하세요.</div>
-	                  <!-- /.direct-chat-text -->
-	                </div>
+				<div class="box box-widget">
+					<div class="box-body">
+						<div class="col-lg-2">
+							<button type="button" class="btn btn-primary btn-block" id="blind-modal">작성하기</button>
+						</div>
+						<div class="col-lg-2">
+							<button type="button" class="btn btn-primary btn-block" id="blind-modal">사장님께 건의하기</button>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
 					{{#each blinds}}
-						<div>{{context}}</div>
+						{{> blindItem}}
 				    {{/each}}
 		          <!-- /.box -->
 		        </div>

@@ -1,0 +1,26 @@
+<template name="userItem">
+	<div class="col-lg-3">
+        <div class="contact-box center-version">
+        	<a href="{{pathFor '/profile/:id' id=_id}}" style="min-height: 252px;">
+                <img alt="image" class="img-circle" src="{{profile.thumbnail}}">
+                <h3 class="m-b-xs h-description"><strong>{{profile.fullname}}</strong></h3>
+
+                <div class="font-bold">{{profile.title}}</div>
+                <address class="m-t-md">
+                    <strong>LOCUS {{profile.department}}</strong><br>
+                    <abbr title="Phone">P:</abbr>
+                    {{#each profile.phones}}
+                    	{{value}}
+                    {{/each}}
+                </address>
+            </a>
+            <div class="contact-box-footer">
+                <div class="m-t-xs btn-group">
+                    <a class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>
+                    <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</template>

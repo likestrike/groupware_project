@@ -1,0 +1,32 @@
+<template name="blindItem">
+	<div class="box box-widget">
+		<div class="box-header with-border">
+			<div class="user-block">
+				<span class="username" style="margin: 0px;">{{author}}님이 남기셨습니다.</span>
+				<span class="description" style="margin: 0px;">{{formattedDate}}</span>
+			</div>
+		</div>
+        <div class="box-body">
+          <!-- post text -->
+          {{{context}}}
+          <span class="pull-right text-muted">{{commentsCount}} comments</span>
+        </div>
+          {{#each comments}}
+            {{> blind_commentItem}}
+          {{/each}}
+        <!-- /.box-footer -->
+        <div class="box-footer">
+        <form class="comment form">
+            <div class="input-group img-push">
+              <div class="form-control comment-form" id="comment" contenteditable="true" placeholder="댓글을 입력하세요.."></div>
+                  <span class="input-group-btn">
+                    <button type="submit" id="comment_submit" class="btn btn-primary btn-flat">Send</button>
+                  </span>
+            </div>
+          </form>
+
+        </div>
+        <!-- /.box-footer -->
+      </div>
+      <!-- /.box -->
+</template>

@@ -3,7 +3,7 @@ Template.blindModal.events({
 		var post = {
 			context : $('#blind_context').html()
 		}
-		Meteor.call('boardInsert', post, function(error, result) {
+		Meteor.call('blindInsert', post, function(error, result) {
 	      // display the error to the user and abort
 	      if (error)
 	        return Bert.alert(error.reason);

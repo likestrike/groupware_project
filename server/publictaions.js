@@ -30,6 +30,11 @@ Meteor.publish('faqs', function() {
 Meteor.publish('blinds', function() {
   return Blinds.find();
 });
+// 블라인드 댓글 구독
+Meteor.publish('blind_comments', function(blindId) {
+  check(blindId, String);
+  return BlindComments.find({blindId: blindId});
+});
 // Give authorized users access to sensitive data by group
 Meteor.publish('secrets', function (group) {
   if (Roles.userIsInRole(this.userId, ['view-secrets','admin'], group)) {

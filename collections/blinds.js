@@ -30,4 +30,5 @@ Meteor.methods({
       _id: blindId
     };
   },
+
 });

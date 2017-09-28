@@ -6,8 +6,8 @@ Template.blindlist.helpers({
 });
 
 Template.blindlist.events({
-	'click #board-modal': function (e, t) {
+	'click #blind-modal': function (e, t) {
 		e.preventDefault()
-		Modal.show('boardModal');
+		Modal.show('blindModal');
 	}
 });

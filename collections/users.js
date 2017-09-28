@@ -1,3 +1,16 @@
+import { Index, MinimongoEngine } from 'meteor/easy:search'
+Members = Meteor.users;
+// On Client and Server
+MemberIndex = new Index({
+  // sort: function () {
+  //   return { submitted : 0 };
+  // },
+  collection: Members,
+  fields: ['profile.fullname', 'profile.orgPath'],
+  engine: new MinimongoEngine(),
+  defaultSearchOptions: { limit: 16 },
+})
+
  Meteor.methods({
   'updateUser': function(id,attributes){
     var loggedInUser = Meteor.user();

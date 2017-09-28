@@ -113,3 +113,16 @@ div#post_context_div{
   content: attr(placeholder);
   color : #9b9b9b;
 }
+
+
+.username-blind{
+  color: #565656;
+  display: block;
+  font-weight: 200;
+}
+/* 가로 description*/
+.h-description{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,35 @@
+<template name="blind_commentItem">
+	<div class="box-footer box-comments">
+		<div class="box-comment">
+			<!-- User image -->
+			{{#if ownComment}}
+			<div class="box-tools btn-group pull-right">
+	            <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-option-vertical"></i></button>
+	              <ul class="dropdown-menu" role="menu">
+	                <li><a href="#" id="delete_comment">삭제</a></li>
+	                <li><a href="#" id="edit_comment">수정</a></li>
+	              </ul>
+	        </div>
+	        {{/if}}
+			<div class="comment-text" style="margin: 0px;">
+				<span class="username-blind">{{author}}님의 댓글
+					<span class="text-muted pull-right">{{formattedDate}}</span>
+				</span><!-- /.username -->
+				{{{body}}}
+			</div>
+		<!-- /.comment-text -->
+		</div>
+	</div>
+</template>
+
+<template name="blind_comment_edit">
+	<form class="comment form" id="comment_edit_form">
+        <div class="input-group img-push">
+          <div class="form-control comment-form" id="edit_comment_text" contenteditable="true" placeholder="댓글을 입력하세요..">{{{body}}}</div>
+              <span class="input-group-btn">
+                <button type="submit" id="comment_update" class="btn btn-primary btn-flat">수정</button>
+                <button type="submit" id="comment_cancel" class="btn btn-primary btn-flat">취소</button>
+              </span>
+        </div>
+      </form>
+</template>

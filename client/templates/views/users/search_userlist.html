@@ -1,0 +1,25 @@
+<template name="searchUser">
+  {{! > EasySearch.Autosuggest index=index }}
+
+
+  {{> EasySearch.Input index=index attributes=inputAttributes }}
+
+  {{#EasySearch.IfInputEmpty index=index }}
+    <div class="padded examples">이름 / 팀명으로 검색하세요.</div>
+  {{else}}
+    {{#if resultsCount}}
+      <div class="padded count-results">{{resultsCount}} results found.</div>
+    {{/if}}
+  {{/EasySearch.IfInputEmpty}}
+
+    {{#EasySearch.Each index=index}}
+      <!-- <li>Name of the player:  {{title}} ({{body}})</li> -->
+      {{> userItem}}
+    {{/EasySearch.Each}}
+
+  {{> EasySearch.LoadMore index=index}}
+
+  {{#EasySearch.IfNoResults index=index}}
+    <div class="no-results">No results found!</div>
+  {{/EasySearch.IfNoResults}}
+</template>
