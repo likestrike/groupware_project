@@ -2,9 +2,9 @@ import { Index, MinimongoEngine } from 'meteor/easy:search'
 Members = Meteor.users;
 // On Client and Server
 MemberIndex = new Index({
-  // sort: function () {
-  //   return { submitted : 0 };
-  // },
+  sort: function () {
+    return { 'profile.fullname' : 0 };
+  },
   collection: Members,
   fields: ['profile.fullname', 'profile.orgPath'],
   engine: new MinimongoEngine(),
