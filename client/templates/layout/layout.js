@@ -1,3 +1,4 @@
+
 var screenSizes = {
   xs: 480,
   sm: 768,
@@ -7,7 +8,7 @@ var screenSizes = {
 
 Template.layout.onCreated(function () {
   var self = this;
-  var skin = 'blue';
+  var skin = 'red';
   var fixed = true;
   var sidebarMini = true;
 
@@ -53,7 +54,8 @@ Template.layout.helpers({
     return this.loadingTemplate || 'AdminLTE_loading';
   },
   skin: function () {
-    return this.skin || 'blue';
+    console.log(this.skin);
+    return this.skin || 'red';
   }
 });
 
