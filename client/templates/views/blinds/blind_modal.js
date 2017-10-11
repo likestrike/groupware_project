@@ -13,6 +13,4 @@ Template.blindModal.events({
 	        FlowRouter.go('/blindlist');
 	    });
 	},
-
-
 });
