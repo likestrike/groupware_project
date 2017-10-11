@@ -25,7 +25,7 @@
         };
     }
 });*/
-Template.calendarWidget.rendered = function () {
+Template.calendarWidget.onRendered(function (){
 	Meteor.subscribe('meeting_times');
     $('#calendar').fullCalendar({
 
@@ -69,7 +69,7 @@ Template.calendarWidget.rendered = function () {
     // Tracker.autorun(function(){
         
     // });
-};
+});
 
 
 var updateCalendar = function(){
