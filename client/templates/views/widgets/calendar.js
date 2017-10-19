@@ -28,7 +28,6 @@
 Template.calendarWidget.onRendered(function (){
 	Meteor.subscribe('meeting_times');
     $('#calendar').fullCalendar({
-
         events: function (start, end, timezone, callback) {
             var events = [];
             calEvents = MeetingTimes.find();
@@ -63,12 +62,10 @@ Template.calendarWidget.onRendered(function (){
         eventClick: function (calEvent, jsEvent, view) {
 
         }
-
     });
-
-    // Tracker.autorun(function(){
-        
-    // });
+    Tracker.autorun(function(){
+    	$('#calendar').fullCalendar( 'refetchEvents' );    
+    });
 });
 
 

@@ -12,3 +12,4 @@ Template.sidebar.helpers({
 		}
 	}
 });
+  

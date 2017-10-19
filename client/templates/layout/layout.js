@@ -30,7 +30,6 @@ Template.layout.onCreated(function () {
     fixed && $('body').removeClass('fixed');
     sidebarMini && $('body').removeClass('sidebar-mini');
   }
-
   this.autorun(function () {
     if (self.style.ready() && self.skin.ready()) {
       self.isReady.set(true);
