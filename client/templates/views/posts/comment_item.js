@@ -5,7 +5,8 @@ Template.commentItem.helpers({
 		return Meteor.users.findOne(this.userId);
 	},
 	formattedDate: function(){
-		return moment(this.submitted).format("dddd, MMMM Do YYYY, h:mm:ss");
+		moment.locale('ko');
+		return moment(this.submitted).format("LLL");
 	},
 	ownComment: function(){
 		var loggedInUser = Meteor.user();
