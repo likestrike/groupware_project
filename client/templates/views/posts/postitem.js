@@ -66,5 +66,9 @@ Template.postlist.events({
 			}
 		}
 		myalert.deleteConfirm(callback);
+	},
+	'click #postLike':function(e, t){
+		e.preventDefault();
+		var currentPostId = this._id;
 	}
 });

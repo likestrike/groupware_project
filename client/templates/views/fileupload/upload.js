@@ -6,6 +6,7 @@ Template.uploadedFiles.helpers({
   }
 });
 
+
 Template.uploadForm.onCreated(function () {
   this.currentUpload = new ReactiveVar(false);
 });
@@ -47,5 +48,6 @@ Template.uploadForm.events({
         uploadInstance.start();
       }
     }
-  }
+  },
+
 });

@@ -1,6 +1,6 @@
 <template name="uploadForm">
   {{#with currentUpload}}
-    Uploading <b>{{file.name}}</b>: 
+    Uploading <b>{{file.name}}</b>:
     <span id="progress">{{progress.get}}%</span>
   {{else}}
     <input id="fileInput" type="file" required multiple/>
@@ -11,9 +11,11 @@
 <template name="uploadedFiles">
   {{#if uploadedFiles.count}}
     <ul>
-      {{#each file in uploadedFiles.each}}
+      {{#each uploadedFiles}}
         <li>
-          <a href="{{file.link}}?download=true" download="{{file.name}}">{{file.name}}</a>
+          {{> fileview}}
+          <!-- <a href="{{file.link}}?download=true" download="{{file.name}}">{{file.name}}</a>
+          <span class="glyphicon glyphicon-remove" id="file_remove" style="cursor: pointer;"></span> -->
         </li>
       {{/each}}
     </ul>
