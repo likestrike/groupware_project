@@ -10,15 +10,27 @@
 
 <template name="uploadedFiles">
   {{#if uploadedFiles.count}}
-    <ul>
-      {{#each uploadedFiles}}
-        <li>
-          {{> fileview}}
-          <!-- <a href="{{file.link}}?download=true" download="{{file.name}}">{{file.name}}</a>
-          <span class="glyphicon glyphicon-remove" id="file_remove" style="cursor: pointer;"></span> -->
-        </li>
-      {{/each}}
-    </ul>
+  <div class="post_image_area">
+    <div class="post_image_wrapper">
+      <ul class="post_image_ul">
+        <div class="in_block">
+        {{#each file in uploadedFiles.each}}
+        <!-- {{> fileview}} -->
+          <div class="in_block">
+            <li>
+              <img src="{{file.link}}" alt="{{file.name}}" class="post_uploaded_image"/>
+            </li>
+            <div class="remove_image cubebox">
+              <div class="icon_circle">
+                <span class="glyphicon glyphicon-trash" id="file_remove" data-value="{{file._id}}" style="cursor: pointer;"></span>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+        </div>
+      </ul>
+      </div>
+  </div>
   {{else}}
     <div>No files uploaded, yet</div>
   {{/if}}

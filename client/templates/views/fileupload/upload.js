@@ -5,6 +5,21 @@ Template.uploadedFiles.helpers({
     return Images.find();
   }
 });
+Template.uploadedFiles.events({
+  'click #file_remove':function(e, t){
+    e.preventDefault()
+    var itemId = e.currentTarget.dataset.value;
+
+    // remove image
+    Images.remove({_id: itemId}, function (error) {
+      if (error) {
+        console.error("File wasn't removed, error: " + error.reason)
+      } else {
+        console.info("File successfully removed");
+      }
+    });
+  },
+});
 
 
 Template.uploadForm.onCreated(function () {

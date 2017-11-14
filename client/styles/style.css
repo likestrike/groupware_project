@@ -1,3 +1,14 @@
+/*common use*/
+.cubebox{
+  cursor: pointer;
+  display: inline-block;
+  height: 42px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 42px;
+}
+
 .contact-box.center-version {
     border: 1px solid #e7eaec;
     padding: 0;
@@ -103,6 +114,59 @@ div#post_context_div{
   height: auto;
   border: 0;
 }
+
+div.post_image_area{
+  position: relative;
+}
+div.post_image_wrapper{
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+ul.post_image_ul{
+  list-style-type: none;
+  margin: 8px 0 0 0;
+  padding: 0 0 0 0px;
+  white-space: nowrap;
+}
+ul.post_image_ul>div{
+  display: inline-block;
+}
+.in_block{
+  display: inline-block;
+  position: relative;
+}
+img.post_uploaded_image{
+  height: 180px;
+  widows: auto;
+  -webkit-user-drag: none;
+}
+.icon_circle{
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  border: 2px solid #fff;
+  background-color: #000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+}
+
+#file_remove{
+  color:#fff;
+  margin-top: 4px;
+  margin-left: -1px;
+}
+
+
+
+.remove_image{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 
 /*comment*/
 .comment-form{
