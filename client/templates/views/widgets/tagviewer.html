@@ -1,0 +1,27 @@
+<template name="tagviewer">
+	{{#with tag}}
+	<div class="tagviewer_wrapper">
+		<div class="tagviewer_area">
+			<div class="tagviewer_box">
+				<div class="tagviewer_image">
+					<a href="">
+						<img src="{{image}}" alt="">
+					</a>
+				</div>
+				<div class="tagviewer_context">
+					<div class="tagviewer_context_title">
+						<a href="">
+							<span></span>
+						</a>
+					</div>
+					<div class="tagviewer_context_description">
+						<a href="">
+							<span></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/with}}
+</template>

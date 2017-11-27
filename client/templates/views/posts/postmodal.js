@@ -6,6 +6,7 @@
 // 		if(postNote!='')return postNote;
 // 	}
 // });
+import { Blaze } from 'meteor/blaze'
 
 Template.postModal.events({
 	'keydown #post_context': function (e, t) {
@@ -15,7 +16,27 @@ Template.postModal.events({
 			$('#submit').removeClass('disabled');
 		}
 	},
-	
+	'keyup #post_context': function (e, t) {
+		if (e.keyCode !== 13) return;
+		var test = urlify($(e.target).text());
+		const url = test;
+
+
+
+		console.log('extract', url);
+		// Session.set('metas', 'Extracting ' + url + '...');
+		extractMeta(url, (err, res) => {
+			if (err) {
+				console.error('err while extracting metas', err);
+				// Session.set('metas', 'Error: ' + err);
+			} else {
+				Session.set("metas", res);
+				// BlazeLayout.render('tagviewer', { data:  JSON.stringify(res, null, '  ') });
+				Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".modal-body")[0])
+				// Session.set('metas', JSON.stringify(res, null, '  '));
+			}
+		});
+	},
 	'click #submit' : function (e, t) {
 		var post = {
 			context : $('#post_context').html()
@@ -55,3 +76,10 @@ Template.postEditModal.events({
 	    });
 	},
 });
+
+function urlify(text) {
+    var urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text.replace(urlRegex, function(url) {
+        return url;
+    })
+}
