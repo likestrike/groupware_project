@@ -1,5 +1,12 @@
 <template name='fileview'>
-  <!-- <img src="{{file.link}}" alt="{{file.name}}" /> -->
-  <a href="{{link}}?download=true" download="{{name}}">{{name}}</a>
-  <span class="glyphicon glyphicon-remove" id="file_remove" style="cursor: pointer;"></span>
+<div class="in_block">
+	<li>
+	  <img src="{{link}}" alt="{{name}}" class="post_uploaded_image"/>
+	</li>
+	<div class="remove_image cubebox">
+	  <div class="icon_circle">
+	    <span class="glyphicon glyphicon-trash" id="file_remove" style="cursor: pointer;"></span>
+	  </div>
+	</div>
+</div>
 </template>

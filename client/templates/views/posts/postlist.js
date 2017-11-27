@@ -10,6 +10,7 @@ Template.postlist.onRendered(function (){
 Template.postlist.events({
 	'click #post-modal': function (e, t) {
 		e.preventDefault()
+		// var options = {backdrop: 'static', keyboard: false};
 		Modal.show('postModal');
 	}
 });
