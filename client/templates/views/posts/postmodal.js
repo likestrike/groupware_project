@@ -16,27 +16,34 @@ Template.postModal.events({
 			$('#submit').removeClass('disabled');
 		}
 		var value = $(e.target).val();
-	    
+
 	    $('#post_context').html(value);
 	},
 	'keyup #post_context_text': function (e, t) {
 		if (e.keyCode !== 13) return;
-		var test = urlify($(e.target).text());
-		const url = test;
-		console.log('extract', url);
-		// Session.set('metas', 'Extracting ' + url + '...');
+		var url_val = urlify($(e.target).val());
+		const url = url_val;
+		if(url != ''){
+			console.log('url : ' + url);
+			Meteor.call('Extractor_meta', url, (err, res) => {
+				if (err) {
+					console.error('err while extracting metas', err);
+				} else {
+					console.log(res);
+					if(jQuery.isEmptyObject(res))return;
 
-		// extractMeta(url, (err, res) => {
-		// 	if (err) {
-		// 		console.error('err while extracting metas', err);
-		// 		// Session.set('metas', 'Error: ' + err);
-		// 	} else {
-		// 		Session.set("metas", res);
-		// 		// BlazeLayout.render('tagviewer', { data:  JSON.stringify(res, null, '  ') });
-		// 		Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".modal-body")[0])
-		// 		// Session.set('metas', JSON.stringify(res, null, '  '));
-		// 	}
-		// });
+					Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".modal-body")[0])
+				}
+			});
+			// extractMeta(url, (err, res) => {
+			// 	if (err) {
+			// 		console.error('err while extracting metas', err);
+			// 	} else {
+			// 		Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".modal-body")[0])
+			// 	}
+			// });
+		}
+
 	},
 	'click #submit' : function (e, t) {
 		var conver_text = $('#post_context').html().replace(/\n/g, "<br />");
@@ -54,7 +61,7 @@ Template.postModal.events({
 	        FlowRouter.go('/postlist');
 	    });
 	},
-	
+
 
 });
 Template.postEditModal.events({

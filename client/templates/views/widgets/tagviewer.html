@@ -4,22 +4,23 @@
 		<div class="tagviewer_area">
 			<div class="tagviewer_box">
 				<div class="tagviewer_image">
-					<a href="">
-						<img src="{{image}}" alt="">
+					<a href="{{url}}">
+						<img src="{{image}}" alt="" class="tagviewer_img">
 					</a>
 				</div>
 				<div class="tagviewer_context">
 					<div class="tagviewer_context_title">
-						<a href="">
-							<span></span>
+						<a href="{{url}}">
+							<span class="span-title">{{title}}</span>
 						</a>
 					</div>
-					<div class="tagviewer_context_description">
-						<a href="">
-							<span></span>
-						</a>
-					</div>
+					<div class="tagviewer_context_description">{{description}}</div>
 				</div>
+			</div>
+			<div class="remove_image cubebox">
+			  <div class="icon_circle">
+			    <span class="glyphicon glyphicon-trash" id="tag_remove" style="cursor: pointer;"></span>
+			  </div>
 			</div>
 		</div>
 	</div>

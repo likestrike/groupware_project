@@ -1,7 +1,18 @@
+import { Blaze } from 'meteor/blaze'
+
 Template.tagviewer.helpers({
 	tag : function () {
-		console.log(this.tag);
-		console.log(Session.get('metas'));
-		return Session.get('metas');
+		return this.tag;
+	}
+});
+Template.tagviewer.onCreated(function(){
+	console.log('onload');
+	console.log(this.tag);
+	var test = this.tag;
+});
+
+Template.tagviewer.events({
+	'click #tag_remove':function(){
+		Blaze.remove(Blaze.currentView);
 	}
 });
