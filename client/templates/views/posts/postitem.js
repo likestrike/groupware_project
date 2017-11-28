@@ -24,7 +24,7 @@ Template.postItem.helpers({
 	}
 });
 
-Template.postlist.events({
+Template.postItem.events({
 	'submit form': function (e, t) {
 		e.preventDefault();
 		var $body = $(e.target).find('#comment');
@@ -70,5 +70,18 @@ Template.postlist.events({
 	'click #postLike':function(e, t){
 		e.preventDefault();
 		var currentPostId = this._id;
+	},
+	'click .box-body':function(e, t){
+		$(e.target).parents('.post-context-div').toggleClass('minimum');
+		var body = $(e.target).parents('.box-widget');
+
+		
+
+		
 	}
+
 });
+
+Template.postItem.onCreated(function(){
+	$('.post-context-div').addClass('minimum');
+})

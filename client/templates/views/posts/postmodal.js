@@ -9,37 +9,40 @@
 import { Blaze } from 'meteor/blaze'
 
 Template.postModal.events({
-	'keydown #post_context': function (e, t) {
+	'keydown #post_context_text': function (e, t) {
 		// var value = $(e.target).val();
   //    	Session.set("postNote", value);
 		if($('#submit').hasClass('disabled')){
 			$('#submit').removeClass('disabled');
 		}
+		var value = $(e.target).val();
+	    
+	    $('#post_context').html(value);
 	},
-	'keyup #post_context': function (e, t) {
+	'keyup #post_context_text': function (e, t) {
 		if (e.keyCode !== 13) return;
 		var test = urlify($(e.target).text());
 		const url = test;
-
-
-
 		console.log('extract', url);
 		// Session.set('metas', 'Extracting ' + url + '...');
-		extractMeta(url, (err, res) => {
-			if (err) {
-				console.error('err while extracting metas', err);
-				// Session.set('metas', 'Error: ' + err);
-			} else {
-				Session.set("metas", res);
-				// BlazeLayout.render('tagviewer', { data:  JSON.stringify(res, null, '  ') });
-				Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".modal-body")[0])
-				// Session.set('metas', JSON.stringify(res, null, '  '));
-			}
-		});
+
+		// extractMeta(url, (err, res) => {
+		// 	if (err) {
+		// 		console.error('err while extracting metas', err);
+		// 		// Session.set('metas', 'Error: ' + err);
+		// 	} else {
+		// 		Session.set("metas", res);
+		// 		// BlazeLayout.render('tagviewer', { data:  JSON.stringify(res, null, '  ') });
+		// 		Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".modal-body")[0])
+		// 		// Session.set('metas', JSON.stringify(res, null, '  '));
+		// 	}
+		// });
 	},
 	'click #submit' : function (e, t) {
+		var conver_text = $('#post_context').html().replace(/\n/g, "<br />");
+
 		var post = {
-			context : $('#post_context').html()
+			context : conver_text
 		}
 		Meteor.call('postInsert', post, function(error, result) {
 	      // display the error to the user and abort
@@ -51,7 +54,7 @@ Template.postModal.events({
 	        FlowRouter.go('/postlist');
 	    });
 	},
-
+	
 
 });
 Template.postEditModal.events({

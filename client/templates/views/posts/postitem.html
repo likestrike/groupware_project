@@ -23,14 +23,24 @@
         <!-- /.box-header -->
         <div class="box-body">
           <!-- post text -->
-          {{{context}}}
-
-          <!-- Social sharing buttons -->
-          <!-- <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>-->
-          <button type="button" class="btn btn-default btn-xs" id="postLike"><i class="fa fa-thumbs-o-up"></i> Like</button>
-          <!-- <span class="pull-right text-muted">45 likes - 2 comments</span> -->
-          <span class="pull-right text-muted">45 likes - {{commentsCount}} comments</span>
+          <div class="post-wrapper">
+            <div class="post-context-wrapper">
+              <div class="post-context-div minimum">
+                  <div class="post-context">{{{context}}}</div>
+                </div>
+            </div>
+            
+          
+            <div class="post-tools-div">
+              <!-- Social sharing buttons -->
+              <!-- <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>-->
+              <button type="button" class="btn btn-default btn-xs" id="postLike"><i class="fa fa-thumbs-o-up"></i> Like</button>
+              <!-- <span class="pull-right text-muted">45 likes - 2 comments</span> -->
+              <span class="pull-right text-muted">45 likes - {{commentsCount}} comments</span>
+            </div>
+          </div>
         </div>
+        <div class="box-comments-wrapper">
           {{#if Template.subscriptionsReady}}
           {{#each comments}}
             {{> commentItem}}
@@ -38,10 +48,11 @@
           {{else}}
           <div class="box-footer box-comments">
               <div class="box-comment">
-                laodoiawjfeowiafeoiwjfe
+                
               </div>
             </div>
           {{/if}}
+        </div>
         <!-- /.box-footer -->
         <div class="box-footer">
         <form class="comment form">
