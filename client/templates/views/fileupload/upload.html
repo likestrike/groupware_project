@@ -35,3 +35,18 @@
     <div>No files uploaded, yet</div>
   {{/if}}
 </template>
+
+<template name="postFile">
+  {{#with fileObj}}
+  <div class="in_block">
+    <li>
+      <img src="{{link}}" alt="{{name}}" class="post_uploaded_image"/>
+    </li>
+    <div class="remove_image cubebox">
+      <div class="icon_circle">
+        <span class="glyphicon glyphicon-trash" id="file_remove" data-value="{{_id}}" style="cursor: pointer;"></span>
+      </div>
+    </div>
+  </div>
+  {{/with}}
+</template>

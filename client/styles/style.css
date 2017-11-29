@@ -88,11 +88,6 @@
   margin: 0 16px 16px;
   word-wrap: break-word;
 }
-
-/*.post-context-wrapper{
-  overflow: hidden;  
-}*/
-
 .post-context-div.minimum:before{
      content: " ";
     display: table;
@@ -123,10 +118,28 @@
   width: 100%;
   white-space: pre-wrap;
 }
-
 .post-tools-div{
-  
+
 }
+.fileover-area{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  color: #fff;
+  background-color: rgba(11, 180, 204, 0.8);
+  z-index: 2;
+  font-size: 6em;
+  text-align: center;
+  display: none;
+}
+.fileover-area > span{
+  font-size: 22px;
+}
+.post-upload-form.file-over .fileover-area{
+  display: block;
+}
+
+/*.upload-form .fake-upload{cursor:pointer;-webkit-transition:color 256ms ease-in-out;transition:color 256ms ease-in-out;width:85%;margin:0px auto;color:#4e546d}.upload-form .fake-upload:hover{color:#bbb}.upload-form .sm-row{width:85%;margin:0px auto}.show-settings{display:inline-block;-webkit-transition:color 256ms ease-in-out, -webkit-transform 256ms ease-in-out;transition:color 256ms ease-in-out, -webkit-transform 256ms ease-in-out;transition:color 256ms ease-in-out, transform 256ms ease-in-out;transition:color 256ms ease-in-out, transform 256ms ease-in-out, -webkit-transform 256ms ease-in-out}*/
 textarea#post_context_text{
     background: transparent;
     border: 0;
