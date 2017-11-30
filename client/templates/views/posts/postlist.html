@@ -20,11 +20,17 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6">
+				
 					{{#each posts}}
-						{{> postItem}}
+						{{#if seperate}}
+						{{/if}}
 				    {{/each}}
 		          <!-- /.box -->
+		        <div class="col-md-4">
+		        </div>
+		        <div class="col-md-4">
+		        </div>
+		        <div class="col-md-4">
 		        </div>
 			</div>
 		</section>
