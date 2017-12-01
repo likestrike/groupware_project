@@ -142,6 +142,8 @@ Template.postModal.events({
 		}
 	},
 	'click #submit' : function (e, t) {
+		e.preventDefault();
+		e.stopPropagation();
 		var conver_text = $('#post_context').html().replace(/\n/g, "<br />");
 
 		var post = {

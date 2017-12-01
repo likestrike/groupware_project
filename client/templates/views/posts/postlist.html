@@ -10,28 +10,25 @@
 		</section>
 		<section class="content">
 			<div class="row">
-				<div class="col-md-6">
-					<div class="direct-chat-msg" id="post-modal">
+				
+			</div>			
+			<div class="row">
+				<div class="post-grid col-md-4">
+		        	<div class="direct-chat-msg" id="post-modal" style="cursor: pointer;">
 	                  <!-- /.direct-chat-info -->
 	                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
 	                  <div class="direct-chat-text">클릭하세요.</div>
 	                  <!-- /.direct-chat-text -->
 	                </div>
-				</div>
-			</div>
-			<div class="row">
-				
-					{{#each posts}}
-						{{#if seperate}}
-						{{/if}}
-				    {{/each}}
+		        </div>
+				<div class="post-grid col-md-4"></div>
+				<div class="post-grid col-md-4"></div>
+					<!-- {{#each postData}}
+						{{> postItem}}
+				    {{/each}} -->
 		          <!-- /.box -->
-		        <div class="col-md-4">
-		        </div>
-		        <div class="col-md-4">
-		        </div>
-		        <div class="col-md-4">
-		        </div>
+		          {{seperate}}
+
 			</div>
 		</section>
 	</div>

@@ -17,7 +17,7 @@
       {{> userItem}}
     {{/EasySearch.Each}}
 
-  {{> EasySearch.LoadMore index=index}}
+  {{> EasySearch.LoadMore index=index attributes=loadmoreClass }}
 
   {{#EasySearch.IfNoResults index=index}}
     <div class="no-results">No results found!</div>

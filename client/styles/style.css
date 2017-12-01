@@ -152,6 +152,7 @@ textarea#post_context_text{
     padding: 0;
     resize: none;
     width: 100%;
+    
 }
 div#post_context_div{
     font-size: 15px;
@@ -172,6 +173,11 @@ div#post_context_div{
   border: 0;
   white-space: pre-wrap;
   display: none;
+  overflow-y: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
 div.post_image_area{
