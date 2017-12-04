@@ -152,7 +152,7 @@ textarea#post_context_text{
     padding: 0;
     resize: none;
     width: 100%;
-    
+
 }
 div#post_context_div{
     font-size: 15px;
@@ -281,3 +281,36 @@ img.post_uploaded_image{
 .tagviewer_image{
 
 }
+
+/*like button*/
+div.like-button{
+  height: 40px;
+  padding-top: 10px;
+}
+i.custom-like {
+  cursor:pointer;
+  padding:10px 12px 8px;
+  background:#f4f4f4;
+  border-radius:50%;
+  display:inline-block;
+  margin:0 0 15px;
+  color:#aaa;
+  transition:.2s;
+  border-color: #ccc;
+}
+
+i.custom-like:hover {
+  color:#666;
+}
+
+i.custom-like:before {
+  font-family:fontawesome;
+  content:"\f087";
+  font-style:normal;
+}
+
+
+i.custom-like.press {
+  color:#e23b3b;
+}
+

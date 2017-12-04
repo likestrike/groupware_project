@@ -146,6 +146,11 @@ Template.postModal.events({
 		e.stopPropagation();
 		var conver_text = $('#post_context').html().replace(/\n/g, "<br />");
 
+		if(conver_text.trim() === ''){
+			Modal.hide('postModal');
+			return;
+		}
+
 		var post = {
 			context : conver_text
 		}

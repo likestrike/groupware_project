@@ -30,14 +30,17 @@
                   <div class="post-context">{{{context}}}</div>
                 </div>
             </div>
-            
-          
+
+
             <div class="post-tools-div">
               <!-- Social sharing buttons -->
               <!-- <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>-->
-              <button type="button" class="btn btn-default btn-xs" id="postLike"><i class="fa fa-thumbs-o-up"></i> Like</button>
+              <div class="like-button">
+                <i class="custom-like {{checkPostLiked}}"></i>
+              </div>
+              <!-- <button type="button" class="btn btn-default btn-xs" id="postLike"><i class="fa fa-thumbs-o-up"></i> Like</button> -->
               <!-- <span class="pull-right text-muted">45 likes - 2 comments</span> -->
-              <span class="pull-right text-muted">45 likes - {{commentsCount}} comments</span>
+              <span class="pull-right text-muted">{{likes}} likes - {{commentsCount}} comments</span>
             </div>
           </div>
         </div>
@@ -49,7 +52,7 @@
           {{else}}
           <div class="box-footer box-comments">
               <div class="box-comment">
-                
+
               </div>
             </div>
           {{/if}}

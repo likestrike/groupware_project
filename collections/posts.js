@@ -22,7 +22,8 @@ Meteor.methods({
       userId: user._id,
       author: user.username,
       submitted: new Date(),
-      commentsCount : 0
+      commentsCount : 0,
+      likes : 0
     });
 
     var postId = Posts.insert(post);
@@ -40,4 +41,22 @@ Meteor.methods({
       _id: postId
     };
   },
+  postLiked : function(postId){
+    check(this.userId, String);
+    check(postId, String);
+
+    //get this posts array of likers
+    var res = Posts.find( { _id: postId}, { likers: 1}).fetch()[0].likers;
+
+    //see if the current user is one of them
+     var q = _.find(res, (x) => x == Meteor.userId() );
+
+    //need to disallow same user that liked to like again
+    if ( q == Meteor.userId() ){
+      Posts.update({_id : postId}, {$inc: {likes: -1}, $pull: { likers:  Meteor.userId() }});
+    }else{
+      Posts.update({_id : postId}, {$inc: {likes: 1}, $push: { likers:  Meteor.userId() }});
+    }
+
+  }
 });

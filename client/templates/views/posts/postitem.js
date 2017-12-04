@@ -21,7 +21,16 @@ Template.postItem.helpers({
 			}
 		}
 		return this.userId === Meteor.userId();
-	}
+	},
+	checkPostLiked : function(){
+		var res = Posts.find( { _id: this._id}, { likers: 1}).fetch()[0].likers;
+		var q = _.find(res, (x) => x == Meteor.userId());
+
+		if ( q == Meteor.userId() ){
+			return "press";
+		}
+
+  	},
 });
 
 Template.postItem.events({
@@ -75,9 +84,23 @@ Template.postItem.events({
 		$(e.target).parents('.post-context-div').toggleClass('minimum');
 		var body = $(e.target).parents('.box-widget');
 
-		
 
-		
+
+
+	},
+	'click .custom-like':function(e, t){
+
+
+		var postId = this._id;
+		Meteor.call('postLiked', postId, function(error, postId) {
+	      if (error){
+	        throwError(error.reason);
+	      } else {
+	        console.log('like success');
+	        $(e.target).toggleClass( "press");
+	      }
+	    });
+		// $(".custom-like, .custom-like-span").toggleClass( "press", 1000 );
 	}
 
 });
