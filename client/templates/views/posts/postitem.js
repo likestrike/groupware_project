@@ -80,24 +80,15 @@ Template.postItem.events({
 		e.preventDefault();
 		var currentPostId = this._id;
 	},
-	'click .box-body':function(e, t){
-		$(e.target).parents('.post-context-div').toggleClass('minimum');
-		var body = $(e.target).parents('.box-widget');
 
-
-
-
-	},
 	'click .custom-like':function(e, t){
-
-
 		var postId = this._id;
+		$(e.target).toggleClass("press");
 		Meteor.call('postLiked', postId, function(error, postId) {
 	      if (error){
 	        throwError(error.reason);
 	      } else {
 	        console.log('like success');
-	        $(e.target).toggleClass( "press");
 	      }
 	    });
 		// $(".custom-like, .custom-like-span").toggleClass( "press", 1000 );

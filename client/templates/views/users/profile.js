@@ -1,6 +1,7 @@
 Template.profile.helpers({
 	user: function() {
 	    var userId = FlowRouter.getParam('_id');
+	    console.log(userId);
 	    if ( userId !== undefined ) {
 	      return Meteor.users.findOne({'_id': userId});
 	    }
