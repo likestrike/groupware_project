@@ -189,15 +189,24 @@ Template.postModal.events({
 
 });
 Template.postEditModal.events({
-	'keydown #post_context': function (e, t) {
+	'keydown #post_context_text': function (e, t) {
 		if($('#update').hasClass('disabled')){
 			$('#update').removeClass('disabled');
 		}
+		var value = $(e.target).val();
+	    $('#post_context').html(value);
 	},
 	'click #update' : function (e, t) {
-		var post = {
-			context : $('#post_context').html()
+		var conver_text = $('#post_context').html().replace(/\n/g, "<br />");
+
+		if(conver_text.trim() === ''){
+			Modal.hide('postModal');
+			return;
 		}
+		var post = {
+			context : conver_text
+		}
+
 		var currentPostId = this._id;
 		Posts.update(currentPostId, {$set: post}, function(error) {
 	      if (error) {

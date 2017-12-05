@@ -10,20 +10,22 @@
 		</section>
 		<section class="content">
 			<div class="row" id="post-row">
-				<div class="post-grid col-md-4" id="post-write-area">
+				<div class="post-grid col-md-12" id="post-write-area">
 		        	<div class="direct-chat-msg" id="post-modal" style="cursor: pointer;">
 	                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
 	                  <div class="direct-chat-text">클릭하세요.</div>
 	                </div>
 		        </div>
+		    </div>
+		    <div class="row">
 		        <!-- {{#if window_with > 1420}} -->
-		        <div class="post-grid col-md-4">
-					<!-- {{#each postData}}
+		        <!-- 이 부분을 item 말고 분기 할 수 있는 page로 갈수 있게 해보자.  -->
+		        <div class="post-grid col-md-6">
+					{{#each postData}}
 						{{> postItem}}
-				    {{/each}} -->
+				    {{/each}}
 				</div>
-				<div class="post-grid col-md-4">
-				</div>
+
 		          <!-- /.box -->
 		          <!-- {{seperate}} -->
 

@@ -59,6 +59,7 @@ Template.postItem.events({
 	'click #edit_post':function(e, t){
 		e.preventDefault()
 		var itemId = this._id;
+		console.log(itemId);
 		Modal.show('postEditModal', function () {
 			return Posts.findOne(itemId);
 		});
