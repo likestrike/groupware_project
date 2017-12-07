@@ -9,26 +9,67 @@
 		</ol>
 		</section>
 		<section class="content">
-			<div class="row" id="post-row">
-				<div class="post-grid col-md-12" id="post-write-area">
-		        	<div class="direct-chat-msg" id="post-modal" style="cursor: pointer;">
-	                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
-	                  <div class="direct-chat-text">클릭하세요.</div>
-	                </div>
-		        </div>
-		    </div>
 		    <div class="row">
-		        <!-- {{#if window_with > 1420}} -->
-		        <!-- 이 부분을 item 말고 분기 할 수 있는 page로 갈수 있게 해보자.  -->
-		        <div class="post-grid col-md-6">
-					{{#each postData}}
-						{{> postItem}}
-				    {{/each}}
-				</div>
-
-		          <!-- /.box -->
-		          <!-- {{seperate}} -->
-
+				{{#if condition1}}
+					<div class="post-grid col-md-4">
+						<div class="direct-chat-msg" id="post-modal" style="cursor: pointer;">
+		                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
+		                  <div class="direct-chat-text">클릭하세요.</div>
+		                </div>
+						{{#each postData}}
+			                {{#if col1}}
+			                   	{{> postItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+			            <div class="post-grid col-md-4">
+						{{#each postData}}
+			                {{#if col2}}
+			                   	{{> postItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+			            <div class="post-grid col-md-4">
+						{{#each postData}}
+			                {{#if col3}}
+			                   	{{> postItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+				{{else}}
+					{{#if condition2}}
+						<div class="post-grid col-md-6">
+							<div class="direct-chat-msg" id="post-modal" style="cursor: pointer;">
+			                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
+			                  <div class="direct-chat-text">클릭하세요.</div>
+			                </div>
+						{{#each postData}}
+			                {{#if even}}
+			                   	{{> postItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+			            <div class="post-grid col-md-6">
+						{{#each postData}}
+			                {{#if odd}}
+			                   	{{> postItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+					{{else}}
+						{{#if condition3}}
+						<div class="post-grid col-md-12">
+							<div class="direct-chat-msg" id="post-modal" style="cursor: pointer;">
+			                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
+			                  <div class="direct-chat-text">클릭하세요.</div>
+			                </div>
+							{{#each postData}}
+								{{> postItem}}
+							{{/each}}
+						</div>
+						{{/if}}
+					{{/if}}
+				{{/if}}
 			</div>
 		</section>
 	</div>

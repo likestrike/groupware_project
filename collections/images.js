@@ -1,6 +1,7 @@
 const Images = new FilesCollection({
   debug: true,
   collectionName: 'Images',
+  storagePath : 'D:/contents',
   allowClientCode: true, // Disallow remove files from Client
   onBeforeUpload: function (file) {
     // Allow upload files under 10MB, and only in png/jpg/jpeg formats
