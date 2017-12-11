@@ -70,7 +70,7 @@ Template.postModal.onCreated(function() {
 	}
 
 	_.each(files, (file, i) => {
-	  Images.insert({
+	  Collections.files.insert({
 	    file: file,
 	    meta: {
 	      blamed: 0,
@@ -86,7 +86,8 @@ Template.postModal.onCreated(function() {
 	  }, false).on('end', function (error, fileObj) {
 	  	console.log(fileObj);
 	    if (!error) {
-	    	Blaze.renderWithData(Template.postFile, {itemId: fileObj._id}, $(".in_block")[0])
+	    	console.log('render');
+	    	Blaze.renderWithData(Template.postFile, {itemId: fileObj}, $(".in_block")[0])
 	      // FlowRouter.go('file', {
 	      //   _id: fileObj._id
 	      // });

@@ -1,4 +1,5 @@
 import Images from '/collections/images.js';
+import { Collections } from '/lib/core.js';
 
 Template.uploadedFiles.helpers({
   uploadedFiles: function () {
@@ -23,7 +24,7 @@ Template.uploadedFiles.events({
 Template.postFile.helpers({
   fileObj : function () {
     console.log(this.itemId);
-    return Images.findOne(this.itemId);
+    return Collections.files.findOne({_id : this.itemId});
     // return this.fileObj;
   }
 });
