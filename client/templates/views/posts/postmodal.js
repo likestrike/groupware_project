@@ -84,10 +84,8 @@ Template.postModal.onCreated(function() {
 	    chunkSize: 'dynamic',
 	    transport: transport
 	  }, false).on('end', function (error, fileObj) {
-	  	console.log(fileObj);
 	    if (!error) {
-	    	console.log('render');
-	    	Blaze.renderWithData(Template.postFile, {itemId: fileObj}, $(".in_block")[0])
+	    	Blaze.renderWithData(Template.postFile, {itemId: fileObj._id}, $("#upload-file")[0])
 	      // FlowRouter.go('file', {
 	      //   _id: fileObj._id
 	      // });

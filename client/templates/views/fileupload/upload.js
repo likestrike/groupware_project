@@ -1,5 +1,6 @@
+import { _app, Collections } from '/lib/core.js';
 import Images from '/collections/images.js';
-import { Collections } from '/lib/core.js';
+
 
 Template.uploadedFiles.helpers({
   uploadedFiles: function () {
@@ -21,11 +22,11 @@ Template.uploadedFiles.events({
     });
   },
 });
+
 Template.postFile.helpers({
   fileObj : function () {
     console.log(this.itemId);
-    return Collections.files.findOne({_id : this.itemId});
-    // return this.fileObj;
+    return Collections.files.findOne(this.itemId);
   }
 });
 
@@ -35,7 +36,7 @@ Template.postFile.events({
     var itemId = e.currentTarget.dataset.value;
 
     // remove image
-    Images.remove({_id: itemId}, function (error) {
+    Collections.files.remove({_id: itemId}, function (error) {
       if (error) {
         console.error("File wasn't removed, error: " + error.reason)
       } else {

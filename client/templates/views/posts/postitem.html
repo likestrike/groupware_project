@@ -35,12 +35,29 @@
             <div class="post-tools-div">
               <!-- Social sharing buttons -->
               <!-- <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>-->
-              <div class="like-button">
+              <!-- <div class="like-button">
                 <i class="custom-like {{checkPostLiked}}"></i>
-              </div>
+              </div> -->
               <!-- <button type="button" class="btn btn-default btn-xs" id="postLike"><i class="fa fa-thumbs-o-up"></i> Like</button> -->
               <!-- <span class="pull-right text-muted">45 likes - 2 comments</span> -->
-              <span class="pull-right text-muted">{{likes}} likes - {{commentsCount}} comments</span>
+            </div>
+          </div>
+        </div>
+        <div class="box-tools-wrapper">
+          <div class="box-tools">
+            <div class="box-tools-div in_block">
+                <div class="like-button pull-left">
+                  <i class="custom-like {{checkPostLiked}}"></i>
+                </div>
+                <div class="likes-count">
+                  <span class="pull-right text-muted">{{likes}} 명</span>
+                </div>
+                <div class="comment-button pull-left">
+                  <i class="custom-comment {{checkPostLiked}}"></i>
+                </div>
+                <div class="comments-count">
+                  <span class="pull-right text-muted">댓글 {{commentsCount}}</span>
+                </div>
             </div>
           </div>
         </div>
@@ -63,9 +80,9 @@
         	<img class="img-responsive img-circle img-sm" src="{{currentUser.profile.thumbnail}}" alt="Alt Text">
             <div class="input-group img-push">
               <div class="form-control comment-form" id="comment" contenteditable="true" placeholder="댓글을 입력하세요.."></div>
-                  <span class="input-group-btn">
-                    <button type="submit" id="comment_submit" class="btn btn-primary btn-flat">Send</button>
-                  </span>
+              <span class="input-group-btn">
+                <button type="submit" id="comment_submit" class="btn btn-primary btn-flat">Send</button>
+              </span>
             </div>
           </form>
 

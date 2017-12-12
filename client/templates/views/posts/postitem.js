@@ -84,7 +84,8 @@ Template.postItem.events({
 
 	'click .custom-like':function(e, t){
 		var postId = this._id;
-		$(e.target).toggleClass("press");
+		// $(e.target).toggleClass("press");
+		 $(e.target).toggleClass( "press", 1000 );
 		Meteor.call('postLiked', postId, function(error, postId) {
 	      if (error){
 	        throwError(error.reason);

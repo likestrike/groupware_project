@@ -60,6 +60,11 @@ if (Meteor.isServer) {
       }, 1024);
     }
   });
+  Meteor.publish('files.images.all', function () {
+    return Collections.files.find().cursor;
+  });
+}else{
+  Meteor.subscribe('files.images.all');
 }
 // Collections.files.denyClient();
 
