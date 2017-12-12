@@ -57,9 +57,12 @@ Template.postlist.helpers({
 Template.postlist.events({
 	'click #post-modal': function (e, t) {
 		e.preventDefault()
-		// var options = {backdrop: 'static', keyboard: false};
 		Modal.show('postModal');
 	},
+	'click #small-pencil':function(e, t){
+		e.preventDefault()
+		Modal.show('postModal');
+	}
 });
 Meteor.startup(function () {
 	Session.set("window_width", $(window).width());

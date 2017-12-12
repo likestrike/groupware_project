@@ -12,8 +12,6 @@ Template.searchUser.helpers({
 	loadmoreClass : function(){
 		return {'class'  : 'test'};
 	},
-	
-	
 });
 
 Template.searchUser.onCreated(function() {
@@ -24,7 +22,7 @@ Template.searchUser.onCreated(function() {
 	        // getMoreItems();
 	        console.log('bottom');
 	    }
-        
+
     });
 });
 

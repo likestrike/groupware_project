@@ -5,12 +5,17 @@ var screenSizes = {
   md: 992,
   lg: 1200
 };
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
 
 Template.layout.onCreated(function () {
   var self = this;
   var skin = 'red';
   var fixed = true;
   var sidebarMini = true;
+
+  $('body').tooltip({ selector: '[data-toggle="tooltip"]' });
 
   document.title = 'LOCUS 그룹웨어';
 
@@ -36,6 +41,24 @@ Template.layout.onCreated(function () {
     }
   });
 
+  $(window).on('scroll', function(){
+    didScroll = true;
+    if ($(window).width() <= (screenSizes.sm - 1) ){
+      var ti2 = setInterval(function () {
+        if (didScroll) {
+            hasScrolled();
+            didScroll = false;
+            clearInterval(ti2);
+        }
+      }, 250);
+    }else{
+      $('header').css({
+        top : 0
+      })
+    }
+
+  });
+
 });
 
 Template.layout.onDestroyed(function () {
@@ -48,13 +71,16 @@ Template.layout.helpers({
   isReady: function () {
     return Template.instance().isReady.get();
   },
-
   loadingTemplate: function () {
     return this.loadingTemplate || 'AdminLTE_loading';
   },
   skin: function () {
-    console.log(this.skin);
     return this.skin || 'red';
+  },
+  visible: function(){
+    if ($(window).width() > (screenSizes.sm - 1)) {
+      return 'show';
+    }
   }
 });
 
@@ -203,4 +229,28 @@ function waitOnCSS (url, timeout) {
       $('link[href="' + url + '"]').remove();
     }
   };
+}
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    var navbarHeight = $('header').outerHeight();
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('header').css({
+          top : '-100px'
+        });
+        $('header').removeClass('nav-down').addClass('nav-up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+           $('header').css({
+              top : 0
+            })
+        }
+    }
+    lastScrollTop = st;
 }

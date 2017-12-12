@@ -107,6 +107,7 @@ Template.postModal.onCreated(function() {
 	});
 	return true;
 	};
+
 });
 Template.postModal.helpers({
   error() {
@@ -121,10 +122,14 @@ Template.postModal.events({
 		if($('#submit').hasClass('disabled')){
 			$('#submit').removeClass('disabled');
 		}
-		var value = $(e.target).val();
-	    $('#post_context').html(value);
+
 	},
 	'keyup #post_context_text': function (e, t) {
+		var value = $(e.target).val();
+	    $('#post_context').html(value);
+	    $('.post-from-area').css({
+	    	height : $('#post_context').height() + 'px'
+	    })
 		if (e.keyCode !== 13) return;
 		var url_val = urlify($(e.target).val());
 		const url = url_val;

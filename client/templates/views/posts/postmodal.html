@@ -18,16 +18,26 @@
                 <div class="modal-body">
                     <!-- <div class="post_input" id="post_context_div">{{{postNote}}}</div> -->
                     <!-- <div class="form-control post-form" id="post_context" contenteditable="true" placeholder="쓰거라 상큼한 회사생활." autofocus></div> -->
-                    <div class="form-control post-form" id="post_context"></div>
-                    <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context_text" autofocus=""></textarea>
-                </div>
-                <div class="post_image_area">
-                    <div class="post_image_wrapper">
-                      <ul class="post_image_ul">
-                        <div class="in_block" id="upload-file"></div>
-                        </ul>
+                    <div class="post-from-wrapper">
+                        <div class="post-from-area">
+                            <div class="post-form" id="post_context"></div>
+                            <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context_text" autofocus=""></textarea>
+                        </div>
+                        <div class="post_image_area">
+                            <div class="post_image_wrapper">
+                              <ul class="post_image_ul">
+                                <div class="in_block" id="upload-file"></div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='post-modal-tools-box'>
+                        <div class="post-camera" data-toggle="tooltip" title="사진 올리기">
+                          <i class="fa fa-camera"></i>
+                        </div>
                     </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary disabled" id="submit" name="submit">저장하기</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
