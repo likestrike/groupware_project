@@ -8,6 +8,9 @@ Template.postlist.helpers({
 	getWidth:function(){
 		return Session.get('window_width');
 	},
+	getHeight:function(){
+		return Session.get('window_height');
+	},
 	postData: function() {
 		var posts = [];
 		var _i = 0;
@@ -66,13 +69,16 @@ Template.postlist.events({
 });
 Meteor.startup(function () {
 	Session.set("window_width", $(window).width());
+	Session.set("window_height", $(window).height());
   window.addEventListener('resize', function(){
   	if($(this).width() >= 990 && $(this).width() <= 1420){
   		Session.set("resize", true);
   		Session.set("window_width", $(this).width());
+  		Session.set("window_height", $(this).height());
   	}else{
   		Session.set("resize", false);
   		Session.set("window_width", $(this).width());
+  		Session.set("window_height", $(this).height());
   	}
   });
 });

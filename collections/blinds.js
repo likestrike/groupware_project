@@ -17,10 +17,29 @@ Meteor.methods({
       context: String
     });
 
+    var names = [
+     "지나가던 방랑자",
+     "오늘밤 주인공은 나야나", 
+     "ilieiiseif", 
+     "iiiiiiioiii", 
+     "보노보노", 
+     "일곱난장이",
+     "월급루팡",
+     "칼퇴요정",
+     "Unknowm",
+     "33780208",
+     "820810",
+     "가라! 법카충!"
+    ];
+    function getMessage() {
+       return names[Math.floor(Math.random() * names.length)];
+    }
+    var randomName = getMessage();
+
     var user = Meteor.user();
     var doc = _.extend(Attributes, {
       userId: user._id,
-      author: 'Unknown',
+      author: randomName,
       submitted: new Date()
     });
 

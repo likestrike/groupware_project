@@ -127,7 +127,7 @@ Template.postModal.events({
 	'keyup #post_context_text': function (e, t) {
 		var value = $(e.target).val();
 	    $('#post_context').html(value);
-	    $('.post-from-area').css({
+	    $('.post-form-area').css({
 	    	height : $('#post_context').height() + 'px'
 	    })
 		if (e.keyCode !== 13) return;

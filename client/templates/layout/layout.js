@@ -1,3 +1,4 @@
+import { ClientStorage }     from 'meteor/ostrio:cstorage';
 
 var screenSizes = {
   xs: 480,
@@ -8,10 +9,15 @@ var screenSizes = {
 var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
+var stored   = new ReactiveVar(ClientStorage.get('skin'));
 
 Template.layout.onCreated(function () {
   var self = this;
-  var skin = 'red';
+  // var skin = 'green';
+  localStorage.removeItem('skin');
+
+  var skin = stored.get() || 'red';
+
   var fixed = true;
   var sidebarMini = true;
 
@@ -28,6 +34,7 @@ Template.layout.onCreated(function () {
   self.isReady = new ReactiveVar(false);
   self.style = waitOnCSS(cssUrl());
   self.skin = waitOnCSS(skinUrl(skin));
+  
 
   fixed && $('body').addClass('fixed');
   sidebarMini && $('body').addClass('sidebar-mini');
@@ -36,11 +43,12 @@ Template.layout.onCreated(function () {
     sidebarMini && $('body').removeClass('sidebar-mini');
   }
   this.autorun(function () {
+    console.log('autorun');
     if (self.style.ready() && self.skin.ready()) {
       self.isReady.set(true);
     }
   });
-
+  console.log(skin);
   $(window).on('scroll', function(){
     didScroll = true;
     if ($(window).width() <= (screenSizes.sm - 1) ){
@@ -59,12 +67,8 @@ Template.layout.onCreated(function () {
 
   });
 
-});
 
-Template.layout.onDestroyed(function () {
-  this.removeClasses();
-  this.style.remove();
-  this.skin.remove();
+
 });
 
 Template.layout.helpers({
@@ -75,7 +79,8 @@ Template.layout.helpers({
     return this.loadingTemplate || 'AdminLTE_loading';
   },
   skin: function () {
-    return this.skin || 'red';
+    var _skin = stored.get();
+    return _skin || 'red';
   },
   visible: function(){
     if ($(window).width() > (screenSizes.sm - 1)) {
@@ -101,6 +106,10 @@ Template.layout.events({
         $("body").addClass('sidebar-open');
       }
     }
+  },
+  'click [data-toggle=control-sidebar]' : function(e, t){
+    e.preventDefault();
+    $('.control-sidebar').toggleClass('control-sidebar-open');
   },
 
   'click .content-wrapper': function (e, t) {

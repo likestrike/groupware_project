@@ -23,12 +23,16 @@ Template.postItem.helpers({
 		return this.userId === Meteor.userId();
 	},
 	checkPostLiked : function(){
-		var res = Posts.find( { _id: this._id}, { likers: 1}).fetch()[0].likers;
-		var q = _.find(res, (x) => x == Meteor.userId());
+		var postItem = Posts.find( { _id: this._id}, { likers: 1}).fetch();
+		if(postItem.length > 0){
+			var res = postItem[0].likers;
+			var q = _.find(res, (x) => x == Meteor.userId());
 
-		if ( q == Meteor.userId() ){
-			return "press";
+			if ( q == Meteor.userId() ){
+				return "press";
+			}
 		}
+		
 
   	},
 });
@@ -72,7 +76,7 @@ Template.postItem.events({
 		var callback = {
 			fn: function() {
 				Posts.remove(currentPostId);
-	      		FlowRouter.go('/postlist');
+				FlowRouter.go('/postlist');	
 			}
 		}
 		myalert.deleteConfirm(callback);

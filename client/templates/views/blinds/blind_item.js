@@ -1,12 +1,13 @@
 Template.blindItem.helpers({
 	formattedDate: function(){
-		return moment(this.submitted).format("dddd, MMMM Do YYYY, h:mm:ss");
+		moment.locale('ko');
+		return moment(this.submitted).format("LLL");
 	},
 	comments: function() {
 		Meteor.subscribe('blind_comments', this._id);
 	    // return Comments.find({postId: this._id}, {sort: {submitted: -1}, limit: 2});
 	    return BlindComments.find({blindId: this._id});
-	}
+	},
 });
 
 Template.blindItem.events({

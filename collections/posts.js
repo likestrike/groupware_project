@@ -23,7 +23,8 @@ Meteor.methods({
       author: user.username,
       submitted: new Date(),
       commentsCount : 0,
-      likes : 0
+      likes : 0,
+      likers : []
     });
 
     var postId = Posts.insert(post);

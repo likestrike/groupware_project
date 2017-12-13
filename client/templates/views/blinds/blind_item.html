@@ -8,8 +8,25 @@
 		</div>
         <div class="box-body">
           <!-- post text -->
-          {{{context}}}
-          <span class="pull-right text-muted">{{commentsCount}} comments</span>
+          <div class="post-wrapper">
+            <div class="post-context-wrapper">
+              <div class="post-context-div minimum">
+                  <div class="post-context">{{{context}}}</div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="box-tools-wrapper">
+          <div class="box-tools">
+            <div class="box-tools-div in_block">
+                <div class="comment-button pull-left">
+                  <i class="custom-comment {{commentsCount}}"></i>
+                </div>
+                <div class="comments-count">
+                  <span class="pull-right text-muted">댓글 {{commentsCount}}</span>
+                </div>
+            </div>
+          </div>
         </div>
           {{#each comments}}
             {{> blind_commentItem}}

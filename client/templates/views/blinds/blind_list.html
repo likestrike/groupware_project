@@ -15,25 +15,78 @@
 				<a href="#">사장님께 건의하기</a>로 회사를 바꿔보세요.
 			</div>
 			<div class="row">
-				<div class="box box-widget">
-					<div class="box-body">
-						<div class="col-lg-2">
-							<button type="button" class="btn btn-primary btn-block" id="blind-modal">작성하기</button>
+				{{#if condition1}}
+					<div class="blindItem-grid col-md-4">
+						<div class="row">
+							<div class="col-lg-6">
+								<button type="button" class="btn btn-primary btn-block" id="blind-modal">
+									<i class="fa fa-fw fa-user-secret"></i>
+								작성하기</button>	
+							</div>
+							<div class="col-lg-6">
+								<button type="button" class="btn btn-primary btn-block" id="email-modal">사장님께 건의하기</button>	
+							</div>
 						</div>
-						<div class="col-lg-2">
-							<button type="button" class="btn btn-primary btn-block" id="blind-modal">사장님께 건의하기</button>
+						{{#each blindData}}
+			                {{#if col1}}
+			                   	{{> blindItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+			            <div class="blindItem-grid col-md-4">
+						{{#each blindData}}
+			                {{#if col2}}
+			                   	{{> blindItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+			            <div class="blindItem-grid col-md-4">
+						{{#each blindData}}
+			                {{#if col3}}
+			                   	{{> blindItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+				{{else}}
+					{{#if condition2}}
+						<div class="blindItem-grid col-md-6">
+							<div class="direct-chat-msg" id="blindItem-modal" style="cursor: pointer;">
+			                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
+			                  <div class="direct-chat-text">클릭하세요.</div>
+			                </div>
+						{{#each blindData}}
+			                {{#if even}}
+			                   	{{> blindItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+			            <div class="blindItem-grid col-md-6">
+						{{#each blindData}}
+			                {{#if odd}}
+			                   	{{> blindItem}}
+			                {{/if}}
+			            {{/each}}
+			            </div>
+					{{else}}
+						{{#if condition3}}
+						<div class="blindItem-grid col-md-12">
+							<div class="direct-chat-msg" id="blindItem-modal" style="cursor: pointer;">
+			                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
+			                  <div class="direct-chat-text">클릭하세요.</div>
+			                </div>
+							{{#each blindData}}
+								{{> blindItem}}
+							{{/each}}
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					{{#each blinds}}
-						{{> blindItem}}
-				    {{/each}}
-		          <!-- /.box -->
-		        </div>
-			</div>
+						{{/if}}
+					{{/if}}
+				{{/if}}
+			</div>			
 		</section>
 	</div>
+	<div id="small-pencil">
+      <div class="open-small-pencil">
+          <i class="fa fa-pencil"></i>
+      </div>
+  </div>
 </template>

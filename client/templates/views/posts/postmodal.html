@@ -18,10 +18,10 @@
                 <div class="modal-body">
                     <!-- <div class="post_input" id="post_context_div">{{{postNote}}}</div> -->
                     <!-- <div class="form-control post-form" id="post_context" contenteditable="true" placeholder="쓰거라 상큼한 회사생활." autofocus></div> -->
-                    <div class="post-from-wrapper">
-                        <div class="post-from-area">
-                            <div class="post-form" id="post_context"></div>
-                            <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context_text" autofocus=""></textarea>
+                    <div class="post-form-wrapper modal-context-box">
+                        <div class="post-form-area textcontext-area">
+                            <div class="post-form textarea-copyform" id="post_context"></div>
+                            <textarea class="modal_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context_text" autofocus=""></textarea>
                         </div>
                         <div class="post_image_area">
                             <div class="post_image_wrapper">
@@ -61,9 +61,19 @@
                 </div>
                 <div class="modal-body">
                     <!-- <div class="post_input" id="post_context_div">{{{postNote}}}</div> -->
-
-                    <div class="form-control post-form" id="post_context">{{{context}}}</div>
-                    <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context_text" autofocus="">{{{context}}}</textarea>
+                    <div class="post-form-wrapper modal-context-box">
+                        <div class="post-form-area textcontext-area">
+                            <div class="post-form textarea-copyform" id="post_context">{{{context}}}</div>
+                            <textarea class="modal_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context_text" autofocus="">{{{context}}}</textarea>
+                        </div>
+                        <div class="post_image_area">
+                            <div class="post_image_wrapper">
+                              <ul class="post_image_ul">
+                                <div class="in_block" id="upload-file"></div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <!-- <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context"></textarea> -->
                 </div>
                 <div class="modal-footer">

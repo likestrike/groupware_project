@@ -25,4 +25,3 @@ Template.searchUser.onCreated(function() {
 
     });
 });
-

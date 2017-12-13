@@ -2,9 +2,35 @@
     <div class="modal fade" tabindex='-1'>
         <div class="modal-dialog">
             <div class="modal-content">
+                <div class="modal-header">
+                    <div>쓰기전에 생각했나요? </div>
+                </div>
                 <div class="modal-body">
+                    <div class="blind-from-wrapper modal-context-box">
+                        <div class="blind-form-area textcontext-area">
+                            <div class="blind-form textarea-copyform" id="blind_context"></div>
+                            <textarea class="modal_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="blind_context_text" autofocus=""></textarea>
+                        </div>
+                        <div class="blind_image_area">
+                            <div class="blind_image_wrapper">
+                              <ul class="blind_image_ul">
+                                <div class="in_block" id="upload-file"></div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-modal-tools-box">
+                        <div>사장님께 전송 : </div>
+                        <div class="onoffswitch" data-toggle="tooltip" title="사장님께 이메일로 보냅니다. 내용은 게시판에 저장되지 않습니다.">
+                            <input type="checkbox" class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
                     <!-- <div class="post_input" id="post_context_div">{{{postNote}}}</div> -->
-                    <div class="form-control post-form" id="blind_context" contenteditable="true" placeholder="쓰거라 상큼한 회사생활." autofocus></div>
+                    <!-- <div class="form-control post-form" id="blind_context" contenteditable="true" placeholder="쓰거라 상큼한 회사생활." autofocus></div> -->
                     <!-- <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context"></textarea> -->
                 </div>
                 <div class="modal-footer">
