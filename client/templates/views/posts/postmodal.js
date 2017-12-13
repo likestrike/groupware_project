@@ -192,6 +192,12 @@ Template.postModal.events({
 	},
 
 });
+Template.postEditModal.helpers({
+	contextConv: function () {
+		var conver_text = this.context.replace(/<br \/\>/g, '\n');
+		return conver_text;
+	}
+});
 Template.postEditModal.events({
 	'keydown #post_context_text': function (e, t) {
 		if($('#update').hasClass('disabled')){

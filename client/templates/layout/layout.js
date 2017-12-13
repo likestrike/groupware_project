@@ -34,7 +34,7 @@ Template.layout.onCreated(function () {
   self.isReady = new ReactiveVar(false);
   self.style = waitOnCSS(cssUrl());
   self.skin = waitOnCSS(skinUrl(skin));
-  
+
 
   fixed && $('body').addClass('fixed');
   sidebarMini && $('body').addClass('sidebar-mini');

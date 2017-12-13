@@ -19,17 +19,30 @@ Template.commentItem.helpers({
 	}
 });
 Template.commentItem.events({
+	'click [data-toggle="dropdown"]':function(e,t){
+		if($('body').find('#comment-edit-box').length > 0){
+			var view = Blaze.getView($("#comment-edit-box")[0]);
+			Blaze.remove(view);
+		}
+		var _top = $(e.target).offset().top;
+		var _left = $(e.target).offset().left;
+
+		var itemId = this._id;
+		var commentObj = {
+			itemId : this._id,
+			target : $(e.target).parents('.box-comments'),
+			top : _top,
+			left : _left
+		}
+		Blaze.renderWithData(Template.commentMinipop, {commentObj: commentObj}, $("body")[0])
+
+	},
 	'click #edit_comment': function (e, t) {
 		e.preventDefault()
 		var itemId = this._id;
 		var target = $(e.target).parents('.box-comments');
-		// target.append('test');
-		// Comments.findOne(itemId);
 		target.children().hide()
 		Blaze.renderWithData(Template.comment_edit, Comments.findOne(itemId), $(e.target).parents('.box-comments')[0])
-		// Modal.show('postEditModal', function () {
-		// 	return Posts.findOne(itemId);
-		// });
 	}
 });
 
