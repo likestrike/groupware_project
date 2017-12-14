@@ -1,5 +1,6 @@
 <template name="blindlist">
 	<div class="content-wrapper" >
+		{{> notice}}
 		<section class="content-header">
 			<h1>블라인드 게시판<small>무기명 건의하기</small>
 		</h1>
@@ -22,9 +23,6 @@
 								<button type="button" class="btn btn-primary btn-block" id="blind-modal">
 									<i class="fa fa-fw fa-user-secret"></i>
 								작성하기</button>	
-							</div>
-							<div class="col-lg-6">
-								<button type="button" class="btn btn-primary btn-block" id="email-modal">사장님께 건의하기</button>	
 							</div>
 						</div>
 						{{#each blindData}}
@@ -50,10 +48,13 @@
 				{{else}}
 					{{#if condition2}}
 						<div class="blindItem-grid col-md-6">
-							<div class="direct-chat-msg" id="blindItem-modal" style="cursor: pointer;">
-			                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
-			                  <div class="direct-chat-text">클릭하세요.</div>
-			                </div>
+							<div class="row">
+								<div class="col-lg-6">
+									<button type="button" class="btn btn-primary btn-block" id="blind-modal">
+										<i class="fa fa-fw fa-user-secret"></i>
+									작성하기</button>	
+								</div>
+							</div>
 						{{#each blindData}}
 			                {{#if even}}
 			                   	{{> blindItem}}
@@ -70,10 +71,13 @@
 					{{else}}
 						{{#if condition3}}
 						<div class="blindItem-grid col-md-12">
-							<div class="direct-chat-msg" id="blindItem-modal" style="cursor: pointer;">
-			                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
-			                  <div class="direct-chat-text">클릭하세요.</div>
-			                </div>
+							<div class="row">
+								<div class="col-lg-6">
+									<button type="button" class="btn btn-primary btn-block" id="blind-modal">
+										<i class="fa fa-fw fa-user-secret"></i>
+									작성하기</button>	
+								</div>
+							</div>
 							{{#each blindData}}
 								{{> blindItem}}
 							{{/each}}

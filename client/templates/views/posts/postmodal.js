@@ -4,6 +4,13 @@ import { ClientStorage }     from 'meteor/ostrio:cstorage';
 import { _app, Collections } from '/lib/core.js';
 import Images from '/collections/images.js';
 
+var screenSizes = {
+  xs: 480,
+  sm: 768,
+  md: 992,
+  lg: 1200
+};
+
 Template.postModal.onCreated(function() {
 	const self          = this;
 	this.error          = new ReactiveVar(false);
@@ -115,6 +122,13 @@ Template.postModal.helpers({
   },
   uploads() {
     return _app.uploads.get();
+  },
+  attribute(){
+  	var attributes = {};
+  	if ($(window).width() <= (screenSizes.sm - 1) ){
+  		attributes.style = "position:fixed; top: 0; left: 0; bottom:0; right:0; margin:0;";
+  	}
+	return attributes;
   },
 });
 Template.postModal.events({

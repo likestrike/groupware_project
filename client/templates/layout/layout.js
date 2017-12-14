@@ -10,12 +10,13 @@ var didScroll;
 var lastScrollTop = 0;
 var delta = 5;
 var stored   = new ReactiveVar(ClientStorage.get('skin'));
-
+Meteor.startup(function () {
+  Session.set("window_width", $(window).width());
+  Session.set("window_height", $(window).height());
+});
 Template.layout.onCreated(function () {
   var self = this;
-  // var skin = 'green';
-  localStorage.removeItem('skin');
-
+  
   var skin = stored.get() || 'red';
 
   var fixed = true;
@@ -43,12 +44,10 @@ Template.layout.onCreated(function () {
     sidebarMini && $('body').removeClass('sidebar-mini');
   }
   this.autorun(function () {
-    console.log('autorun');
     if (self.style.ready() && self.skin.ready()) {
       self.isReady.set(true);
     }
   });
-  console.log(skin);
   $(window).on('scroll', function(){
     didScroll = true;
     if ($(window).width() <= (screenSizes.sm - 1) ){
@@ -72,6 +71,12 @@ Template.layout.onCreated(function () {
 });
 
 Template.layout.helpers({
+  getWidth:function(){
+    return Session.get('window_width');
+  },
+  getHeight:function(){
+    return Session.get('window_height');
+  },
   isReady: function () {
     return Template.instance().isReady.get();
   },
@@ -86,7 +91,8 @@ Template.layout.helpers({
     if ($(window).width() > (screenSizes.sm - 1)) {
       return 'show';
     }
-  }
+  },
+  
 });
 
 Template.layout.events({
@@ -111,14 +117,41 @@ Template.layout.events({
     e.preventDefault();
     $('.control-sidebar').toggleClass('control-sidebar-open');
   },
+  'click #small-bars' : function(e, t){
+    e.preventDefault();
+    //Enable sidebar push menu
+    if ($(window).width() > (screenSizes.sm - 1)) {
+      $("body").toggleClass('sidebar-collapse');
+    }
+    //Handle sidebar push menu for small screens
+    else {
+      if ($("body").hasClass('sidebar-open')) {
+        $("body").removeClass('sidebar-open');
+        $("body").removeClass('sidebar-collapse')
+      } else {
+        $("body").addClass('sidebar-open');
+      }
+    }
+  },
 
   'click .content-wrapper': function (e, t) {
     //Enable hide menu when clicking on the content-wrapper on small screens
     if ($(window).width() <= (screenSizes.sm - 1) && $("body").hasClass("sidebar-open")) {
       $("body").removeClass('sidebar-open');
     }
+    if ($(window).width() <= (screenSizes.sm - 1) && $('.control-sidebar').hasClass("control-sidebar-open")) {
+      $('.control-sidebar').removeClass('control-sidebar-open');
+    }
   },
+  'click [data-skin]': function (e, t) {
+    e.preventDefault()
+    var skin = $(e.currentTarget).data('skin');
 
+    ClientStorage.set('skin', skin);
+    t.skin.remove();
+    t.skin = waitOnCSS(skinUrl(skin));
+    stored.set(skin);
+  },
   'click .sidebar li a': function (e, t) {
     //Get the clicked link and the next element
     var $this = $(e.currentTarget);

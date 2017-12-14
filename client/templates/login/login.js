@@ -9,7 +9,6 @@ Template.login.onCreated(function () {
   			// ui.notify(stringArray[0], stringArray[1])
     	// 		.effect('slide')
     	// 		.closable();
-    		console.log(message);
   			Session.set('displayMessage', null);
 		}
 		$('body').addClass('hold-transition').addClass('login-page');

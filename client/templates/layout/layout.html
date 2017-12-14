@@ -8,10 +8,11 @@
   {{else}}
   {{> Template.dynamic template=login}}
   {{> Template.dynamic template=signup}}
+  {{#if currentUser }}
     <div class="skin-{{skin}}" id="layout-main">
       <div class="wrapper">
         {{> Template.dynamic template=top}}
-    		{{> Template.dynamic template=left}}
+    		{{> Template.dynamic template=left}}          
     		{{> Template.dynamic template=content}}
         {{> Template.dynamic template=fotter}}
         {{> Template.dynamic template=controls}}
@@ -22,8 +23,10 @@
           </div>
       </div>
     </div>
+  {{/if}}
   {{/unless}}
 </template>
+
 
 <template name="loadingTemplate">
   <!-- {{>spinner}} -->

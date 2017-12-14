@@ -23,7 +23,16 @@
 <template name="notificationItem">
   <li>
     <a href="{{notificationPostPath}}">
-      <strong>{{commenterName}}</strong> 님이 댓글을 달았습니다.
+      <div class="pull-left">
+        <img src="{{writer.profile.thumbnail}}" class="img-circle" alt="User Image">
+      </div>
+      <h4>
+        <small>
+          <i class="fa fa-clock-o">{{formattedDate}}</i>
+        </small>
+      </h4>
+      <p>{{commenterName}}님이 댓글을 달았습니다.</p>
+      <!-- <strong>{{commenterName}}</strong> 님이 댓글을 달았습니다. -->
     </a>
   </li>
 </template>
