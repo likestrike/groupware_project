@@ -245,7 +245,7 @@
 }
 
 .textcontext-area{
-  min-height: 200px;
+  min-height: 100px;
   position: relative;
 }
 textarea.modal_textarea{
@@ -280,7 +280,7 @@ div#post_context_div{
   height: 331px;
 }
 .textarea-copyform{
-  min-height: 180px;
+  min-height: 20px;
   height: auto;
   border: 0;
   white-space: pre-wrap;
@@ -349,6 +349,23 @@ img.post_uploaded_image{
   -moz-transition: height 2s; /* Firefox 4 */
   -webkit-transition: height 2s; /* Safari and Chrome */
   -o-transition: height 2s; /* Opera */
+}
+.postfile-image-wrapper{
+  position: relative;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.postfile-image{
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  margin: auto;
 }
 
 

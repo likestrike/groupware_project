@@ -26,7 +26,7 @@ Template.uploadedFiles.events({
 Template.postFile.helpers({
   objFile : function () {
     return Collections.files.findOne(this.itemId);
-  }
+  },
 });
 
 Template.postFile.events({

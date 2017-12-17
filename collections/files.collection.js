@@ -74,10 +74,10 @@ if (Meteor.isServer) {
 // Remove files along with MongoDB records two minutes before expiration date
 // If we have 'expireAfterSeconds' index on 'meta.expireAt' field,
 // it won't remove files themselves.
-Meteor.setInterval(() => {
-  Collections.files.remove({
-    'meta.expireAt': {
-      $lte: new Date(+new Date() + 120000)
-    }
-  }, _app.NOOP);
-}, 120000);
+// Meteor.setInterval(() => {
+//   Collections.files.remove({
+//     'meta.expireAt': {
+//       $lte: new Date(+new Date() + 120000)
+//     }
+//   }, _app.NOOP);
+// }, 120000);

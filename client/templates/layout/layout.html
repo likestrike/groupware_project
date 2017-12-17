@@ -3,6 +3,7 @@
 </head>
 <template name="layout">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+{{> pswp}}
   {{#unless isReady}}
     {{> Template.dynamic template=loadingTemplate}}
   {{else}}
@@ -12,7 +13,7 @@
     <div class="skin-{{skin}}" id="layout-main">
       <div class="wrapper">
         {{> Template.dynamic template=top}}
-    		{{> Template.dynamic template=left}}          
+    		{{> Template.dynamic template=left}}
     		{{> Template.dynamic template=content}}
         {{> Template.dynamic template=fotter}}
         {{> Template.dynamic template=controls}}

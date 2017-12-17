@@ -93,14 +93,7 @@ Template.postlist.onCreated(function(){
 			}
 		}
 	});
-	// $(window).resize(function() {
-	// 	if($(this).width() >= 990 && $(this).width() <= 1420){
-	// 		console.log('ddd');
-	// 		Session.set("resize", new Date());
-	// 	}else if($(this).width() > 1420){
-	// 		console.log('ccc');
-	// 	}else if($(this).width() < 991){
-	// 		console.log('aaa');
-	// 	}
-	// });
+
+
+
 })

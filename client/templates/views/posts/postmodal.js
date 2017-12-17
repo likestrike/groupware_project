@@ -85,6 +85,7 @@ Template.postModal.onCreated(function() {
 	      expireAt: ttl,
 	      unlisted: unlisted,
 	      downloads: 0,
+	      category : 'temp',
 	      created_at: created_at - 1 - i
 	    },
 	    streams: 'dynamic',
@@ -169,8 +170,18 @@ Template.postModal.events({
 			return;
 		}
 
+		// get image ids
+		var file_ids = [];
+		if($('.post_uploaded_image').length >0){
+			$('.post_uploaded_image').each(function(){
+				file_ids.push($(this).data('value'));
+			});
+			console.log(file_ids);
+		}
+
 		var post = {
-			context : conver_text
+			context : conver_text,
+			fileIds : file_ids
 		}
 		Meteor.call('postInsert', post, function(error, result) {
 	      // display the error to the user and abort

@@ -14,7 +14,8 @@ Meteor.methods({
   postInsert: function(postAttributes) {
     check(this.userId, String);
     check(postAttributes, {
-      context: String
+      context: String,
+      fileIds: Array
     });
 
     var user = Meteor.user();

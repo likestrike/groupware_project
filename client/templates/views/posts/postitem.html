@@ -31,6 +31,21 @@
                 </div>
             </div>
           </div>
+          <!-- {{#if getFileIds}} -->
+          <div class="post-images" id='myarea'>
+            {{> Template.dynamic template="postfileView" data=getdata}}
+            <!-- {{testgo}} -->
+          <!-- {{#if isSingle}}
+            {{#each getFiledata.each}}
+              {{> postfilePageSingle}}
+            {{/each}}
+          {{else}}
+            {{#each getFiledata.each}}
+              {{> postfilePage}}
+            {{/each}}
+          {{/if}} -->
+          </div>
+          <!-- {{/if}} -->
         </div>
         <div class="box-tools-wrapper">
           <div class="box-tools">

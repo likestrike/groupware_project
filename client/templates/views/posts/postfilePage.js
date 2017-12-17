@@ -1,152 +1,82 @@
 import { _app, Collections } from '/lib/core.js';
-import { Template }          from 'meteor/templating';
-import { Blaze } from 'meteor/blaze';
 
-Template.postItem.helpers({
-	writer: function() {
-		Meteor.subscribe('user');
-		// return Meteor.users.find({'profile' : {_id: this.userId}});
-		return Meteor.users.findOne(this.userId);
-	},
-	formattedDate: function(){
-		moment.locale('ko');
-		return moment(this.submitted).format("LLL");
-	},
-	comments: function() {
-		Meteor.subscribe('comments', this._id);
-	    // return Comments.find({postId: this._id}, {sort: {submitted: -1}, limit: 2});
-	    return Comments.find({postId: this._id});
-	},
-	ownPost: function(){
-		var loggedInUser = Meteor.user();
-		if(loggedInUser){
-			if (Roles.userIsInRole(loggedInUser, ['admin'], 'default-group')){
-		  		return true;
-			}
-		}
-		return this.userId === Meteor.userId();
-	},
-	checkPostLiked : function(){
-		var postItem = Posts.find( { _id: this._id}, { likers: 1}).fetch();
-		if(postItem.length > 0){
-			var res = postItem[0].likers;
-			var q = _.find(res, (x) => x == Meteor.userId());
-
-			if ( q == Meteor.userId() ){
-				return "press";
-			}
-		}
-  	},
-  	getFiledata : function(){
-  		if(this.fileIds == undefined || this.fileIds.length == 0){
-  			return false;
-  		}
-  		return Collections.files.find({'_id' : {"$in": this.fileIds}});
-  	},
-  	isSingle : function(){
-  		if(this.fileIds == undefined || this.fileIds.length == 0){
-  			return false;
-  		}
-  		var count = Collections.files.find({'_id' : {"$in": this.fileIds}}).count();
-  		if(count == 1)return true;
-  		return false;
-  	},
-  	testgo: function(){
-  		if(this.fileIds == undefined || this.fileIds.length == 0){
-  			return false;
-  		}
-  		Blaze.renderWithData(Template.postfileView, {fileIds: this.fileIds});
-  	},
-  	getdata: function(){
-  		return this.fileIds;
-  	}
+Template.postfilePage.onCreated(function(){
+  this.showPreview  = () => {
+    if (this.data.isImage && /png|jpe?g/i.test(this.data.extension)) {
+      if (this.data.versions.thumbnail40) {
+        return true;
+      }
+    }
+    return false;
+  };
 });
-
-Template.postItem.events({
-	'submit form': function (e, t) {
-		e.preventDefault();
-		var $body = $(e.target).find('#comment');
-	    var comment = {
-	      body: $body.html(),
-	      postId: this._id
-	    };
-
-	 //    var errors = {};
-	 //    if (! comment.body) {
-	 //      errors.body = "Please write some content";
-	 //      return Session.set('commentSubmitErrors', errors);
-	 //    }
-
-	    Meteor.call('commentInsert', comment, function(error, commentId) {
-	      if (error){
-	        throwError(error.reason);
-	      } else {
-	        $body.empty();
-	      }
-	    });
+Template.postfilePage.helpers({
+	showPreview: function () {
+		return Template.instance().showPreview();
 	},
-	'click #edit_post':function(e, t){
-		e.preventDefault()
-		var itemId = this._id;
-		console.log(itemId);
-		Modal.show('postEditModal', function () {
-			return Posts.findOne(itemId);
-		});
-		// Modal.show('postEditModal');
+});
+Template.postfilePageSingle.onCreated(function(){
+	console.log('post file page created');
+  this.showPreview  = () => {
+    if (this.data.isImage && /png|jpe?g/i.test(this.data.extension)) {
+      if (this.data.versions.thumbnail40) {
+        return true;
+      }
+    }
+    return false;
+  };
+});
+Template.postfilePageSingle.helpers({
+	showPreview: function () {
+		return Template.instance().showPreview();
 	},
-	'click #delete_post':function(e, t){
-		e.preventDefault()
-		var currentPostId = this._id;
-		var myalert = new MyAlert();
-		var callback = {
-			fn: function() {
-				Posts.remove(currentPostId);
-				FlowRouter.go('/postlist');
-			}
+	setAttr : function(){
+		var attr = {};
+		if(this.meta.width < this.meta.height){
+			attr.style = 'padding-top : 134%;';
+		}else{
+			attr.style = 'padding-top : 64%;';
 		}
-		myalert.deleteConfirm(callback);
-	},
-	'click #postLike':function(e, t){
-		e.preventDefault();
-		var currentPostId = this._id;
-	},
-
-	'click .custom-like':function(e, t){
-		var postId = this._id;
-		// $(e.target).toggleClass("press");
-		 $(e.target).toggleClass( "press", 1000 );
-		Meteor.call('postLiked', postId, function(error, postId) {
-	      if (error){
-	        throwError(error.reason);
-	      } else {
-	        console.log('like success');
-	      }
-	    });
-		// $(".custom-like, .custom-like-span").toggleClass( "press", 1000 );
-	},
-
+		return attr;
+	}
 });
-
-Template.postItem.onCreated(function(){
-	var self = this;
-	$('.post-context-div').addClass('minimum');
-	// var isLoaded = new ReactiveVar(false);
-	// if(!isLoaded.get()){
-	// 	console.log('load function ');
-	// 	self.isPhoto = fn_photoSwipe(isLoaded);
-	// }
-
-
-	// console.log(self.isReady);
-
-
+Template.postfilePageSingle.events({
+    "click img.postfile-image": function(e) {
+        var gallery = new PhotoSwipe($('.pswp')[0], PhotoSwipeUI_Default, [
+            {
+                src: e.target.dataset.src, // assumes the high-res source is in data-src attribute of the image element
+                msrc: e.target.src,
+                w: e.target.dataset.width, // PhotoSwipe requires you to know the dimensions
+                h: e.target.dataset.height // More information: http://photoswipe.com/documentation/faq.html
+            }
+        ], {
+            index: 0,
+            getThumbBoundsFn: function(index) {
+                // See Options -> getThumbBoundsFn section of documentation for more info
+                var thumbnail = e.target,
+                    pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                    rect = thumbnail.getBoundingClientRect();
+                return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+            },
+            barsSize: {top:0,bottom:0},
+            captionEl: false,
+            fullscreenEl: false,
+            shareEl: false,
+            tapToClose: true,
+            tapToToggleControls: false
+        });
+        gallery.init();
+    }
 });
-function fn_photoSwipe(isLoaded){
+Template.postfileView.events({
+	'click a.image-swipe': function (e) {
+		// ...
+	}
+});
+Template.postfileView.onCreated( function() {
+  var data = this.data;
+  return;
 	var initPhotoSwipeFromDOM = function(gallerySelector) {
-			console.log('dd');
-			console.log(Template.isPhoto);
-			isLoaded.set(true);
-
 			var parseThumbnailElements = function(el) {
 			    var thumbElements = el.childNodes,
 			        numNodes = thumbElements.length,
@@ -412,14 +342,15 @@ function fn_photoSwipe(isLoaded){
 				openPhotoSwipe( hashData.pid,  galleryElements[ hashData.gid - 1 ], true, true );
 			}
 		};
-		initPhotoSwipeFromDOM('.post-images');
-		return {
-			ready: function () {
-		      return isLoaded.get();
-		    }
-		};
-}
+		initPhotoSwipeFromDOM('.image-gallery');
+});
+Template.postfileView.helpers({
+	Images: function () {
+		var ids = Template.instance().data;
+		if(ids == undefined || ids.length == 0){
+  			return false;
+  		}
+		return Collections.files.find({'_id' : {"$in": ids}});
+	},
 
-
-
-
+});

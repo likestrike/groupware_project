@@ -63,6 +63,7 @@ launch-screen@1.1.1
 less@2.7.9
 livedata@1.0.18
 localstorage@1.1.1
+loftsteinn:photoswipe@4.1.1
 logging@1.1.17
 matdutour:popup-confirm@0.2.2
 mdg:validation-error@0.2.0
