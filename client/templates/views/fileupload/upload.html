@@ -39,14 +39,29 @@
 <template name="postFile">
   {{#with objFile}}
   <div class="in_block">
-    <li>
-      <img src="{{link}}" alt="{{name}}" data-value="{{_id}}" class="post_uploaded_image"/>
-    </li>
-    <div class="remove_image cubebox">
-      <div class="icon_circle">
-        <span class="glyphicon glyphicon-trash" id="file_remove" data-value="{{_id}}" style="cursor: pointer;"></span>
+    {{#if isImage}}
+      <li>
+        <img src="{{link}}" alt="{{name}}" data-value="{{_id}}" class="post_uploaded_image"/>
+      </li>
+      <div class="remove_image cubebox">
+        <div class="icon_circle">
+          <span class="glyphicon glyphicon-trash" id="file_remove" data-value="{{_id}}" style="cursor: pointer;"></span>
+        </div>
       </div>
+      {{else if isVideo}}
+      <li>
+        <video class="file-preview" id="{{_id}}" controls="" autoplay="" preload="auto" playsinline="true" webkit-playsinline="true" loop="">
+          <source src="{{link}}?play=true" type="{{type}}">
+          </video>
+      </li>
+      <div class="remove_image cubebox">
+        <div class="icon_circle">
+          <span class="glyphicon glyphicon-trash" id="file_remove" data-value="{{_id}}" style="cursor: pointer;"></span>
+        </div>
+      </div>
+    {{/if}}
     </div>
-  </div>
+
+
   {{/with}}
 </template>

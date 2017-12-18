@@ -343,6 +343,24 @@ img.post_uploaded_image{
   right: 0;
   top: 0;
 }
+.post-file-wrapper{
+  position: relative;
+  margin: 0px;
+}
+.image-gallery{
+  width: 100%;
+  height: auto;
+  float: left;
+}
+.image-gallery a{
+  display: block;
+  float: left;
+}
+.image-gallery a img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
 
 .box.box-widget{
   transition: height 2s;
@@ -367,6 +385,17 @@ img.post_uploaded_image{
   height: auto;
   margin: auto;
 }
+/*.postfile-multiple-image{
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}*/
 
 
 

@@ -131,6 +131,57 @@ Template.postModal.helpers({
   	}
 	return attributes;
   },
+   status() {
+    let i                = 0;
+    const uploads        = _app.uploads.get();
+    let progress         = 0;
+    const uploadQTY      = Template.instance().uploadQTY;
+    let estimateBitrate  = 0;
+    let estimateDuration = 0;
+    let onPause          = false;
+
+    if (uploads) {
+      for (let j = 0; j < uploads.length; j++) {
+        onPause = uploads[j].onPause.get();
+        progress += uploads[j].progress.get();
+        estimateBitrate += uploads[j].estimateSpeed.get();
+        estimateDuration += uploads[j].estimateTime.get();
+        i++;
+      }
+
+      if (i < uploadQTY) {
+        progress += 100 * (uploadQTY - i);
+      }
+
+      progress         = Math.ceil(progress / uploadQTY);
+      estimateBitrate  = filesize(Math.ceil(estimateBitrate / i), { bits: true }) + '/s';
+      estimateDuration = (() => {
+        const duration = moment.duration(Math.ceil(estimateDuration / i));
+        let hours = '' + (duration.hours());
+        if (hours.length <= 1) {
+          hours = '0' + hours;
+        }
+
+        let minutes = '' + (duration.minutes());
+        if (minutes.length <= 1) {
+          minutes = '0' + minutes;
+        }
+
+        let seconds = '' + (duration.seconds());
+        if (seconds.length <= 1) {
+          seconds = '0' + seconds;
+        }
+        return hours + ':' + minutes + ':' + seconds;
+      })();
+    }
+
+    return {
+      progress: progress,
+      estimateBitrate: estimateBitrate,
+      estimateDuration: estimateDuration,
+      onPause: onPause
+    };
+  },
 });
 Template.postModal.events({
 	'keydown #post_context_text': function (e, t) {
@@ -203,7 +254,6 @@ Template.postModal.events({
 		e.originalEvent.dataTransfer.dropEffect = 'copy';
 	},
 	'drop #postform.file-over'(e, template) {
-		console.log('drop~~~~~~');
 		e.preventDefault();
 		e.stopPropagation();
 		template.error.set(false);
