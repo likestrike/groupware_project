@@ -162,6 +162,9 @@
 }
 
 /*post*/
+.post-content {
+  max-width: 1650px;
+}
 .post-grid.col-md-12{
   padding: 0px;
 }
@@ -170,11 +173,11 @@
   margin: 0 16px 16px;
   word-wrap: break-word;
 }
-.post-context-div.minimum:before{
+.post-context-div:before{
      content: " ";
     display: table;
 }
-.post-context-div.minimum:after{
+.post-context-div:after{
     content: "더보기";
     font-size: 12px;
     font-weight: 500;
@@ -191,7 +194,7 @@
     color: '#000000';
     left : 100%;
 }
-.post-context-div.minimum{
+.post-context-div{
   overflow: hidden;
   max-height: 180px;
 }
@@ -261,6 +264,7 @@ textarea.modal_textarea{
     resize: none;
     width: 100%;
     position: absolute;
+    overflow-y: hidden;
 }
 div#post_context_div{
     font-size: 15px;

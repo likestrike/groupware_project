@@ -65,6 +65,27 @@ Template.postlist.events({
 	'click #small-pencil':function(e, t){
 		e.preventDefault()
 		Modal.show('postModal');
+	},
+	'click .box-widget' : function(e, t){
+		
+		$box = $(e.currentTarget).find('.post-context-div');
+        minimumHeight = 180;
+        
+        // get current height
+        currentHeight = $box.innerHeight();
+
+        // get height with auto applied
+        autoHeight = $box.find('.post-context').css('height', 'auto').innerHeight();
+        
+        // reset height and revert to original if current and auto are equal
+        $box.css('max-height', currentHeight).animate({
+            'max-height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
+        })
+        
+		
+		// $(e.currentTarget).slideDown('normal', function () {
+		// 	$(this).find('.post-context-div').toggleClass('minimum');
+		// });
 	}
 });
 Meteor.startup(function () {

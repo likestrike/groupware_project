@@ -129,7 +129,6 @@ Template.postItem.events({
 
 Template.postItem.onCreated(function(){
 	var self = this;
-	$('.post-context-div').addClass('minimum');
 	// var isLoaded = new ReactiveVar(false);
 	// if(!isLoaded.get()){
 	// 	console.log('load function ');
