@@ -1,6 +1,5 @@
 import { Blaze } from 'meteor/blaze';
 Template.commentMinipop.onCreated(function(){
-	console.log(Blaze.getData().itemId);
 	// console.log(this.itemId);
 	$(document).on('click', function(e){
 		if($(e.target).closest('#comment-edit-box').length == 0){

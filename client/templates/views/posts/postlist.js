@@ -67,22 +67,22 @@ Template.postlist.events({
 		Modal.show('postModal');
 	},
 	'click .box-widget' : function(e, t){
-		
+
 		$box = $(e.currentTarget).find('.post-context-div');
         minimumHeight = 180;
-        
+
         // get current height
         currentHeight = $box.innerHeight();
 
         // get height with auto applied
         autoHeight = $box.find('.post-context').css('height', 'auto').innerHeight();
-        
+
         // reset height and revert to original if current and auto are equal
         $box.css('max-height', currentHeight).animate({
             'max-height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
         })
-        
-		
+
+
 		// $(e.currentTarget).slideDown('normal', function () {
 		// 	$(this).find('.post-context-div').toggleClass('minimum');
 		// });
@@ -91,20 +91,22 @@ Template.postlist.events({
 Meteor.startup(function () {
 	Session.set("window_width", $(window).width());
 	Session.set("window_height", $(window).height());
-  window.addEventListener('resize', function(){
-  	if($(this).width() >= 990 && $(this).width() <= 1420){
-  		Session.set("resize", true);
-  		Session.set("window_width", $(this).width());
-  		Session.set("window_height", $(this).height());
-  	}else{
-  		Session.set("resize", false);
-  		Session.set("window_width", $(this).width());
-  		Session.set("window_height", $(this).height());
-  	}
-  });
+
 });
 Template.postlist.onCreated(function(){
 	var self = this;
+	window.addEventListener('resize', function(){
+	  	if($(this).width() >= 990 && $(this).width() <= 1420){
+	  		Session.set("resize", true);
+	  		Session.set("window_width", $(this).width());
+	  		Session.set("window_height", $(this).height());
+	  	}else{
+	  		Session.set("resize", false);
+	  		Session.set("window_width", $(this).width());
+	  		Session.set("window_height", $(this).height());
+	  	}
+	  	Session.set("post_width", $('.post-grid:eq(0)').width());
+	  });
 	$(window).on('scroll', function(){
 		if($('html, body')[0].scrollHeight - $('html, body').scrollTop() === $('html, body')[0].clientHeight){
 			var postcount = Posts.find().count();

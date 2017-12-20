@@ -65,6 +65,7 @@ if (Meteor.isServer) {
   });
 }else{
   Meteor.subscribe('files.images.all');
+
 }
 // Collections.files.denyClient();
 

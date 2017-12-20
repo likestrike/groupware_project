@@ -51,7 +51,8 @@ Meteor.publish('secrets', function (group) {
 });
 
 // 회의실 예약 시간 구독
-// 날짜 지정 parameter setting 
+// 날짜 지정 parameter setting
 Meteor.publish('meeting_times', function() {
   return MeetingTimes.find();
 });
+

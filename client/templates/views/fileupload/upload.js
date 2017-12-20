@@ -25,7 +25,6 @@ Template.uploadedFiles.events({
 
 Template.postFile.helpers({
   objFile : function () {
-    console.log(this.itemId);
     return Collections.files.findOne(this.itemId);
   },
 });
@@ -98,5 +97,5 @@ Template.uploadFiles.helpers({
   }
 });
 Template.uploadFiles.events({
-  
+
 });

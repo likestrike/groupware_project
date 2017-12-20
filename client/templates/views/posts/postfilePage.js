@@ -158,7 +158,7 @@ function openPhotoSwipe(index, galleryElement, disableAnimation, fromURL) {
     				break;
     			}
     		}
-	    } else {
+} else {
 	    	options.index = parseInt(index, 10) - 1;
 	    }
     } else {
@@ -293,8 +293,10 @@ function parseThumbnailElements(el){
 
     return items;
 };
+// Session.set("resize", false);
 Template.postfileView.onCreated( function() {
-
+	this.count = 0;
+	console.log(Session.get('post_width'));
 });
 Template.postfileView.helpers({
 	Images: function () {
@@ -304,5 +306,57 @@ Template.postfileView.helpers({
   		}
 		return Collections.files.find({'_id' : {"$in": ids}, 'isImage' : true});
 	},
+	wrapperAttr : function(){
+		var parent_width = Session.get('post_width');
+		var child_width = parent_width - 20;
+		var attribute = {};
+		var ids = Template.instance().data;
+		var count = Collections.files.find({'_id' : {"$in": ids}, 'isImage' : true}).count();
+		Template.instance().count = count;
+
+		if(count == 2){
+			attribute.style = 'width : ' +child_width+'px; height : '+(child_width/2)+'px;';
+			Session.set('imagecount', 2);
+		}else{
+			Session.set('imagecount', 0);
+		}
+		return attribute;
+	},
+	incremented: function(index){
+		index++;
+    	return index;
+	},
+	atagAttr : function(index){
+		var parent_width = Session.get('post_width');
+		index++;
+		var attribute = {};
+		var count = Template.instance().count;
+		if(count == 2){
+			var imageWidth = (parent_width - 20) / 2
+			if(index == 1){
+				attribute.style = 'width: '+imageWidth+'px;height: '+imageWidth+'px;position: absolute;left: 0;top: 0;';
+			}else{
+				attribute.style = 'width: '+imageWidth+'px;height: '+imageWidth+'px;position: absolute;right: 0;top: 0;';
+			}
+		}
+		return attribute;
+	},
+	imgAttr : function(index){
+		var parent_width = Session.get('post_width');
+		index++;
+		var attribute = {};
+		var count = Template.instance().count;
+		if(count == 2){
+			var childWidth = (parent_width - 20);
+			var imageWidth = (parent_width - 20) / 2;
+			if(this.meta.width < this.meta.height){
+				attribute.style = 'width : '+imageWidth+'px';
+			}else{
+				attribute.style = 'position: absolute;left: -'+(imageWidth/2)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';
+			}
+		}
+
+		return attribute;
+	}
 
 });

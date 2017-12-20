@@ -16,11 +16,11 @@
 </template>
 
 <template name="postfileView">
-	<div class="image-gallery">
+	<div class="image-gallery" {{wrapperAttr}}>
 		{{#each Images.each}}
 			{{#if isImage}}
-			<a href="{{link}}" class="image-swipe" data-size="{{meta.width}}x{{meta.height}}" data-med="{{link 'preview'}}" data-med-size="{{versions.preview.width}}x{{versions.preview.height}}" >
-				<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image">
+			<a href="{{link}}" class="image-swipe" data-size="{{meta.width}}x{{meta.height}}" data-med="{{link 'preview'}}" data-med-size="{{versions.preview.width}}x{{versions.preview.height}}" {{atagAttr @index}}>
+				<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image" {{imgAttr @index}}>
 			</a>
 			{{else if isVideo}}
 			<video class="file-preview" id="{{_id}}" controls="" autoplay="" preload="auto" playsinline="true" webkit-playsinline="true" loop="">

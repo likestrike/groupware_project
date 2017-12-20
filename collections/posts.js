@@ -6,7 +6,6 @@ Posts.allow({
 });
 Posts.deny({
   update: function(userId, post, fieldNames) {
-    console.log(fieldNames);
     return _.contains(fieldNames, 'userId');
   }
 });

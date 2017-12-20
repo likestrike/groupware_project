@@ -40,14 +40,13 @@ _app.createThumbnails = (collection, fileRef, cb) => {
       const image = gm(fileRef.path);
       const sizes = {
         preview: {
-          width: 400
+          width: 500
         },
         thumbnail40: {
           width: 40,
           square: true
         }
       };
-
       image.size((error, features) => {
         bound(() => {
           if (error) {

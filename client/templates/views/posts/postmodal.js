@@ -85,7 +85,7 @@ Template.postModal.onCreated(function() {
 	      expireAt: ttl,
 	      unlisted: unlisted,
 	      downloads: 0,
-	      category : 'temp',
+	      category : 'post',
 	      created_at: created_at - 1 - i
 	    },
 	    streams: 'dynamic',
@@ -225,6 +225,7 @@ Template.postModal.events({
 		if($('.post_uploaded_image').length >0){
 			$('.post_uploaded_image').each(function(){
 				file_ids.push($(this).data('value'));
+				var fildId = $(this).data('value');
 			});
 		}
 
@@ -232,6 +233,7 @@ Template.postModal.events({
 			context : conver_text,
 			fileIds : file_ids
 		}
+
 		Meteor.call('postInsert', post, function(error, result) {
 	      // display the error to the user and abort
 	      if (error)
@@ -292,12 +294,10 @@ Template.postEditModal.helpers({
 		return conver_text;
 	},
 	uploadedFiles : function(){
-		console.log(this.fileIds);
 		var ids = this.fileIds;
 		for (var i = 0; i < ids.length; i++) {
-			console.log(ids[i]);
 			Blaze.renderWithData(Template.postFile, {itemId: ids[i]}, $("#upload-file")[0])
-			
+
 		}
 	}
 });

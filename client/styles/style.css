@@ -359,6 +359,8 @@ img.post_uploaded_image{
   width: 100%;
   height: auto;
   float: left;
+  overflow: hidden;
+  position: relative;
 }
 .image-gallery a{
   display: block;
