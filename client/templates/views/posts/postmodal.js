@@ -30,10 +30,10 @@ Template.postModal.onCreated(function() {
 		  this.error.set('Please select a file to upload');
 		  return false;
 		}
-	if (files.length > 6) {
-	  this.error.set('Please select up to 6 files');
-	  return false;
-	}
+		if (files.length > 6) {
+		  this.error.set('Please select up to 6 files');
+		  return false;
+		}
 	this.uploadQTY = files.length;
 	const cleanUploaded = (current) => {
 	  const _uploads = _.clone(_app.uploads.get());

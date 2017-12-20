@@ -63,19 +63,15 @@ Template.postItem.helpers({
 });
 
 Template.postItem.events({
-	'submit form': function (e, t) {
+	'click #comment_submit': function (e, t) {
 		e.preventDefault();
-		var $body = $(e.target).find('#comment');
+
+		var $body = $(e.currentTarget).parents('form').find('#comment');
+		console.log($body);
 	    var comment = {
 	      body: $body.html(),
 	      postId: this._id
 	    };
-
-	 //    var errors = {};
-	 //    if (! comment.body) {
-	 //      errors.body = "Please write some content";
-	 //      return Session.set('commentSubmitErrors', errors);
-	 //    }
 
 	    Meteor.call('commentInsert', comment, function(error, commentId) {
 	      if (error){
@@ -124,20 +120,34 @@ Template.postItem.events({
 	    });
 		// $(".custom-like, .custom-like-span").toggleClass( "press", 1000 );
 	},
+	'click #commentUpload'(e, template) {
+		if (!_app.isiOS) {
+		  e.preventDefault();
+		}
+		template.$('#commentfile').trigger('click');
+		if (!_app.isiOS) {
+		  return false;
+		}
+	},
+	'change #commentfile'(e, template) {
+		template.$('form#commentform').submit();
+	},
+	'submit form#commentform'(e, template) {
+		e.preventDefault();
+		// template.error.set(false);
+		template.initiateUpload(e, e.currentTarget.commentfile.files);
+		return false;
+	},
 
 });
 
 Template.postItem.onCreated(function(){
 	var self = this;
 	$('.post-context-div').addClass('minimum');
-	// var isLoaded = new ReactiveVar(false);
-	// if(!isLoaded.get()){
-	// 	console.log('load function ');
-	// 	self.isPhoto = fn_photoSwipe(isLoaded);
-	// }
 
-
-	// console.log(self.isReady);
+	this.initiateUpload = (event, file) => {
+		console.log(file);
+	};
 
 
 });

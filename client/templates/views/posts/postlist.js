@@ -68,7 +68,7 @@ Template.postlist.events({
 	},
 	'click .box-widget' : function(e, t){
 
-		$box = $(e.currentTarget).find('.post-context-div');
+		$box = $(e.currentTarget).find('.box-body');
         minimumHeight = 180;
 
         // get current height
@@ -78,14 +78,10 @@ Template.postlist.events({
         autoHeight = $box.find('.post-context').css('height', 'auto').innerHeight();
 
         // reset height and revert to original if current and auto are equal
-        $box.css('max-height', currentHeight).animate({
-            'max-height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
-        })
+        // $box.css('max-height', currentHeight).animate({
+        //     'max-height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
+        // })
 
-
-		// $(e.currentTarget).slideDown('normal', function () {
-		// 	$(this).find('.post-context-div').toggleClass('minimum');
-		// });
 	}
 });
 Meteor.startup(function () {
