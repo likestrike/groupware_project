@@ -302,7 +302,7 @@ Template.postfileView.helpers({
 		if(ids == undefined || ids.length == 0){
   			return false;
   		}
-		return Collections.files.find({'_id' : {"$in": ids}});
+		return Collections.files.find({'_id' : {"$in": ids}, 'isImage' : true});
 	},
 
 });

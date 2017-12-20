@@ -65,3 +65,17 @@
 
   {{/with}}
 </template>
+<template name="uploadFiles">
+  {{#each files.each}}
+  <div class="in_block uploaded">
+    <li>
+      <img src="{{link}}" alt="{{name}}" data-value="{{_id}}" class="post_uploaded_image"/>
+    </li>
+    <div class="remove_image cubebox">
+      <div class="icon_circle">
+        <span class="glyphicon glyphicon-trash" id="file_remove" data-value="{{_id}}" style="cursor: pointer;"></span>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</template>

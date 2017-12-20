@@ -188,7 +188,6 @@ Template.postModal.events({
 		if($('#submit').hasClass('disabled')){
 			$('#submit').removeClass('disabled');
 		}
-
 	},
 	'keyup #post_context_text': function (e, t) {
 		var value = $(e.target).val();
@@ -216,7 +215,7 @@ Template.postModal.events({
 		e.stopPropagation();
 		var conver_text = $('#post_context').html().replace(/\n/g, "<br />");
 
-		if(conver_text.trim() === ''){
+		if(conver_text.trim() === '' && $('.post_uploaded_image').length == 0){
 			Modal.hide('postModal');
 			return;
 		}
@@ -227,7 +226,6 @@ Template.postModal.events({
 			$('.post_uploaded_image').each(function(){
 				file_ids.push($(this).data('value'));
 			});
-			console.log(file_ids);
 		}
 
 		var post = {
@@ -243,6 +241,27 @@ Template.postModal.events({
 	      // Router.go('postPage', {_id: result._id});
 	        FlowRouter.go('/postlist');
 	    });
+	},
+	'click #fakeUpload'(e, template) {
+		if (!_app.isiOS) {
+		  e.preventDefault();
+		}
+		template.$('#userfile').trigger('click');
+		if (!_app.isiOS) {
+		  return false;
+		}
+	},
+	'change #userfile'(e, template) {
+		if($('#submit').hasClass('disabled')){
+			$('#submit').removeClass('disabled');
+		}
+		template.$('form#postform').submit();
+	},
+	'submit form#postform'(e, template) {
+		e.preventDefault();
+		template.error.set(false);
+		template.initiateUpload(e, e.currentTarget.userfile.files);
+		return false;
 	},
 	'dragover #postform, dragenter #postform'(e) {
 		e.preventDefault();
@@ -271,7 +290,19 @@ Template.postEditModal.helpers({
 	contextConv: function () {
 		var conver_text = this.context.replace(/<br \/\>/g, '\n');
 		return conver_text;
+	},
+	uploadedFiles : function(){
+		console.log(this.fileIds);
+		var ids = this.fileIds;
+		for (var i = 0; i < ids.length; i++) {
+			console.log(ids[i]);
+			Blaze.renderWithData(Template.postFile, {itemId: ids[i]}, $("#upload-file")[0])
+			
+		}
 	}
+});
+Template.postEditModal.onCreated(function() {
+	this.delItems = [];
 });
 Template.postEditModal.events({
 	'keydown #post_context_text': function (e, t) {
@@ -303,6 +334,22 @@ Template.postEditModal.events({
 	      }
 	    });
 	},
+	'click #file_remove':function(e, t){
+	    e.preventDefault()
+	    var itemId = e.currentTarget.dataset.value;
+	    $(e.currentTarget).parents('.uploaded').remove();
+
+	    t.delItems.push(itemId);
+
+	    // remove image
+	    // Collections.files.remove({_id: itemId}, function (error) {
+	    //   if (error) {
+	    //     console.error("File wasn't removed, error: " + error.reason)
+	    //   } else {
+	    //     console.info("File successfully removed");
+	    //   }
+	    // });
+	  },
 });
 
 function urlify(text) {

@@ -1,12 +1,8 @@
-<template name="postModal">
+<template name="postEditModal">
     <form class="post-upload-form" id="postform">
     <div class="modal fade" tabindex='-1'>
-        <div class="modal-dialog" {{attribute}}>
+        <div class="modal-dialog">
             <div class="modal-content">
-                <div class="fileover-area" style="">
-                    <i class="fa fa-fw fa-file-picture-o"></i>
-                    <span>여기로 사진을 올려서 보세요</span>
-                </div>
                 <div class="modal-header">
                     <div class="user-panel">
                         <div class="pull-left image">
@@ -17,16 +13,18 @@
                 </div>
                 <div class="modal-body">
                     <!-- <div class="post_input" id="post_context_div">{{{postNote}}}</div> -->
-                    <!-- <div class="form-control post-form" id="post_context" contenteditable="true" placeholder="쓰거라 상큼한 회사생활." autofocus></div> -->
                     <div class="post-form-wrapper modal-context-box">
                         <div class="post-form-area textcontext-area">
-                            <div class="post-form textarea-copyform" id="post_context"></div>
-                            <textarea class="modal_textarea" rows="1" placeholder="써보자 상큼한 회사생활." id="post_context_text" autofocus=""></textarea>
+                            <div class="post-form textarea-copyform" id="post_context">{{{contextConv}}}</div>
+                            <textarea class="modal_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context_text" autofocus="">{{{contextConv}}}</textarea>
                         </div>
                         <div class="post_image_area">
                             <div class="post_image_wrapper">
                               <ul class="post_image_ul">
-                                <div class="in_block" id="upload-file"></div>
+
+                                <div class="in_block" id="upload-file">
+                                    {{> uploadFiles}}
+                                </div>
                                 </ul>
                             </div>
                         </div>
@@ -37,10 +35,10 @@
                           <i class="fa fa-camera"></i>
                         </div>
                     </div>
+                    <!-- <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context"></textarea> -->
                 </div>
-
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary disabled" id="submit" name="submit">저장하기</button>
+                    <button type="submit" class="btn btn-primary" id="update" name="update">수정하기</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
                 </div>
             </div>

@@ -6,7 +6,8 @@ Posts.allow({
 });
 Posts.deny({
   update: function(userId, post, fieldNames) {
-    return (_.without(fieldNames, 'context').length > 0);
+    console.log(fieldNames);
+    return _.contains(fieldNames, 'userId');
   }
 });
 

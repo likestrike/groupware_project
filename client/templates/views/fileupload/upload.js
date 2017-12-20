@@ -25,6 +25,7 @@ Template.uploadedFiles.events({
 
 Template.postFile.helpers({
   objFile : function () {
+    console.log(this.itemId);
     return Collections.files.findOne(this.itemId);
   },
 });
@@ -89,4 +90,13 @@ Template.uploadForm.events({
     }
   },
 
+});
+Template.uploadFiles.helpers({
+  files: function () {
+    var ids = this.fileIds;
+    return Collections.files.find({'_id' : {"$in": ids}});
+  }
+});
+Template.uploadFiles.events({
+  
 });
