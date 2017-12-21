@@ -73,10 +73,33 @@ Template.postfileView.events({
 	},
     'click #move_prev' : function(e, t){
         var target = $(e.currentTarget).next();
+        var currentIndex = t.imgIndex.get();
+        var currentX = t.transX.get();
+
+        var imgs = target.find('img');
+
+        if(currentIndex == 0){
+            return;
+        }
+        var data_map = {};
+        var index = 0;
+
+        imgs.each(function(){
+            data_map[index] = $(this).width();
+            index++;
+        });
+
+        currentX = currentX - data_map[currentIndex];
+        t.transX.set(currentX);
+
+        currentIndex = currentIndex-1;
+        t.imgIndex.set(currentIndex);
+        
     },
     'click #move_next' : function(e, t){
         var target = $(e.currentTarget).prev();
         var currentIndex = t.imgIndex.get();
+
         var currentX = t.transX.get();
         var imgs = target.find('img');
 

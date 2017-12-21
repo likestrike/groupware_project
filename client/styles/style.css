@@ -366,7 +366,7 @@ img.post_uploaded_image{
 .image-gallery a{
   display: block;
   /*face book style float enable*/
-  /*float: left;*/
+  float: left;
 }
 .image-gallery a img{
     width: auto;
@@ -382,7 +382,7 @@ img.post_uploaded_image{
     display: inline-block;
 }
 .image-gallery:hover .image_guide{
-  opacity: 0.6;
+  opacity: 0.5;
 }
 .image_guide{
     background: #000;
