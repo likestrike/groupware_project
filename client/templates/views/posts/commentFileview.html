@@ -1,0 +1,17 @@
+<template name="commentfileView">
+<div class="image-gallery">
+	{{#each Images.each}}
+		{{#if isImage}}
+		<a href="{{link}}" class="image-swipe" data-size="{{meta.width}}x{{meta.height}}" data-med="{{link 'preview'}}" data-med-size="{{versions.preview.meta.width}}x{{versions.preview.meta.height}}">
+			<div>
+				<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image">
+			</div>
+		</a>
+		{{else if isVideo}}
+		<video class="file-preview" id="{{_id}}" controls="" autoplay="" preload="auto" playsinline="true" webkit-playsinline="true" loop="">
+			<source src="{{link}}?play=true" type="{{type}}">
+		</video>
+		{{/if}}
+	{{/each}}
+</div>
+</template>

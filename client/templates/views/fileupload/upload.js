@@ -46,6 +46,28 @@ Template.postFile.events({
 });
 
 
+Template.commentFile.helpers({
+  objFile : function () {
+    return Collections.files.findOne(this.itemId);
+  },
+});
+
+Template.commentFile.events({
+  'click #file_remove':function(e, t){
+    e.preventDefault()
+    var itemId = e.currentTarget.dataset.value;
+
+    // remove image
+    Collections.files.remove({_id: itemId}, function (error) {
+      if (error) {
+        console.error("File wasn't removed, error: " + error.reason)
+      } else {
+        console.info("File successfully removed");
+      }
+    });
+  },
+});
+
 Template.uploadForm.onCreated(function () {
   this.currentUpload = new ReactiveVar(false);
 });
@@ -96,6 +118,10 @@ Template.uploadFiles.helpers({
     return Collections.files.find({'_id' : {"$in": ids}});
   }
 });
-Template.uploadFiles.events({
-
+Template.commnetUploadedFile.helpers({
+  files: function () {
+    var ids = this.fileId;
+    console.log(ids);
+    return Collections.files.find({'_id' : ids});
+  }
 });

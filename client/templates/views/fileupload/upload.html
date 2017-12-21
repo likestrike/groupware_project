@@ -65,11 +65,52 @@
 
   {{/with}}
 </template>
+<template name="commentFile">
+  {{#with objFile}}
+  <div class="in_block">
+    {{#if isImage}}
+      <li>
+        <img src="{{link}}" alt="{{name}}" data-value="{{_id}}" class="comment_uploaded_image"/>
+      </li>
+      <div class="remove_image cubebox">
+        <div class="icon_circle">
+          <span class="glyphicon glyphicon-trash" id="file_remove" data-value="{{_id}}" style="cursor: pointer;"></span>
+        </div>
+      </div>
+      {{else if isVideo}}
+      <li>
+        <video class="file-preview" id="{{_id}}" controls="" autoplay="" preload="auto" playsinline="true" webkit-playsinline="true" loop="">
+          <source src="{{link}}?play=true" type="{{type}}">
+          </video>
+      </li>
+      <div class="remove_image cubebox">
+        <div class="icon_circle">
+          <span class="glyphicon glyphicon-trash" id="file_remove" data-value="{{_id}}" style="cursor: pointer;"></span>
+        </div>
+      </div>
+    {{/if}}
+    </div>
+  {{/with}}
+</template>
 <template name="uploadFiles">
   {{#each files.each}}
   <div class="in_block uploaded">
     <li>
       <img src="{{link}}" alt="{{name}}" data-value="{{_id}}" class="post_uploaded_image"/>
+    </li>
+    <div class="remove_image cubebox">
+      <div class="icon_circle">
+        <span class="glyphicon glyphicon-trash" id="file_remove" data-value="{{_id}}" style="cursor: pointer;"></span>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</template>
+<template name='commnetUploadedFile'>
+{{#each files.each}}
+  <div class="in_block uploaded">
+    <li>
+      <img src="{{link}}" alt="{{name}}" data-value="{{_id}}" class="comment_uploaded_image"/>
     </li>
     <div class="remove_image cubebox">
       <div class="icon_circle">

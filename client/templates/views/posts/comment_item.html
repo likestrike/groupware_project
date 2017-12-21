@@ -17,6 +17,9 @@
 					<span class="text-muted pull-right">{{formattedDate}}</span>
 				</span><!-- /.username -->
 				{{{body}}}
+				<div class="comment-file-wrapper row" id='myarea'>
+					{{> Template.dynamic template="commentfileView" data=getdata}}
+				</div>
 			</div>
 		<!-- /.comment-text -->
 		</div>
@@ -27,11 +30,17 @@
 	<form class="comment form" id="comment_edit_form">
     	<img class="img-responsive img-circle img-sm" src="{{currentUser.profile.thumbnail}}" alt="Alt Text">
         <div class="input-group img-push">
-          <div class="form-control comment-form" id="edit_comment_text" contenteditable="true" placeholder="댓글을 입력하세요..">{{{body}}}</div>
-              <span class="input-group-btn">
-                <button type="submit" id="comment_update" class="btn btn-primary btn-flat">수정</button>
-                <button type="submit" id="comment_cancel" class="btn btn-primary btn-flat">취소</button>
-              </span>
-        </div>
+			<ul class="comment_image_ul">
+				<div class="in_block" id="comment-upload-file">{{> commnetUploadedFile}}</div>
+			</ul>
+			<div style="display: table-header-group;">
+				<div class="form-control comment-form" id="edit_comment_text" contenteditable="true" placeholder="댓글을 입력하세요..">{{{body}}}</div>
+					<span class="input-group-btn">
+					<button type="submit" id="comment_update" class="btn btn-primary btn-flat">수정</button>
+					<button type="submit" id="comment_cancel" class="btn btn-primary btn-flat">취소</button>
+					</span>
+				</div>
+			</div>
+
       </form>
 </template>

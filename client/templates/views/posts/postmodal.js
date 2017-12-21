@@ -52,7 +52,7 @@ Template.postModal.onCreated(function() {
 	    });
 	  }
 	};
-
+	// 로그인한 사람이 올린 파일 여부, list 여부, time to live.
 	let secured, unlisted, ttl;
 	const uploads = [];
 	const transport = ClientStorage.get('uploadTransport');

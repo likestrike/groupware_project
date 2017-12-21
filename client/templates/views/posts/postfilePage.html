@@ -35,7 +35,18 @@
 			{{#if isImage}}
 			<a href="{{link}}" class="image-swipe" data-size="{{meta.width}}x{{meta.height}}" data-med="{{link 'preview'}}" data-med-size="{{versions.preview.meta.width}}x{{versions.preview.meta.height}}" {{atagAttr @index}}>
 				<div {{divAttr @index}}>
-					<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image" {{imgAttr @index}}>
+					{{#if chkIndex @index}}
+						<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image" {{imgAttr @index}}>
+						<div class="moreImgArea">
+							<div class="moreImgText_wrapper">
+								<div class="moreImgText">
+									+{{getMoreImg}}장 더!!!
+								</div>
+							</div>
+						</div>
+					{{else}}
+						<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image" {{imgAttr @index}}>
+					{{/if}}
 				</div>
 			</a>
 			{{else if isVideo}}

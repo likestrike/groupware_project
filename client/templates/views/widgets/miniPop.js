@@ -1,12 +1,6 @@
 import { Blaze } from 'meteor/blaze';
 Template.commentMinipop.onCreated(function(){
-	// console.log(this.itemId);
-	$(document).on('click', function(e){
-		if($(e.target).closest('#comment-edit-box').length == 0){
-			var view = Blaze.getView($("#comment-edit-box")[0]);
-			Blaze.remove(view);
-		}
-	});
+
 });
 Template.commentMinipop.helpers({
 	attr: function () {
@@ -18,12 +12,28 @@ Template.commentMinipop.helpers({
 	}
 });
 Template.commentMinipop.events({
+	'click document':function(e, t){
+		if($(e.target).closest('#comment-edit-box').length == 0){
+			var view = Blaze.getView($("#comment-edit-box")[0]);
+			Blaze.remove(view);
+		}
+	},
 	'click #edit_comment': function (e, t) {
 		e.preventDefault()
 
 		var itemId = Blaze.getData().commentObj.itemId;
 		var target = Blaze.getData().commentObj.target;
-		target.children().hide()
+		target.children().hide();
+		var view = Blaze.getView($("#comment-edit-box")[0]);
+		Blaze.remove(view);
+
 		Blaze.renderWithData(Template.comment_edit, Comments.findOne(itemId), Blaze.getData().commentObj.target[0])
+	},
+	'click #delete_comment': function (e, t) {
+		e.preventDefault()
+		var itemId = Blaze.getData().commentObj.itemId;
+		var view = Blaze.getView($("#comment-edit-box")[0]);
+		Blaze.remove(view);
+		Comments.remove(itemId);
 	}
 });

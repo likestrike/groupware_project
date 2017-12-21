@@ -31,21 +31,9 @@
                 </div>
             </div>
           </div>
-          <!-- {{#if getFileIds}} -->
           <div class="post-file-wrapper row" id='myarea'>
             {{> Template.dynamic template="postfileView" data=getdata}}
-            <!-- {{testgo}} -->
-          <!-- {{#if isSingle}}
-            {{#each getFiledata.each}}
-              {{> postfilePageSingle}}
-            {{/each}}
-          {{else}}
-            {{#each getFiledata.each}}
-              {{> postfilePage}}
-            {{/each}}
-          {{/if}} -->
           </div>
-          <!-- {{/if}} -->
         </div>
         <div class="box-tools-wrapper">
           <div class="box-tools">
@@ -83,12 +71,18 @@
         <form class="comment form" id="commentform">
         	<img class="img-responsive img-circle img-sm" src="{{currentUser.profile.thumbnail}}" alt="Alt Text">
             <div class="input-group img-push">
-              <div class="form-control comment-form" id="comment" contenteditable="true" placeholder="댓글을 입력하세요.."></div>
-              <span class="input-group-btn">
-                <input class="invisible" id="commentfile" type="file" name="commentfile" required="">
-                <button id="commentUpload" class="btn btn-primary btn-flat" data-toggle="tooltip" title="" data-original-title="사진 올리기"><i class="fa fa-camera"></i></button>
-                <button type="submit" id="comment_submit" class="btn btn-primary btn-flat">Send</button>
-              </span>
+              <ul class="comment_image_ul">
+                <div class="in_block" id="comment-upload-file"></div>
+              </ul>
+              <div style="display: table-header-group;">
+                <div class="form-control comment-form" id="comment" contenteditable="true" placeholder="댓글을 입력하세요.."></div>
+                <span class="input-group-btn">
+                  <input class="invisible" id="commentfile" type="file" name="commentfile" required="">
+                  <button id="commentUpload" class="btn btn-primary btn-flat" data-toggle="tooltip" title="" data-original-title="사진 올리기"><i class="fa fa-camera"></i></button>
+                  <button type="submit" id="comment_submit" class="btn btn-primary btn-flat disabled">Send</button>
+                </span>
+              </div>
+
             </div>
           </form>
 

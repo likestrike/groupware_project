@@ -307,7 +307,7 @@ div.post_image_wrapper{
   overflow-x: auto;
   overflow-y: hidden;
 }
-ul.post_image_ul{
+ul.post_image_ul, ul.comment_image_ul{
   list-style-type: none;
   margin: 8px 0 0 0;
   padding: 0 0 0 0px;
@@ -316,12 +316,18 @@ ul.post_image_ul{
 ul.post_image_ul>div{
   display: inline-block;
 }
+
 .in_block{
   display: inline-block;
   position: relative;
 }
 img.post_uploaded_image{
   height: 180px;
+  widows: auto;
+  -webkit-user-drag: none;
+}
+img.comment_uploaded_image{
+  height: 100px;
   widows: auto;
   -webkit-user-drag: none;
 }
@@ -352,6 +358,10 @@ img.post_uploaded_image{
   top: 0;
 }
 .post-file-wrapper{
+  position: relative;
+  margin: 0px;
+}
+.comment-file-wrapper{
   position: relative;
   margin: 0px;
 }
@@ -402,15 +412,42 @@ img.post_uploaded_image{
   right: 0;
 }
 .left{
-  left: 0; 
+  left: 0;
 }
-
+.moreImgArea{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom:0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color:#fff;
+  font-size: 40px;
+}
+.moreImgText_wrapper{
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.moreImgText{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
 
 .box.box-widget{
   transition: height 2s;
   -moz-transition: height 2s; /* Firefox 4 */
   -webkit-transition: height 2s; /* Safari and Chrome */
   -o-transition: height 2s; /* Opera */
+}
+.direct-post{
+    color: #bdbdbd;
+    cursor: text;
+    margin-left: 50px;
+    margin-top: 8px;
+    outline: none;
+    font-size: 16px;
 }
 .postfile-image-wrapper{
   position: relative;

@@ -15,7 +15,8 @@ Meteor.methods({
     check(this.userId, String);
     check(commentAttributes, {
       postId: String,
-      body: String
+      body: String,
+      fileId: String
     });
     var user = Meteor.user();
     var post = Posts.findOne(commentAttributes.postId);

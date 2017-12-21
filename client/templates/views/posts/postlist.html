@@ -13,10 +13,14 @@
 		    <div class="row">
 				{{#if condition1}}
 					<div class="post-grid col-md-4">
-						<div class="direct-chat-msg" id="post-modal" style="cursor: pointer;">
-		                  <img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
-		                  <div class="direct-chat-text">클릭하세요.</div>
-		                </div>
+						<div class="box box-widget" id="post-modal">
+							<div class="box-body">
+								<img class="direct-chat-img" src="{{currentUser.profile.thumbnail}}" alt="Message User Image"><!-- /.direct-chat-img -->
+								<div class="direct-post">
+									<span tabindex="0">{{currentUser.profile.fullname}}님 새로운 소식을 공유하세요.</span>
+								</div>
+							</div>
+						</div>
 						{{#each postData}}
 			                {{#if col1}}
 			                   	{{> postItem}}

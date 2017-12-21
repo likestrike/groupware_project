@@ -94,7 +94,7 @@ Template.postfileView.events({
 
         currentIndex = currentIndex-1;
         t.imgIndex.set(currentIndex);
-        
+
     },
     'click #move_next' : function(e, t){
         var target = $(e.currentTarget).prev();
@@ -113,7 +113,7 @@ Template.postfileView.events({
             data_map[index] = $(this).width();
             index++;
         });
-        
+
         currentX = currentX + data_map[currentIndex];
         t.transX.set(currentX);
 
@@ -371,9 +371,9 @@ Template.postfileView.helpers({
         if(ids == undefined || ids.length == 0){
             count = 0;
         }else{
-            count = Collections.files.find({'_id' : {"$in": ids}, 'isImage' : true}).count();    
+            count = Collections.files.find({'_id' : {"$in": ids}, 'isImage' : true}).count();
         }
-        // cout 에 현재 file Collections length를 저장. 
+        // cout 에 현재 file Collections length를 저장.
 		Template.instance().count = count;
 
 		if(count == 2){
@@ -382,6 +382,8 @@ Template.postfileView.helpers({
             attribute.style = 'width : ' +child_width+'px; height : '+child_width+'px;';
 		}else if(count == 4){
             attribute.style = 'width : ' +child_width+'px; height : '+child_width+'px;';
+        }else if(count >= 5){
+        	attribute.style = 'width : ' +child_width+'px; height : '+child_width+'px;';
         }else{
             // attribute.style = 'width : ' +child_width+'px; height : '+child_width+'px;';
         }
@@ -390,6 +392,18 @@ Template.postfileView.helpers({
 	incremented: function(index){
 		index++;
     	return index;
+	},
+	chkIndex : function(index){
+		if(Template.instance().count > 5){
+			if(index == 4){
+				return true
+			}
+		}
+		return false;
+	},
+	getMoreImg : function(){
+		var moreleft = Template.instance().count - 5;
+		return moreleft;
 	},
 	atagAttr : function(index){
 		var parent_width = Session.get('post_width');
@@ -410,14 +424,14 @@ Template.postfileView.helpers({
 			}
 		}else if(count == 3){
             var viewmode = Template.instance().viewmode;
-            // 첫 이미지가 세로, 가로인지에 따라 레이아웃 구성을 바꾼다. 
+            // 첫 이미지가 세로, 가로인지에 따라 레이아웃 구성을 바꾼다.
             if(index == 1){
                 if(this.meta.width < this.meta.height){
                     // 세로 모드 변환
                     Template.instance().viewmode = 'vertical';
                     attribute.style = 'width: '+imageWidth+'px;height: '+(parent_width - 40)+'px;position: absolute;left: 0;top: 0;';
                 }else{
-                    // 가로 모드 
+                    // 가로 모드
                     Template.instance().viewmode = 'horizontal';
                     attribute.style = 'width: '+childWidth+'px;height: '+imageWidth+'px;position: absolute;left: 0;top: 0;';
                 }
@@ -425,7 +439,7 @@ Template.postfileView.helpers({
                 if(viewmode == 'vertical'){
                     var other_height = (parent_width - 40)/2;
                     var top = index==3?other_height:0;
-                    attribute.style = 'width: '+imageWidth+'px;height: '+other_height+'px;position: absolute;right: 0;top: '+top+'px;';   
+                    attribute.style = 'width: '+imageWidth+'px;height: '+other_height+'px;position: absolute;right: 0;top: '+top+'px;';
                 }else{
                     var top = imageWidth;
                     var left = index==3?imageWidth:0;
@@ -468,7 +482,7 @@ Template.postfileView.helpers({
                 }else if(viewmode == 'horizontal'){
                     var vWidth = (childWidth/3);
                     var vHeight = (childWidth/3);
-                    var left = vWidth * (index - 2); 
+                    var left = vWidth * (index - 2);
                     var top = (childWidth/3)*2;
 
                     attribute.style = 'width: '+vWidth+'px;height: '+vHeight+'px;position: absolute;left: '+left+'px;top: '+top+'px;';
@@ -477,9 +491,23 @@ Template.postfileView.helpers({
                     var left = 0;
                     if(index == 2 || index == 4)left=imageWidth;
                     if(index == 3 || index == 4)top=imageWidth;
-                    attribute.style = 'width: '+imageWidth+'px;height: '+imageWidth+'px;position: absolute;top: '+top+'px; left:'+left+'px;';   
+                    attribute.style = 'width: '+imageWidth+'px;height: '+imageWidth+'px;position: absolute;top: '+top+'px; left:'+left+'px;';
                 }
             }
+        }else if(count >= 5){
+        	if(index <= 2){
+        		var top = imageWidth * (index - 1);
+        		attribute.style = 'width: '+imageWidth+'px;height: '+imageWidth+'px;position: absolute;left: 0px;top: '+top+'px;';
+        	}else{
+        		var vWidth = imageWidth;
+        		var vHeight = (childWidth/3);
+        		var top = vHeight * (index - 3);
+        		attribute.style = 'width: '+vWidth+'px;height: '+vHeight+'px;position: absolute;left: '+imageWidth+'px;top: '+top+'px;';
+
+        		if(index > 5){
+        			attribute.style = 'width: '+vWidth+'px;height: '+vHeight+'px;position: absolute;display:none;';
+        		}
+        	}
         }
 		return attribute;
 	},
@@ -502,7 +530,7 @@ Template.postfileView.helpers({
                 if(index == 1){
                     attribute.style = 'width: '+imageWidth+'px;height: '+(parent_width - 40)+'px;position: relative;left: 0; overflow: hidden;border: 1px solid #e7eaec;';
                 }else{
-                    attribute.style = 'width: '+imageWidth+'px;height: '+((parent_width - 40)/2)+'px;position: relative;overflow: hidden;border: 1px solid #e7eaec;';    
+                    attribute.style = 'width: '+imageWidth+'px;height: '+((parent_width - 40)/2)+'px;position: relative;overflow: hidden;border: 1px solid #e7eaec;';
                 }
             }else{
                 if(index == 1){
@@ -535,7 +563,16 @@ Template.postfileView.helpers({
             }else{
                 attribute.style = 'width: '+imageWidth+'px;height: '+imageWidth+'px;position: relative;overflow: hidden;border: 1px solid #e7eaec;';
             }
-
+        }else if(count >= 5){
+        	if(index <= 2){
+        		var top = imageWidth * (index - 1);
+        		attribute.style = 'width: '+imageWidth+'px;height: '+imageWidth+'px;position: relative;overflow: hidden;border: 1px solid #e7eaec;';
+        	}else{
+        		var vWidth = imageWidth;
+        		var vHeight = (childWidth/3);
+        		var top = vHeight * (index - 3);
+        		attribute.style = 'width: '+vWidth+'px;height: '+vHeight+'px;position: relative;overflow: hidden;border: 1px solid #e7eaec;';
+        	}
         }
 
         return attribute;
@@ -559,32 +596,46 @@ Template.postfileView.helpers({
                 if(imgWidth == imgHeight ){
                     attribute.style = 'width : '+imageWidth+'px';
                 }else{
-                    attribute.style = 'position: absolute;left: -'+(imageWidth/2)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';    
+                    attribute.style = 'position: absolute;left: -'+(imageWidth/2)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';
                 }
 			}
 		}else if(count == 3){
-            
             if(viewmode == 'vertical'){
                 if(index == 1){
                     childWidth = childWidth - 140;
-                    attribute.style = 'position: absolute;left: -'+(childWidth/8)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';    
+                    attribute.style = 'position: absolute;left: -'+(childWidth/8)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';
                 }else{
-                    childWidth = childWidth - 40;
-                    attribute.style = 'position: absolute;left: -'+(childWidth/4)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';    
+                	if(imgWidth < imgHeight){
+                		// 세로 이미지 경우 width 를 맞춘다.
+                		attribute.style = 'position: absolute;left: 0px; width : '+imageWidth+'px;';
+                	}else{
+                		childWidth = childWidth - 40;
+                    	attribute.style = 'position: absolute;left: -'+(childWidth/4)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';
+                	}
                 }
             }else{
                 if(index == 1){
                     attribute.style = 'position: absolute;left: 0; top: 0; max-width : '+childWidth+'px; width : '+childWidth+'px;';
                 }else{
-                    childWidth = childWidth - 40;
-                    attribute.style = 'position: absolute;left: -'+(childWidth/4)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';       
+                	if(imgWidth < imgHeight){
+                		attribute.style = 'position: absolute;width : '+imageWidth+'px;';
+                	}else{
+                		childWidth = childWidth - 40;
+                    	attribute.style = 'position: absolute;left: -'+(childWidth/4)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';
+                	}
                 }
             }
         }else if(count == 4){
             if(viewmode == 'vertical'){
                 if(index == 1){
-                    childWidth = childWidth - 140;
-                    attribute.style = 'position: absolute;left: -6px; width : '+childWidth+'px;';
+                	if(imgWidth < imgHeight){
+                		// 세로
+                		attribute.style = 'position: absolute;left: 0px; height : '+childWidth+'px;';
+                	}else{
+                		childWidth = childWidth - 140;
+                    	attribute.style = 'position: absolute;left: -6px; width : '+childWidth+'px;';
+                	}
+
                 }else{
                     var vWidth = (childWidth/3)*2;
                     var vHeight = (parent_width - 40)/3;
@@ -624,6 +675,41 @@ Template.postfileView.helpers({
                 }
 
             }
+        }else if(count >= 5){
+        	var a,b,c,d;
+        	if(index <= 2){
+        		if(imgWidth < imgHeight){
+        			// 세로
+        			a = this.meta.height;
+                    b = this.meta.width;
+                    c = a - b;
+                    d = Math.floor((c/a)*100);
+        			attribute.style = 'position: absolute; width : '+imageWidth+'px;';
+        		}else{
+        			a = this.meta.width;
+                    b = this.meta.height;
+                    c = a - b;
+                    d = Math.floor((c/a)*100);
+        			attribute.style = 'position: absolute; left:-'+(childWidth/6)+'px; height : '+imageWidth+'px;';
+        		}
+        		if(d < 10){
+                    attribute.style = 'position: absolute; height : '+imageWidth+'px;';
+                }
+        		// var top = imageWidth * (index - 1);
+        		// attribute.style = 'width: '+imageWidth+'px;height: '+imageWidth+'px;position: relative;overflow: hidden;border: 1px solid #e7eaec;';
+        	}else{
+        		if(imgWidth < imgHeight){
+        			attribute.style = 'position: absolute; width : '+imageWidth+'px;';
+        		}else{
+        			var vHeight = (childWidth/3);
+        			attribute.style = 'position: absolute; height : '+vHeight+'px;';
+        		}
+        		// var vWidth = imageWidth;
+        		// var vHeight = (childWidth/3);
+        		// var top = vHeight * (index - 3);
+
+        	}
+
         }
 
 		return attribute;
@@ -631,7 +717,7 @@ Template.postfileView.helpers({
     imgAttrPlus : function(){
         var attribute = {};
         attribute.style = 'height : 310px;';
-        return attribute; 
+        return attribute;
     },
     pannelAttr : function(){
         var attribute = {};
