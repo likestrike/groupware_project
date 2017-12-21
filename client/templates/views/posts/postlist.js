@@ -84,13 +84,10 @@ Template.postlist.events({
 
 	}
 });
-Meteor.startup(function () {
-	Session.set("window_width", $(window).width());
-	Session.set("window_height", $(window).height());
 
-});
 Template.postlist.onCreated(function(){
 	var self = this;
+	console.log('on Created post ' +  $('.post-grid:eq(0)').width())
 	window.addEventListener('resize', function(){
 	  	if($(this).width() >= 990 && $(this).width() <= 1420){
 	  		Session.set("resize", true);

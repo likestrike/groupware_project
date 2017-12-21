@@ -80,6 +80,7 @@ momentjs:moment@2.19.1
 mongo@1.2.2
 mongo-dev-server@1.0.1
 mongo-id@1.0.6
+mrt:filesize@2.0.3
 natestrauser:animate-css@3.5.1
 npm-bcrypt@0.9.3
 npm-mongo@2.2.31

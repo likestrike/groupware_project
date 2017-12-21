@@ -2,6 +2,7 @@ import { Blaze } from 'meteor/blaze';
 import { Template }          from 'meteor/templating';
 import { ClientStorage }     from 'meteor/ostrio:cstorage';
 import { _app, Collections } from '/lib/core.js';
+import { filesize }          from 'meteor/mrt:filesize';
 import Images from '/collections/images.js';
 
 var screenSizes = {

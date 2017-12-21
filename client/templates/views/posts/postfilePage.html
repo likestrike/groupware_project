@@ -16,11 +16,27 @@
 </template>
 
 <template name="postfileView">
-	<div class="image-gallery" {{wrapperAttr}}>
+	<!-- google plus view -->
+	<div class="image-gallery">
+		<div class="image_guide left" id="move_prev"><i class="fa fa-fw fa-arrow-left"></i></div>
+		<div class="gallery-pannel" {{pannelAttr}}>
+			{{#each Images.each}}
+				<a href="{{link}}" class="image-swipe" data-size="{{meta.width}}x{{meta.height}}" data-med="{{link 'preview'}}" data-med-size="{{versions.preview.meta.width}}x{{versions.preview.meta.height}}">
+					<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image" {{imgAttrPlus}}>
+				</a>
+			{{/each}}
+		</div>
+		<div class="image_guide right" id="move_next"><i class="fa fa-fw fa-arrow-right"></i></div>
+	</div>
+
+	<!-- facebook view -->
+	<!-- <div class="image-gallery" {{wrapperAttr}}>
 		{{#each Images.each}}
 			{{#if isImage}}
-			<a href="{{link}}" class="image-swipe" data-size="{{meta.width}}x{{meta.height}}" data-med="{{link 'preview'}}" data-med-size="{{versions.preview.width}}x{{versions.preview.height}}" {{atagAttr @index}}>
-				<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image" {{imgAttr @index}}>
+			<a href="{{link}}" class="image-swipe" data-size="{{meta.width}}x{{meta.height}}" data-med="{{link 'preview'}}" data-med-size="{{versions.preview.meta.width}}x{{versions.preview.meta.height}}" {{atagAttr @index}}>
+				<div {{divAttr @index}}>
+					<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image" {{imgAttr @index}}>
+				</div>
 			</a>
 			{{else if isVideo}}
 			<video class="file-preview" id="{{_id}}" controls="" autoplay="" preload="auto" playsinline="true" webkit-playsinline="true" loop="">
@@ -28,5 +44,5 @@
 			</video>
 			{{/if}}
 		{{/each}}
-	</div>
+	</div> -->
 </template>
