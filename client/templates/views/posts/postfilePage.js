@@ -359,6 +359,13 @@ Template.postfileView.helpers({
   		}
 		return Collections.files.find({'_id' : {"$in": ids}, 'isImage' : true});
 	},
+    Videos: function () {
+        var ids = Template.instance().data;
+        if(ids == undefined || ids.length == 0){
+            return false;
+        }
+        return Collections.files.find({'_id' : {"$in": ids}, 'isVideo' : true});
+    },
 	wrapperAttr : function(){
 		Session.set("post_width", $('.post-grid:eq(0)').width());
         parent_width = Session.get('post_width');

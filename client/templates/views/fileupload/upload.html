@@ -50,7 +50,7 @@
       </div>
       {{else if isVideo}}
       <li>
-        <video class="file-preview" id="{{_id}}" controls="" autoplay="" preload="auto" playsinline="true" webkit-playsinline="true" loop="">
+        <video class="file-preview" data-value="{{_id}}" controls="" autoplay="" preload="auto" playsinline="true" webkit-playsinline="true" loop="">
           <source src="{{link}}?play=true" type="{{type}}">
           </video>
       </li>
@@ -79,7 +79,7 @@
       </div>
       {{else if isVideo}}
       <li>
-        <video class="file-preview" id="{{_id}}" controls="" autoplay="" preload="auto" playsinline="true" webkit-playsinline="true" loop="">
+        <video class="file-preview" data-value="{{_id}}" controls="" autoplay="" preload="auto" playsinline="true" webkit-playsinline="true" loop="">
           <source src="{{link}}?play=true" type="{{type}}">
           </video>
       </li>

@@ -227,7 +227,11 @@ Template.postModal.events({
 		if($('.post_uploaded_image').length >0){
 			$('.post_uploaded_image').each(function(){
 				file_ids.push($(this).data('value'));
-				var fildId = $(this).data('value');
+			});
+		}
+		if($('.file-preview').length > 0){
+			$('.file-preview').each(function(){
+				file_ids.push($(this).data('value'));
 			});
 		}
 

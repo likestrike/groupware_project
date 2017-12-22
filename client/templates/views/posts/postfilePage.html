@@ -55,5 +55,10 @@
 			</video>
 			{{/if}}
 		{{/each}}
+		{{#each Videos.each}}
+			<video class="file-preview" id="{{_id}}" controls="" autoplay="" preload="" playsinline="true" webkit-playsinline="true" loop="" {{imgAttr @index}}>
+				<source src="{{link}}?play=true" type="{{type}}">
+			</video>
+		{{/each}}
 	</div>
 </template>
