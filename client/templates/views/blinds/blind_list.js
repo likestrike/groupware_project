@@ -5,6 +5,9 @@ Session.set("window_width", null);
 Session.set("inc_limit", 12);
 
 Template.blindlist.helpers({
+	getHeight:function(){
+		return Session.get('window_height');
+	},
 	getWidth:function(){
 		return Session.get('window_width');
 	},

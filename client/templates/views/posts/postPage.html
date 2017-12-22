@@ -1,0 +1,19 @@
+<template name="postPage">
+	<div class="content-wrapper" style="min-height: {{getHeight}}px;">
+		{{> notice}}
+		<section class="content-header">
+		<ol class="breadcrumb">
+			<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
+		</ol>
+		</section>
+		<section class="content post-content single">
+			<div class="row">
+				<div class="post-grid col-md-12">
+					{{#each postData}}
+						{{> postItem}}
+					{{/each}}
+				</div>
+			</div>
+		</section>
+	</div>
+</template>

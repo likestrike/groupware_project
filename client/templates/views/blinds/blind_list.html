@@ -1,5 +1,5 @@
 <template name="blindlist">
-	<div class="content-wrapper" >
+	<div class="content-wrapper" style="min-height: {{getHeight}}px;">
 		{{> notice}}
 		<section class="content-header">
 			<h1>블라인드 게시판<small>무기명 건의하기</small>
@@ -9,7 +9,7 @@
 			<li class="active">블라인드 게시판</li>
 		</ol>
 		</section>
-		<section class="content">
+		<section class="content blind-content">
 			<div class="callout callout-info">
 				<h4>블라인드 게시판은 무기명입니다!</h4>
 					특정 인물에 대한 비방이나 실명거론, 욕설 등은 관리자에 의해 삭제 될 수 있음을 알려 드립니다.
@@ -18,13 +18,15 @@
 			<div class="row">
 				{{#if condition1}}
 					<div class="blindItem-grid col-md-4">
-						<div class="row">
-							<div class="col-lg-6">
-								<button type="button" class="btn btn-primary btn-block" id="blind-modal">
-									<i class="fa fa-fw fa-user-secret"></i>
-								작성하기</button>	
+						<div class="box box-widget" id="blind-modal">
+							<div class="box-body">
+								<i class="fa fa-fw fa-user-secret "></i><!-- /.direct-chat-img -->
+								<div class="direct-post">
+									<span tabindex="0">블라인드 작성하기.</span>
+								</div>
 							</div>
 						</div>
+
 						{{#each blindData}}
 			                {{#if col1}}
 			                   	{{> blindItem}}

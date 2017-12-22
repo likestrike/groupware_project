@@ -6,8 +6,6 @@ Template.tagviewer.helpers({
 	}
 });
 Template.tagviewer.onCreated(function(){
-	console.log('onload');
-	console.log(this.tag);
 	var test = this.tag;
 });
 

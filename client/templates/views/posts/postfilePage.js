@@ -416,6 +416,9 @@ Template.postfileView.helpers({
 		var count = Template.instance().count;
         var imageWidth = (parent_width - 20) / 2;
         var childWidth = (parent_width - 20);
+        if(count == 1){
+            attribute.style = 'width: '+imageWidth+'px;position: absolute;left: 0;top: 0;';
+        }
 		if(count == 2){
 			if(index == 1){
 				attribute.style = 'width: '+imageWidth+'px;height: '+imageWidth+'px;position: absolute;left: 0;top: 0;';
@@ -603,7 +606,11 @@ Template.postfileView.helpers({
             if(viewmode == 'vertical'){
                 if(index == 1){
                     childWidth = childWidth - 140;
-                    attribute.style = 'position: absolute;left: -'+(childWidth/8)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';
+                    if(imgWidth < imgHeight){
+                        attribute.style = 'position: absolute;left: -6px; height : '+(parent_width - 40)+'px;';
+                    }else{
+                        attribute.style = 'position: absolute;left: -'+(childWidth/8)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';    
+                    }
                 }else{
                 	if(imgWidth < imgHeight){
                 		// 세로 이미지 경우 width 를 맞춘다.
@@ -702,7 +709,12 @@ Template.postfileView.helpers({
         			attribute.style = 'position: absolute; width : '+imageWidth+'px;';
         		}else{
         			var vHeight = (childWidth/3);
-        			attribute.style = 'position: absolute; height : '+vHeight+'px;';
+                    if(imgHeight < (vHeight + 100)){
+                        attribute.style = 'position: absolute; width : '+imageWidth+'px;';
+                    }else{
+                        attribute.style = 'position: absolute; height : '+vHeight+'px;';    
+                    }
+        			
         		}
         		// var vWidth = imageWidth;
         		// var vHeight = (childWidth/3);

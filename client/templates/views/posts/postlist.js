@@ -67,27 +67,34 @@ Template.postlist.events({
 		Modal.show('postModal');
 	},
 	'click .box-widget' : function(e, t){
-
 		$box = $(e.currentTarget).find('.box-body');
-        minimumHeight = 180;
+		$child = $box.find('.post-context-div');
+		// if(!$child.hasClass('minimum')){
+		// 	$child.addClass('minimum');
+		// }else{
+		// 	$child.removeClass('minimum')
+		// 	$box.addClass('trans')
+		// 	minimumHeight = 180;
 
-        // get current height
-        currentHeight = $box.innerHeight();
+	 //        // get current height
+	 //        currentHeight = $box.innerHeight();
 
-        // get height with auto applied
-        autoHeight = $box.find('.post-context').css('height', 'auto').innerHeight();
+	 //        // get height with auto applied
+	 //        autoHeight = $box.find('.post-context').css('height', 'auto').innerHeight();
 
-        // reset height and revert to original if current and auto are equal
-        // $box.css('max-height', currentHeight).animate({
-        //     'max-height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
-        // })
+	 //        // reset height and revert to original if current and auto are equal
+	 //        $box.css('max-height', currentHeight).animate({
+	 //            'max-height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
+	 //        })	
+		// }
+        
 
 	}
 });
 
 Template.postlist.onCreated(function(){
 	var self = this;
-	console.log('on Created post ' +  $('.post-grid:eq(0)').width())
+	
 	window.addEventListener('resize', function(){
 	  	if($(this).width() >= 990 && $(this).width() <= 1420){
 	  		Session.set("resize", true);

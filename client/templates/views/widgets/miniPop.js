@@ -12,7 +12,7 @@ Template.commentMinipop.helpers({
 	}
 });
 Template.commentMinipop.events({
-	'click document':function(e, t){
+	'click':function(e, t){
 		if($(e.target).closest('#comment-edit-box').length == 0){
 			var view = Blaze.getView($("#comment-edit-box")[0]);
 			Blaze.remove(view);

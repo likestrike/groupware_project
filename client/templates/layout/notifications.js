@@ -1,14 +1,27 @@
+Template.notifications.onCreated(function(){
+  this.current_count = 0;
+});
 Template.notifications.helpers({
   notifications: function() {
-    return Notifications.find({userId: Meteor.userId(), read: false});
+    return Notifications.find({userId: Meteor.userId()});
   },
   notificationCount: function(){
+    // var countData = Notifications.find({userId: Meteor.userId(), read: false}).count();
+    // if(Template.instance().current_count != countData && countData > 0){
+    //     if(Template.instance().current_count < countData){
+    //       Bert.alert( '당신에게 메세지가 있어요~', 'success', 'growl-top-right', 'fa-info' );
+    //       Template.instance().current_count = countData;  
+    //     }
+    // }
+    
+    
     return Notifications.find({userId: Meteor.userId(), read: false}).count();
   },
 });
 
 Template.notificationItem.helpers({
   notificationPostPath: function() {
+    return ;
     // return Router.routes.postPage.path({_id: this.postId});
   },
   writer: function() {
@@ -26,3 +39,4 @@ Template.notificationItem.events({
     Notifications.update(this._id, {$set: {read: true}});
   }
 });
+

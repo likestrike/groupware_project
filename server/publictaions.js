@@ -9,6 +9,10 @@ Meteor.publish('userProfile', function (param) {
   check(param, Object);
   return Meteor.users.find({_id : param._id}, {fields: {profile: 1}});
 });
+Meteor.publish('singlePost', function (param) {
+  check(param, Object);
+  return Posts.find({_id : param._id});
+});
 // 게시판 구독
 Meteor.publish('posts', function() {
   return Posts.find();
@@ -20,7 +24,7 @@ Meteor.publish('comments', function(postId) {
 });
 // 알림 구독
 Meteor.publish('notifications', function() {
-  return Notifications.find({userId: this.userId, read: false});
+  return Notifications.find({userId: this.userId});
 });
 // Faq 구독
 Meteor.publish('faqs', function() {

@@ -5,7 +5,7 @@
           <div class="user-block">
             <img class="img-circle" src="{{writer.profile.thumbnail}}" alt="User Image">
             <span class="username"><a href="{{pathFor '/profile/:id' id=writer._id}}">{{writer.profile.fullname}}</a></span>
-            <span class="description">{{formattedDate}}  No : {{index}}</span>
+            <span class="description">{{formattedDate}}</span>
           </div>
           <!-- /.user-block -->
           <div class="box-tools btn-group pull-right">
@@ -59,8 +59,8 @@
             {{> commentItem}}
           {{/each}}
           {{else}}
-          <div class="box-footer box-comments">
-              <div class="box-comment">
+          <div class="box-footer comments">
+              <div class="comment-box">
 
               </div>
             </div>
