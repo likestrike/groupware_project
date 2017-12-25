@@ -26,16 +26,9 @@
                         <div class="post_image_area">
                             <div class="post_image_wrapper">
                               <ul class="post_image_ul">
-                                <h1 class="percentage">{{status.progress}}</h1>
-                                <progress value="{{status.progress}}" max="100"></progress>
                                 <div class="in_block" id="upload-file"></div>
                                 </ul>
                             </div>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="{{status.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{status.progress}}%">
-                                  <span class="sr-only">60% Complete (warning)</span>
-                                </div>
-                              </div>
                         </div>
                     </div>
                     <div class='post-modal-tools-box'>
@@ -44,6 +37,16 @@
                           <i class="fa fa-camera"></i>
                         </div>
                     </div>
+                    <!-- upload status -->
+                    <!-- <div>
+                        <h1 class="percentage">{{status.progress}}</h1>
+                            <progress value="{{status.progress}}" max="100"></progress>
+                            <div class="progress progress-xs">
+                            <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="{{status.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{status.progress}}%">
+                              <span class="sr-only">60% Complete (warning)</span>
+                            </div>
+                          </div>
+                    </div> -->
                 </div>
 
                 <div class="modal-footer">

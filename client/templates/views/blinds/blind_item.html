@@ -5,15 +5,34 @@
 				<span class="username" style="margin: 0px;">{{author}}님이 남기셨습니다.</span>
 				<span class="description" style="margin: 0px;">{{formattedDate}}</span>
 			</div>
+      <!-- /.user-block -->
+      <div class="box-tools btn-group pull-right">
+        <button type="button" class="btn btn-box-tool  expand-post">
+          <a href="{{pathFor '/blindlist/:id' id=_id }}">
+              <i class="fa fa-fw fa-expand"></i>
+          </a>
+        </button>
+        {{#if ownPost}}
+        <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+          <i class="glyphicon glyphicon-option-vertical"></i></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#" id="delete_blind">삭제</a></li>
+            <li><a href="#" id="edit_blind">수정하기</a></li>
+          </ul>
+          {{/if}}
+      </div>
 		</div>
         <div class="box-body">
           <!-- post text -->
           <div class="post-wrapper">
             <div class="post-context-wrapper">
-              <div class="post-context-div minimum">
+              <div class="post-context-div">
                   <div class="post-context">{{{context}}}</div>
                 </div>
             </div>
+          </div>
+          <div class="post-file-wrapper row" id='myarea'>
+            {{> Template.dynamic template="postfileView" data=getdata}}
           </div>
         </div>
         <div class="box-tools-wrapper">

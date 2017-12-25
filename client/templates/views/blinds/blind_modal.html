@@ -1,7 +1,12 @@
 <template name="blindModal">
+    <form class="blind-upload-form" id="blindform">
     <div class="modal fade" tabindex='-1'>
         <div class="modal-dialog">
             <div class="modal-content">
+                <div class="fileover-area" style="">
+                    <i class="fa fa-fw fa-file-picture-o"></i>
+                    <span>여기로 사진을 올려서 보세요</span>
+                </div>
                 <div class="modal-header">
                     <div>쓰기전에 생각했나요? </div>
                 </div>
@@ -29,6 +34,12 @@
                             </label>
                         </div>
                     </div>
+                    <div class='post-modal-tools-box'>
+                        <input class="invisible" id="userfile" type="file" name="userfile" required="" multiple="">
+                        <div class="post-camera" id="fakeUpload" data-toggle="tooltip" title="사진 올리기">
+                          <i class="fa fa-camera"></i>
+                        </div>
+                    </div>
                     <!-- <div class="post_input" id="post_context_div">{{{postNote}}}</div> -->
                     <!-- <div class="form-control post-form" id="blind_context" contenteditable="true" placeholder="쓰거라 상큼한 회사생활." autofocus></div> -->
                     <!-- <textarea class="post_textarea" rows="5" placeholder="써보자 상큼한 회사생활." id="post_context"></textarea> -->
@@ -40,4 +51,5 @@
             </div>
         </div>
     </div>
+    </form>
 </template>

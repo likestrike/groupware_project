@@ -14,15 +14,16 @@ Meteor.methods({
   blindInsert: function(Attributes) {
     check(this.userId, String);
     check(Attributes, {
-      context: String
+      context: String,
+      fileIds: Array
     });
 
     var names = [
      "지나가던 방랑자",
-     "오늘밤 주인공은 나야나", 
-     "ilieiiseif", 
-     "iiiiiiioiii", 
-     "보노보노", 
+     "오늘밤 주인공은 나야나",
+     "ilieiiseif",
+     "iiiiiiioiii",
+     "보노보노",
      "일곱난장이",
      "월급루팡",
      "칼퇴요정",

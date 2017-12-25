@@ -1,13 +1,18 @@
 
-// Meteor.publish("user", function () {
-// 	return Meteor.users.find();
-// });
+Meteor.publish("userAll", function () {
+	return Meteor.users.find();
+});
 Meteor.publish('user', function () {
   return Meteor.users.find({}, {fields: {'profile': 1}});
 });
 Meteor.publish('userProfile', function (param) {
   check(param, Object);
   return Meteor.users.find({_id : param._id}, {fields: {profile: 1}});
+});
+Meteor.publish('userCount', function (param) {
+  check(param, String);
+  console.log(paran);
+  return Meteor.users.find({'emails.address' : param}).count();
 });
 Meteor.publish('singlePost', function (param) {
   check(param, Object);

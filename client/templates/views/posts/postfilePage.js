@@ -367,8 +367,9 @@ Template.postfileView.helpers({
         return Collections.files.find({'_id' : {"$in": ids}, 'isVideo' : true});
     },
 	wrapperAttr : function(){
-		Session.set("post_width", $('.post-grid:eq(0)').width());
+		Session.set("post_width", $('.box-widget:eq(0)').width());
         parent_width = Session.get('post_width');
+        console.log(parent_width);
 
 		var child_width = parent_width - 20;
 		var attribute = {};
@@ -424,7 +425,7 @@ Template.postfileView.helpers({
         var imageWidth = (parent_width - 20) / 2;
         var childWidth = (parent_width - 20);
         if(count == 1){
-            attribute.style = 'width: '+imageWidth+'px;position: absolute;left: 0;top: 0;';
+            attribute.style = 'width: '+imageWidth+'px;position: relative;';
         }
 		if(count == 2){
 			if(index == 1){
@@ -616,7 +617,7 @@ Template.postfileView.helpers({
                     if(imgWidth < imgHeight){
                         attribute.style = 'position: absolute;left: -6px; height : '+(parent_width - 40)+'px;';
                     }else{
-                        attribute.style = 'position: absolute;left: -'+(childWidth/8)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';    
+                        attribute.style = 'position: absolute;left: -'+(childWidth/8)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';
                     }
                 }else{
                 	if(imgWidth < imgHeight){
@@ -719,9 +720,9 @@ Template.postfileView.helpers({
                     if(imgHeight < (vHeight + 100)){
                         attribute.style = 'position: absolute; width : '+imageWidth+'px;';
                     }else{
-                        attribute.style = 'position: absolute; height : '+vHeight+'px;';    
+                        attribute.style = 'position: absolute; height : '+vHeight+'px;';
                     }
-        			
+
         		}
         		// var vWidth = imageWidth;
         		// var vHeight = (childWidth/3);

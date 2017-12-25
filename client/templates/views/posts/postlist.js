@@ -85,16 +85,16 @@ Template.postlist.events({
 	 //        // reset height and revert to original if current and auto are equal
 	 //        $box.css('max-height', currentHeight).animate({
 	 //            'max-height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
-	 //        })	
+	 //        })
 		// }
-        
+
 
 	}
 });
 
 Template.postlist.onCreated(function(){
 	var self = this;
-	
+
 	window.addEventListener('resize', function(){
 	  	if($(this).width() >= 990 && $(this).width() <= 1420){
 	  		Session.set("resize", true);

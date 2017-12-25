@@ -261,6 +261,12 @@
 .textcontext-area{
   min-height: 100px;
   position: relative;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
 }
 textarea.modal_textarea{
     background: transparent;
@@ -293,6 +299,19 @@ div#post_context_div{
 .modal-context-box{
   overflow-y: overlay;
   height: 331px;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
 }
 .textarea-copyform{
   min-height: 20px;
@@ -309,12 +328,18 @@ div#post_context_div{
 
 div.post_image_area{
   position: relative;
+  -webkit-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
 }
 div.post_image_wrapper{
   overflow-x: auto;
   overflow-y: hidden;
 }
-ul.post_image_ul, ul.comment_image_ul{
+ul.post_image_ul, ul.comment_image_ul, ul.blind_image_ul{
   list-style-type: none;
   margin: 8px 0 0 0;
   padding: 0 0 0 0px;
@@ -546,7 +571,13 @@ img.comment_uploaded_image{
     font-weight: 400;
     font-size: 12px;
 }
-
+.blind-icon{
+  background-color: #e6e6e6;
+  text-align: center;
+  font-size: 25px;
+  color: #6d6d6d;
+  line-height: 40px;
+}
 .username-blind{
   color: #565656;
   display: block;

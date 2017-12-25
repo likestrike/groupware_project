@@ -4,12 +4,18 @@ Template.google_api.onCreated(function () {
 var apidata;
 Template.google_api.events({
   'click #api_start': function (e, t) {
+    var foo_users = Meteor.call('get_users_by_email', 'essim@locus.com');
+    console.log(foo_users);
+    return;
     callGoogle();
   },
   'click #btn_save': function (e, t) {
     e.preventDefault();
 
     var options = [];
+
+    console.log("User count: " + Meteor.users.find().count());
+    return;
     // make users data
     // 구글과 로그인을 동시에 사용하기 위해 별의 별 짓을 다해봤지만.
     // 결국 무슨 짓거리를 해봐도 DB에 다이렉트로 때려넣는게 베스트이다.
@@ -49,7 +55,8 @@ Template.google_api.events({
             fullname : apidata[i].name.fullName,
             thumbnail : apidata[i].thumbnailPhotoUrl===undefined?'/images/user_empty.png':apidata[i].thumbnailPhotoUrl,
             title : apidata[i].organizations==undefined?'unknown':apidata[i].organizations[0].title,
-          }
+          },
+          creationTime : apidata[i].creationTime
         };
 
         Meteor.call('addUsers', user, function(error, result) {

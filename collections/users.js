@@ -26,5 +26,8 @@ MemberIndex = new Index({
     // if(password){
       // Accounts.setPassword(id, password);
     // }
-  }
+  },
+  'get_users_by_email': function(email) {
+      return Meteor.users.find({ 'emails.address': email }).fetch();
+  },
 });

@@ -8,23 +8,29 @@ Template.blindItem.helpers({
 	    // return Comments.find({postId: this._id}, {sort: {submitted: -1}, limit: 2});
 	    return BlindComments.find({blindId: this._id});
 	},
+	ownPost: function(){
+		var loggedInUser = Meteor.user();
+		if(loggedInUser){
+			if (Roles.userIsInRole(loggedInUser, ['admin'], 'default-group')){
+		  		return true;
+			}
+		}
+		return this.userId === Meteor.userId();
+	},
+	getdata: function(){
+  		return this.fileIds;
+  	},
 });
 
 Template.blindItem.events({
 	'submit form': function (e, t) {
 		e.preventDefault();
+
 		var $body = $(e.target).find('#comment');
 	    var comment = {
 	      body: $body.html(),
 	      blindId: this._id
 	    };
-
-	 //    var errors = {};
-	 //    if (! comment.body) {
-	 //      errors.body = "Please write some content";
-	 //      return Session.set('commentSubmitErrors', errors);
-	 //    }
-
 	    Meteor.call('blind_commentInsert', comment, function(error, commentId) {
 	      if (error){
 	        throwError(error.reason);
@@ -33,6 +39,7 @@ Template.blindItem.events({
 	      }
 	    });
 	},
+
 	'click #edit_blind':function(e, t){
 		e.preventDefault()
 		var itemId = this._id;
@@ -52,5 +59,7 @@ Template.blindItem.events({
 			}
 		}
 		myalert.deleteConfirm(callback);
-	}
+	},
+
+
 });

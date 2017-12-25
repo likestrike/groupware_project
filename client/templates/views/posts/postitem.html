@@ -9,6 +9,11 @@
           </div>
           <!-- /.user-block -->
           <div class="box-tools btn-group pull-right">
+            <button type="button" class="btn btn-box-tool  expand-post">
+              <a href="{{pathFor '/postlist/:id' id=_id }}">
+                  <i class="fa fa-fw fa-expand"></i>
+              </a>
+            </button>
             {{#if ownPost}}
             <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
               <i class="glyphicon glyphicon-option-vertical"></i></button>
