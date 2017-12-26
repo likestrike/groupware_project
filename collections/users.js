@@ -10,6 +10,11 @@ MemberIndex = new Index({
   engine: new MinimongoEngine(),
   defaultSearchOptions: { limit: 16 },
 })
+Meteor.users.allow({
+  update: function(userId, user) {
+    return true; 
+  }
+});
 
  Meteor.methods({
   'updateUser': function(id,attributes){
@@ -28,6 +33,12 @@ MemberIndex = new Index({
     // }
   },
   'get_users_by_email': function(email) {
+      check(email, String);
+      console.log(email);
+      console.log(Meteor.users.find().count());
+      console.log(Meteor.users.find({_id : 'wjZM9ZbDri5Wq87K4'}).count());
+      console.log(Meteor.users.find({_id : 'wjZM9ZbDri5Wq87K4'}).count());
+      console.log(Meteor.users.find({ 'emails.address': email }).count());
       return Meteor.users.find({ 'emails.address': email }).fetch();
   },
 });

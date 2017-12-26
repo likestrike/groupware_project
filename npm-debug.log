@@ -1,0 +1,1137 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'iconv' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.5
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData iconv
+8 silly fetchNamedPackageData iconv
+9 silly mapToRegistry name iconv
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'iconv',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'iconv',
+12 silly mapToRegistry   name: 'iconv',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/iconv
+14 verbose request uri https://registry.npmjs.org/iconv
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 15:36:10
+17 verbose request id a6963ae1528433a3
+18 verbose etag "5a3763d5-a163"
+19 verbose lastModified Mon, 18 Dec 2017 6:44:37 GMT
+20 http request GET https://registry.npmjs.org/iconv
+21 http 304 https://registry.npmjs.org/iconv
+22 verbose headers { date: 'Tue, 26 Dec 2017 06:36:11 GMT',
+22 verbose headers   via: '1.1 varnish',
+22 verbose headers   'cache-control': 'max-age=300',
+22 verbose headers   etag: '"5a3763d5-a163"',
+22 verbose headers   age: '0',
+22 verbose headers   connection: 'keep-alive',
+22 verbose headers   'x-served-by': 'cache-itm18821-ITM',
+22 verbose headers   'x-cache': 'MISS',
+22 verbose headers   'x-cache-hits': '0',
+22 verbose headers   'x-timer': 'S1514270171.018057,VS0,VE260',
+22 verbose headers   vary: 'Accept-Encoding, Accept' }
+23 silly get cb [ 304,
+23 silly get   { date: 'Tue, 26 Dec 2017 06:36:11 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     'cache-control': 'max-age=300',
+23 silly get     etag: '"5a3763d5-a163"',
+23 silly get     age: '0',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-itm18821-ITM',
+23 silly get     'x-cache': 'MISS',
+23 silly get     'x-cache-hits': '0',
+23 silly get     'x-timer': 'S1514270171.018057,VS0,VE260',
+23 silly get     vary: 'Accept-Encoding, Accept' } ]
+24 verbose etag https://registry.npmjs.org/iconv from cache
+25 verbose get saving iconv to C:\Users\rndvr\AppData\Roaming\npm-cache\registry.npmjs.org\iconv\.cache.json
+26 verbose correctMkdir C:\Users\rndvr\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+27 silly install normalizeTree
+28 silly loadCurrentTree Finishing
+29 silly loadIdealTree Starting
+30 silly install loadIdealTree
+31 silly cloneCurrentTree Starting
+32 silly install cloneCurrentTreeToIdealTree
+33 silly cloneCurrentTree Finishing
+34 silly loadShrinkwrap Starting
+35 silly install loadShrinkwrap
+36 silly loadShrinkwrap Finishing
+37 silly loadAllDepsIntoIdealTree Starting
+38 silly install loadAllDepsIntoIdealTree
+39 silly resolveWithNewModule iconv@2.3.0 checking installable status
+40 silly cache add args [ 'iconv', null ]
+41 verbose cache add spec iconv
+42 silly cache add parsed spec Result {
+42 silly cache add   raw: 'iconv',
+42 silly cache add   scope: null,
+42 silly cache add   escapedName: 'iconv',
+42 silly cache add   name: 'iconv',
+42 silly cache add   rawSpec: '',
+42 silly cache add   spec: 'latest',
+42 silly cache add   type: 'tag' }
+43 silly addNamed iconv@latest
+44 verbose addNamed "latest" is being treated as a dist-tag for iconv
+45 info addNameTag [ 'iconv', 'latest' ]
+46 silly mapToRegistry name iconv
+47 silly mapToRegistry using default registry
+48 silly mapToRegistry registry https://registry.npmjs.org/
+49 silly mapToRegistry data Result {
+49 silly mapToRegistry   raw: 'iconv',
+49 silly mapToRegistry   scope: null,
+49 silly mapToRegistry   escapedName: 'iconv',
+49 silly mapToRegistry   name: 'iconv',
+49 silly mapToRegistry   rawSpec: '',
+49 silly mapToRegistry   spec: 'latest',
+49 silly mapToRegistry   type: 'tag' }
+50 silly mapToRegistry uri https://registry.npmjs.org/iconv
+51 verbose addNameTag registry:https://registry.npmjs.org/iconv not in flight; fetching
+52 verbose get https://registry.npmjs.org/iconv not expired, no request
+53 silly addNameTag next cb for iconv with tag latest
+54 silly addNamed iconv@2.3.0
+55 verbose addNamed "2.3.0" is a plain semver version for iconv
+56 silly cache afterAdd iconv@2.3.0
+57 verbose afterAdd C:\Users\rndvr\AppData\Roaming\npm-cache\iconv\2.3.0\package\package.json not in flight; writing
+58 verbose correctMkdir C:\Users\rndvr\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+59 verbose afterAdd C:\Users\rndvr\AppData\Roaming\npm-cache\iconv\2.3.0\package\package.json written
+60 silly loadAllDepsIntoIdealTree Finishing
+61 silly loadIdealTree Finishing
+62 silly currentTree Groupware1@
+62 silly currentTree +-- abbrev@1.1.0
+62 silly currentTree +-- ajv@4.11.8
+62 silly currentTree +-- ansi-regex@2.1.1
+62 silly currentTree +-- aproba@1.1.2
+62 silly currentTree +-- are-we-there-yet@1.1.4
+62 silly currentTree +-- array-parallel@0.1.3
+62 silly currentTree +-- array-series@0.1.5
+62 silly currentTree +-- asn1@0.2.3
+62 silly currentTree +-- assert-plus@0.2.0
+62 silly currentTree +-- asynckit@0.4.0
+62 silly currentTree +-- aws-sign2@0.6.0
+62 silly currentTree +-- aws4@1.6.0
+62 silly currentTree +-- babel-runtime@6.26.0
+62 silly currentTree +-- balanced-match@1.0.0
+62 silly currentTree +-- bcrypt-pbkdf@1.0.1
+62 silly currentTree +-- bcrypt@1.0.2
+62 silly currentTree +-- bindings@1.2.1
+62 silly currentTree +-- block-stream@0.0.9
+62 silly currentTree +-- boom@2.10.1
+62 silly currentTree +-- brace-expansion@1.1.8
+62 silly currentTree +-- buffer-shims@1.0.0
+62 silly currentTree +-- caseless@0.12.0
+62 silly currentTree +-- clone@2.1.1
+62 silly currentTree +-- co@4.6.0
+62 silly currentTree +-- code-point-at@1.1.0
+62 silly currentTree +-- combined-stream@1.0.5
+62 silly currentTree +-- concat-map@0.0.1
+62 silly currentTree +-- console-control-strings@1.1.0
+62 silly currentTree +-- core-js@2.5.0
+62 silly currentTree +-- core-util-is@1.0.2
+62 silly currentTree +-- cross-spawn@4.0.2
+62 silly currentTree +-- cryptiles@2.0.5
+62 silly currentTree +-- dashdash@1.14.1
+62 silly currentTree | `-- assert-plus@1.0.0
+62 silly currentTree +-- debug@2.2.0
+62 silly currentTree +-- deep-extend@0.4.2
+62 silly currentTree +-- delayed-stream@1.0.0
+62 silly currentTree +-- delegates@1.0.0
+62 silly currentTree +-- ecc-jsbn@0.1.1
+62 silly currentTree +-- extend@3.0.1
+62 silly currentTree +-- extsprintf@1.3.0
+62 silly currentTree +-- forever-agent@0.6.1
+62 silly currentTree +-- form-data@2.1.4
+62 silly currentTree +-- fs-extra@4.0.3
+62 silly currentTree +-- fs.realpath@1.0.0
+62 silly currentTree +-- fstream-ignore@1.0.5
+62 silly currentTree +-- fstream@1.0.11
+62 silly currentTree +-- gauge@2.7.4
+62 silly currentTree +-- getpass@0.1.7
+62 silly currentTree | `-- assert-plus@1.0.0
+62 silly currentTree +-- glob@7.1.2
+62 silly currentTree +-- gm@1.23.0
+62 silly currentTree +-- graceful-fs@4.1.11
+62 silly currentTree +-- har-schema@1.0.5
+62 silly currentTree +-- har-validator@4.2.1
+62 silly currentTree +-- has-unicode@2.0.1
+62 silly currentTree +-- hawk@3.1.3
+62 silly currentTree +-- hoek@2.16.3
+62 silly currentTree +-- http-signature@1.1.1
+62 silly currentTree +-- iconv@2.3.0
+62 silly currentTree +-- inflight@1.0.6
+62 silly currentTree +-- inherits@2.0.3
+62 silly currentTree +-- ini@1.3.4
+62 silly currentTree +-- is-fullwidth-code-point@1.0.0
+62 silly currentTree +-- is-typedarray@1.0.0
+62 silly currentTree +-- isarray@1.0.0
+62 silly currentTree +-- isexe@2.0.0
+62 silly currentTree +-- isstream@0.1.2
+62 silly currentTree +-- jsbn@0.1.1
+62 silly currentTree +-- json-schema@0.2.3
+62 silly currentTree +-- json-stable-stringify@1.0.1
+62 silly currentTree +-- json-stringify-safe@5.0.1
+62 silly currentTree +-- jsonfile@4.0.0
+62 silly currentTree +-- jsonify@0.0.0
+62 silly currentTree +-- jsprim@1.4.1
+62 silly currentTree | `-- assert-plus@1.0.0
+62 silly currentTree +-- lodash._reinterpolate@3.0.0
+62 silly currentTree +-- lodash.foreach@4.5.0
+62 silly currentTree +-- lodash.isempty@4.4.0
+62 silly currentTree +-- lodash.isobject@3.0.2
+62 silly currentTree +-- lodash.merge@4.6.0
+62 silly currentTree +-- lodash.template@4.4.0
+62 silly currentTree +-- lodash.templatesettings@4.1.0
+62 silly currentTree +-- lodash.without@4.4.0
+62 silly currentTree +-- lru-cache@4.1.1
+62 silly currentTree +-- message-box@0.1.1
+62 silly currentTree +-- meteor-node-stubs@0.2.11
+62 silly currentTree | +-- asn1.js@4.9.0
+62 silly currentTree | +-- assert@1.4.1
+62 silly currentTree | +-- balanced-match@0.4.2
+62 silly currentTree | +-- base64-js@1.2.0
+62 silly currentTree | +-- Base64@0.2.1
+62 silly currentTree | +-- bn.js@4.11.6
+62 silly currentTree | +-- brace-expansion@1.1.7
+62 silly currentTree | +-- brorand@1.0.6
+62 silly currentTree | +-- browserify-aes@1.0.6
+62 silly currentTree | +-- browserify-cipher@1.0.0
+62 silly currentTree | +-- browserify-des@1.0.0
+62 silly currentTree | +-- browserify-rsa@4.0.1
+62 silly currentTree | +-- browserify-sign@4.0.0
+62 silly currentTree | +-- browserify-zlib@0.1.4
+62 silly currentTree | +-- buffer-xor@1.0.3
+62 silly currentTree | +-- buffer@4.9.1
+62 silly currentTree | +-- cipher-base@1.0.3
+62 silly currentTree | +-- concat-map@0.0.1
+62 silly currentTree | +-- console-browserify@1.1.0
+62 silly currentTree | +-- constants-browserify@1.0.0
+62 silly currentTree | +-- create-ecdh@4.0.0
+62 silly currentTree | +-- create-hash@1.1.2
+62 silly currentTree | +-- create-hmac@1.1.4
+62 silly currentTree | +-- crypto-browserify@3.11.0
+62 silly currentTree | +-- date-now@0.1.4
+62 silly currentTree | +-- des.js@1.0.0
+62 silly currentTree | +-- diffie-hellman@5.0.2
+62 silly currentTree | +-- domain-browser@1.1.7
+62 silly currentTree | +-- elliptic@6.3.2
+62 silly currentTree | +-- events@1.1.1
+62 silly currentTree | +-- evp_bytestokey@1.0.0
+62 silly currentTree | +-- fs.realpath@1.0.0
+62 silly currentTree | +-- glob@7.1.2
+62 silly currentTree | +-- hash.js@1.0.3
+62 silly currentTree | +-- http-browserify@1.7.0
+62 silly currentTree | +-- https-browserify@0.0.1
+62 silly currentTree | +-- ieee754@1.1.8
+62 silly currentTree | +-- indexof@0.0.1
+62 silly currentTree | +-- inflight@1.0.6
+62 silly currentTree | +-- inherits@2.0.1
+62 silly currentTree | +-- isarray@1.0.0
+62 silly currentTree | +-- miller-rabin@4.0.0
+62 silly currentTree | +-- minimalistic-assert@1.0.0
+62 silly currentTree | +-- minimatch@3.0.4
+62 silly currentTree | +-- once@1.4.0
+62 silly currentTree | +-- os-browserify@0.2.1
+62 silly currentTree | +-- pako@0.2.9
+62 silly currentTree | +-- parse-asn1@5.0.0
+62 silly currentTree | +-- path-browserify@0.0.0
+62 silly currentTree | +-- path-is-absolute@1.0.1
+62 silly currentTree | +-- pbkdf2@3.0.9
+62 silly currentTree | +-- process-nextick-args@1.0.7
+62 silly currentTree | +-- process@0.11.9
+62 silly currentTree | +-- public-encrypt@4.0.0
+62 silly currentTree | +-- punycode@1.4.1
+62 silly currentTree | +-- querystring-es3@0.2.1
+62 silly currentTree | +-- querystring@0.2.0
+62 silly currentTree | +-- randombytes@2.0.3
+62 silly currentTree | +-- readable-stream@2.2.10
+62 silly currentTree | +-- rimraf@2.6.1
+62 silly currentTree | +-- ripemd160@1.0.1
+62 silly currentTree | +-- safe-buffer@5.0.1
+62 silly currentTree | +-- sha.js@2.4.8
+62 silly currentTree | +-- stream-browserify@2.0.1
+62 silly currentTree | +-- string_decoder@1.0.1
+62 silly currentTree | +-- timers-browserify@1.4.2
+62 silly currentTree | +-- tty-browserify@0.0.0
+62 silly currentTree | +-- url@0.11.0
+62 silly currentTree | | `-- punycode@1.3.2
+62 silly currentTree | +-- util-deprecate@1.0.2
+62 silly currentTree | +-- util@0.10.3
+62 silly currentTree | +-- vm-browserify@0.0.4
+62 silly currentTree | `-- wrappy@1.0.2
+62 silly currentTree +-- mime-db@1.29.0
+62 silly currentTree +-- mime-types@2.1.16
+62 silly currentTree +-- minimatch@3.0.4
+62 silly currentTree +-- minimist@0.0.8
+62 silly currentTree +-- mkdirp@0.5.1
+62 silly currentTree +-- mongo-object@0.0.2
+62 silly currentTree +-- ms@0.7.1
+62 silly currentTree +-- nan@2.5.0
+62 silly currentTree +-- node-pre-gyp@0.6.32
+62 silly currentTree +-- nopt@3.0.6
+62 silly currentTree +-- npmlog@4.1.2
+62 silly currentTree +-- number-is-nan@1.0.1
+62 silly currentTree +-- oauth-sign@0.8.2
+62 silly currentTree +-- object-assign@4.1.1
+62 silly currentTree +-- once@1.4.0
+62 silly currentTree +-- path-is-absolute@1.0.1
+62 silly currentTree +-- performance-now@0.2.0
+62 silly currentTree +-- process-nextick-args@1.0.7
+62 silly currentTree +-- pseudomap@1.0.2
+62 silly currentTree +-- punycode@1.4.1
+62 silly currentTree +-- qs@6.4.0
+62 silly currentTree +-- rc@1.1.7
+62 silly currentTree | `-- minimist@1.2.0
+62 silly currentTree +-- readable-stream@2.3.3
+62 silly currentTree +-- regenerator-runtime@0.11.0
+62 silly currentTree +-- request@2.81.0
+62 silly currentTree +-- rimraf@2.5.4
+62 silly currentTree +-- safe-buffer@5.1.1
+62 silly currentTree +-- semver@5.3.0
+62 silly currentTree +-- set-blocking@2.0.0
+62 silly currentTree +-- signal-exit@3.0.2
+62 silly currentTree +-- simpl-schema@0.3.2
+62 silly currentTree +-- sntp@1.0.9
+62 silly currentTree +-- sshpk@1.13.1
+62 silly currentTree | `-- assert-plus@1.0.0
+62 silly currentTree +-- string_decoder@1.0.3
+62 silly currentTree +-- string-width@1.0.2
+62 silly currentTree +-- stringstream@0.0.5
+62 silly currentTree +-- strip-ansi@3.0.1
+62 silly currentTree +-- strip-json-comments@2.0.1
+62 silly currentTree +-- tar-pack@3.3.0
+62 silly currentTree | +-- once@1.3.3
+62 silly currentTree | +-- readable-stream@2.1.5
+62 silly currentTree | `-- string_decoder@0.10.31
+62 silly currentTree +-- tar@2.2.1
+62 silly currentTree +-- tough-cookie@2.3.2
+62 silly currentTree +-- tunnel-agent@0.6.0
+62 silly currentTree +-- tweetnacl@0.14.5
+62 silly currentTree +-- uid-number@0.0.6
+62 silly currentTree +-- underscore@1.8.3
+62 silly currentTree +-- universalify@0.1.1
+62 silly currentTree +-- util-deprecate@1.0.2
+62 silly currentTree +-- uuid@3.1.0
+62 silly currentTree +-- verror@1.10.0
+62 silly currentTree | `-- assert-plus@1.0.0
+62 silly currentTree +-- which@1.3.0
+62 silly currentTree +-- wide-align@1.1.2
+62 silly currentTree +-- wrappy@1.0.2
+62 silly currentTree `-- yallist@2.1.2
+63 silly idealTree Groupware1@
+63 silly idealTree +-- abbrev@1.1.0
+63 silly idealTree +-- ajv@4.11.8
+63 silly idealTree +-- ansi-regex@2.1.1
+63 silly idealTree +-- aproba@1.1.2
+63 silly idealTree +-- are-we-there-yet@1.1.4
+63 silly idealTree +-- array-parallel@0.1.3
+63 silly idealTree +-- array-series@0.1.5
+63 silly idealTree +-- asn1@0.2.3
+63 silly idealTree +-- assert-plus@0.2.0
+63 silly idealTree +-- asynckit@0.4.0
+63 silly idealTree +-- aws-sign2@0.6.0
+63 silly idealTree +-- aws4@1.6.0
+63 silly idealTree +-- babel-runtime@6.26.0
+63 silly idealTree +-- balanced-match@1.0.0
+63 silly idealTree +-- bcrypt-pbkdf@1.0.1
+63 silly idealTree +-- bcrypt@1.0.2
+63 silly idealTree +-- bindings@1.2.1
+63 silly idealTree +-- block-stream@0.0.9
+63 silly idealTree +-- boom@2.10.1
+63 silly idealTree +-- brace-expansion@1.1.8
+63 silly idealTree +-- buffer-shims@1.0.0
+63 silly idealTree +-- caseless@0.12.0
+63 silly idealTree +-- clone@2.1.1
+63 silly idealTree +-- co@4.6.0
+63 silly idealTree +-- code-point-at@1.1.0
+63 silly idealTree +-- combined-stream@1.0.5
+63 silly idealTree +-- concat-map@0.0.1
+63 silly idealTree +-- console-control-strings@1.1.0
+63 silly idealTree +-- core-js@2.5.0
+63 silly idealTree +-- core-util-is@1.0.2
+63 silly idealTree +-- cross-spawn@4.0.2
+63 silly idealTree +-- cryptiles@2.0.5
+63 silly idealTree +-- dashdash@1.14.1
+63 silly idealTree | `-- assert-plus@1.0.0
+63 silly idealTree +-- debug@2.2.0
+63 silly idealTree +-- deep-extend@0.4.2
+63 silly idealTree +-- delayed-stream@1.0.0
+63 silly idealTree +-- delegates@1.0.0
+63 silly idealTree +-- ecc-jsbn@0.1.1
+63 silly idealTree +-- extend@3.0.1
+63 silly idealTree +-- extsprintf@1.3.0
+63 silly idealTree +-- forever-agent@0.6.1
+63 silly idealTree +-- form-data@2.1.4
+63 silly idealTree +-- fs-extra@4.0.3
+63 silly idealTree +-- fs.realpath@1.0.0
+63 silly idealTree +-- fstream-ignore@1.0.5
+63 silly idealTree +-- fstream@1.0.11
+63 silly idealTree +-- gauge@2.7.4
+63 silly idealTree +-- getpass@0.1.7
+63 silly idealTree | `-- assert-plus@1.0.0
+63 silly idealTree +-- glob@7.1.2
+63 silly idealTree +-- gm@1.23.0
+63 silly idealTree +-- graceful-fs@4.1.11
+63 silly idealTree +-- har-schema@1.0.5
+63 silly idealTree +-- har-validator@4.2.1
+63 silly idealTree +-- has-unicode@2.0.1
+63 silly idealTree +-- hawk@3.1.3
+63 silly idealTree +-- hoek@2.16.3
+63 silly idealTree +-- http-signature@1.1.1
+63 silly idealTree +-- iconv@2.3.0
+63 silly idealTree +-- inflight@1.0.6
+63 silly idealTree +-- inherits@2.0.3
+63 silly idealTree +-- ini@1.3.4
+63 silly idealTree +-- is-fullwidth-code-point@1.0.0
+63 silly idealTree +-- is-typedarray@1.0.0
+63 silly idealTree +-- isarray@1.0.0
+63 silly idealTree +-- isexe@2.0.0
+63 silly idealTree +-- isstream@0.1.2
+63 silly idealTree +-- jsbn@0.1.1
+63 silly idealTree +-- json-schema@0.2.3
+63 silly idealTree +-- json-stable-stringify@1.0.1
+63 silly idealTree +-- json-stringify-safe@5.0.1
+63 silly idealTree +-- jsonfile@4.0.0
+63 silly idealTree +-- jsonify@0.0.0
+63 silly idealTree +-- jsprim@1.4.1
+63 silly idealTree | `-- assert-plus@1.0.0
+63 silly idealTree +-- lodash._reinterpolate@3.0.0
+63 silly idealTree +-- lodash.foreach@4.5.0
+63 silly idealTree +-- lodash.isempty@4.4.0
+63 silly idealTree +-- lodash.isobject@3.0.2
+63 silly idealTree +-- lodash.merge@4.6.0
+63 silly idealTree +-- lodash.template@4.4.0
+63 silly idealTree +-- lodash.templatesettings@4.1.0
+63 silly idealTree +-- lodash.without@4.4.0
+63 silly idealTree +-- lru-cache@4.1.1
+63 silly idealTree +-- message-box@0.1.1
+63 silly idealTree +-- meteor-node-stubs@0.2.11
+63 silly idealTree | +-- asn1.js@4.9.0
+63 silly idealTree | +-- assert@1.4.1
+63 silly idealTree | +-- balanced-match@0.4.2
+63 silly idealTree | +-- base64-js@1.2.0
+63 silly idealTree | +-- Base64@0.2.1
+63 silly idealTree | +-- bn.js@4.11.6
+63 silly idealTree | +-- brace-expansion@1.1.7
+63 silly idealTree | +-- brorand@1.0.6
+63 silly idealTree | +-- browserify-aes@1.0.6
+63 silly idealTree | +-- browserify-cipher@1.0.0
+63 silly idealTree | +-- browserify-des@1.0.0
+63 silly idealTree | +-- browserify-rsa@4.0.1
+63 silly idealTree | +-- browserify-sign@4.0.0
+63 silly idealTree | +-- browserify-zlib@0.1.4
+63 silly idealTree | +-- buffer-xor@1.0.3
+63 silly idealTree | +-- buffer@4.9.1
+63 silly idealTree | +-- cipher-base@1.0.3
+63 silly idealTree | +-- concat-map@0.0.1
+63 silly idealTree | +-- console-browserify@1.1.0
+63 silly idealTree | +-- constants-browserify@1.0.0
+63 silly idealTree | +-- create-ecdh@4.0.0
+63 silly idealTree | +-- create-hash@1.1.2
+63 silly idealTree | +-- create-hmac@1.1.4
+63 silly idealTree | +-- crypto-browserify@3.11.0
+63 silly idealTree | +-- date-now@0.1.4
+63 silly idealTree | +-- des.js@1.0.0
+63 silly idealTree | +-- diffie-hellman@5.0.2
+63 silly idealTree | +-- domain-browser@1.1.7
+63 silly idealTree | +-- elliptic@6.3.2
+63 silly idealTree | +-- events@1.1.1
+63 silly idealTree | +-- evp_bytestokey@1.0.0
+63 silly idealTree | +-- fs.realpath@1.0.0
+63 silly idealTree | +-- glob@7.1.2
+63 silly idealTree | +-- hash.js@1.0.3
+63 silly idealTree | +-- http-browserify@1.7.0
+63 silly idealTree | +-- https-browserify@0.0.1
+63 silly idealTree | +-- ieee754@1.1.8
+63 silly idealTree | +-- indexof@0.0.1
+63 silly idealTree | +-- inflight@1.0.6
+63 silly idealTree | +-- inherits@2.0.1
+63 silly idealTree | +-- isarray@1.0.0
+63 silly idealTree | +-- miller-rabin@4.0.0
+63 silly idealTree | +-- minimalistic-assert@1.0.0
+63 silly idealTree | +-- minimatch@3.0.4
+63 silly idealTree | +-- once@1.4.0
+63 silly idealTree | +-- os-browserify@0.2.1
+63 silly idealTree | +-- pako@0.2.9
+63 silly idealTree | +-- parse-asn1@5.0.0
+63 silly idealTree | +-- path-browserify@0.0.0
+63 silly idealTree | +-- path-is-absolute@1.0.1
+63 silly idealTree | +-- pbkdf2@3.0.9
+63 silly idealTree | +-- process-nextick-args@1.0.7
+63 silly idealTree | +-- process@0.11.9
+63 silly idealTree | +-- public-encrypt@4.0.0
+63 silly idealTree | +-- punycode@1.4.1
+63 silly idealTree | +-- querystring-es3@0.2.1
+63 silly idealTree | +-- querystring@0.2.0
+63 silly idealTree | +-- randombytes@2.0.3
+63 silly idealTree | +-- readable-stream@2.2.10
+63 silly idealTree | +-- rimraf@2.6.1
+63 silly idealTree | +-- ripemd160@1.0.1
+63 silly idealTree | +-- safe-buffer@5.0.1
+63 silly idealTree | +-- sha.js@2.4.8
+63 silly idealTree | +-- stream-browserify@2.0.1
+63 silly idealTree | +-- string_decoder@1.0.1
+63 silly idealTree | +-- timers-browserify@1.4.2
+63 silly idealTree | +-- tty-browserify@0.0.0
+63 silly idealTree | +-- url@0.11.0
+63 silly idealTree | | `-- punycode@1.3.2
+63 silly idealTree | +-- util-deprecate@1.0.2
+63 silly idealTree | +-- util@0.10.3
+63 silly idealTree | +-- vm-browserify@0.0.4
+63 silly idealTree | `-- wrappy@1.0.2
+63 silly idealTree +-- mime-db@1.29.0
+63 silly idealTree +-- mime-types@2.1.16
+63 silly idealTree +-- minimatch@3.0.4
+63 silly idealTree +-- minimist@0.0.8
+63 silly idealTree +-- mkdirp@0.5.1
+63 silly idealTree +-- mongo-object@0.0.2
+63 silly idealTree +-- ms@0.7.1
+63 silly idealTree +-- nan@2.5.0
+63 silly idealTree +-- node-pre-gyp@0.6.32
+63 silly idealTree +-- nopt@3.0.6
+63 silly idealTree +-- npmlog@4.1.2
+63 silly idealTree +-- number-is-nan@1.0.1
+63 silly idealTree +-- oauth-sign@0.8.2
+63 silly idealTree +-- object-assign@4.1.1
+63 silly idealTree +-- once@1.4.0
+63 silly idealTree +-- path-is-absolute@1.0.1
+63 silly idealTree +-- performance-now@0.2.0
+63 silly idealTree +-- process-nextick-args@1.0.7
+63 silly idealTree +-- pseudomap@1.0.2
+63 silly idealTree +-- punycode@1.4.1
+63 silly idealTree +-- qs@6.4.0
+63 silly idealTree +-- rc@1.1.7
+63 silly idealTree | `-- minimist@1.2.0
+63 silly idealTree +-- readable-stream@2.3.3
+63 silly idealTree +-- regenerator-runtime@0.11.0
+63 silly idealTree +-- request@2.81.0
+63 silly idealTree +-- rimraf@2.5.4
+63 silly idealTree +-- safe-buffer@5.1.1
+63 silly idealTree +-- semver@5.3.0
+63 silly idealTree +-- set-blocking@2.0.0
+63 silly idealTree +-- signal-exit@3.0.2
+63 silly idealTree +-- simpl-schema@0.3.2
+63 silly idealTree +-- sntp@1.0.9
+63 silly idealTree +-- sshpk@1.13.1
+63 silly idealTree | `-- assert-plus@1.0.0
+63 silly idealTree +-- string_decoder@1.0.3
+63 silly idealTree +-- string-width@1.0.2
+63 silly idealTree +-- stringstream@0.0.5
+63 silly idealTree +-- strip-ansi@3.0.1
+63 silly idealTree +-- strip-json-comments@2.0.1
+63 silly idealTree +-- tar-pack@3.3.0
+63 silly idealTree | +-- once@1.3.3
+63 silly idealTree | +-- readable-stream@2.1.5
+63 silly idealTree | `-- string_decoder@0.10.31
+63 silly idealTree +-- tar@2.2.1
+63 silly idealTree +-- tough-cookie@2.3.2
+63 silly idealTree +-- tunnel-agent@0.6.0
+63 silly idealTree +-- tweetnacl@0.14.5
+63 silly idealTree +-- uid-number@0.0.6
+63 silly idealTree +-- underscore@1.8.3
+63 silly idealTree +-- universalify@0.1.1
+63 silly idealTree +-- util-deprecate@1.0.2
+63 silly idealTree +-- uuid@3.1.0
+63 silly idealTree +-- verror@1.10.0
+63 silly idealTree | `-- assert-plus@1.0.0
+63 silly idealTree +-- which@1.3.0
+63 silly idealTree +-- wide-align@1.1.2
+63 silly idealTree +-- wrappy@1.0.2
+63 silly idealTree `-- yallist@2.1.2
+64 silly generateActionsToTake Starting
+65 silly install generateActionsToTake
+66 silly generateActionsToTake Finishing
+67 silly diffTrees action count 1
+68 silly diffTrees update iconv@2.3.0
+69 silly decomposeActions action count 9
+70 silly decomposeActions remove iconv@2.3.0
+71 silly decomposeActions fetch iconv@2.3.0
+72 silly decomposeActions extract iconv@2.3.0
+73 silly decomposeActions test iconv@2.3.0
+74 silly decomposeActions preinstall iconv@2.3.0
+75 silly decomposeActions build iconv@2.3.0
+76 silly decomposeActions install iconv@2.3.0
+77 silly decomposeActions postinstall iconv@2.3.0
+78 silly decomposeActions finalize iconv@2.3.0
+79 silly runTopLevelLifecycles Starting
+80 silly executeActions Starting
+81 silly install executeActions
+82 silly doSerial global-install 0
+83 silly doParallel fetch 1
+84 verbose correctMkdir C:\Users\rndvr\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+85 verbose lock using C:\Users\rndvr\AppData\Roaming\npm-cache\_locks\staging-54396f4d56b90b3b.lock for D:\Projects\Meteor\groupware_project\node_modules\.staging
+86 silly doParallel extract 1
+87 silly extract iconv@2.3.0
+88 verbose unbuild node_modules\.staging\iconv-eb6db9aa
+89 silly gentlyRm D:\Projects\Meteor\groupware_project\node_modules\.staging\iconv-eb6db9aa is being purged from base D:\Projects\Meteor\groupware_project
+90 verbose gentlyRm don't care about contents; nuking D:\Projects\Meteor\groupware_project\node_modules\.staging\iconv-eb6db9aa
+91 verbose tar unpack C:\Users\rndvr\AppData\Roaming\npm-cache\iconv\2.3.0\package.tgz
+92 verbose tar unpacking to D:\Projects\Meteor\groupware_project\node_modules\.staging\iconv-eb6db9aa
+93 silly gentlyRm D:\Projects\Meteor\groupware_project\node_modules\.staging\iconv-eb6db9aa is being purged
+94 verbose gentlyRm don't care about contents; nuking D:\Projects\Meteor\groupware_project\node_modules\.staging\iconv-eb6db9aa
+95 silly gunzTarPerm modes [ '777', '666' ]
+96 silly gunzTarPerm extractEntry package.json
+97 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+98 silly gunzTarPerm extractEntry .npmignore
+99 silly gunzTarPerm modified mode [ '.npmignore', 420, 438 ]
+100 silly gunzTarPerm extractEntry README.md
+101 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+102 silly gunzTarPerm extractEntry LICENSE
+103 silly gunzTarPerm modified mode [ 'LICENSE', 420, 438 ]
+104 silly gunzTarPerm extractEntry binding.gyp
+105 silly gunzTarPerm modified mode [ 'binding.gyp', 420, 438 ]
+106 silly gunzTarPerm extractEntry deps/libiconv/lib/euc_jp.h
+107 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/euc_jp.h', 420, 438 ]
+108 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases.h
+109 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases.h', 420, 438 ]
+110 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_aix.h
+111 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_aix.h', 420, 438 ]
+112 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_aix_sysaix.h
+113 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_aix_sysaix.h', 420, 438 ]
+114 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_dos.h
+115 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_dos.h', 420, 438 ]
+116 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_extra.h
+117 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_extra.h', 420, 438 ]
+118 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_osf1.h
+119 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_osf1.h', 420, 438 ]
+120 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_osf1_sysosf1.h
+121 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_osf1_sysosf1.h', 420, 438 ]
+122 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_sysaix.h
+123 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_sysaix.h', 420, 438 ]
+124 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_syshpux.h
+125 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_syshpux.h', 420, 438 ]
+126 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_sysosf1.h
+127 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_sysosf1.h', 420, 438 ]
+128 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases_syssolaris.h
+129 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases_syssolaris.h', 420, 438 ]
+130 silly gunzTarPerm extractEntry deps/libiconv/lib/armscii_8.h
+131 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/armscii_8.h', 420, 438 ]
+132 silly gunzTarPerm extractEntry deps/libiconv/lib/ascii.h
+133 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ascii.h', 420, 438 ]
+134 silly gunzTarPerm extractEntry deps/libiconv/lib/atarist.h
+135 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/atarist.h', 420, 438 ]
+136 silly gunzTarPerm extractEntry deps/libiconv/lib/big5.h
+137 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/big5.h', 420, 438 ]
+138 silly gunzTarPerm extractEntry deps/libiconv/lib/big5_2003.h
+139 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/big5_2003.h', 420, 438 ]
+140 silly gunzTarPerm extractEntry deps/libiconv/lib/big5hkscs1999.h
+141 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/big5hkscs1999.h', 420, 438 ]
+142 silly gunzTarPerm extractEntry deps/libiconv/lib/big5hkscs2001.h
+143 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/big5hkscs2001.h', 420, 438 ]
+144 silly gunzTarPerm extractEntry deps/libiconv/lib/big5hkscs2004.h
+145 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/big5hkscs2004.h', 420, 438 ]
+146 silly gunzTarPerm extractEntry deps/libiconv/lib/big5hkscs2008.h
+147 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/big5hkscs2008.h', 420, 438 ]
+148 silly gunzTarPerm extractEntry deps/libiconv/lib/c99.h
+149 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/c99.h', 420, 438 ]
+150 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical.h
+151 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical.h', 420, 438 ]
+152 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_aix.h
+153 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_aix.h', 420, 438 ]
+154 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_aix_sysaix.h
+155 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_aix_sysaix.h', 420, 438 ]
+156 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_dos.h
+157 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_dos.h', 420, 438 ]
+158 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_extra.h
+159 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_extra.h', 420, 438 ]
+160 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_local.h
+161 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_local.h', 420, 438 ]
+162 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_local_sysaix.h
+163 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_local_sysaix.h', 420, 438 ]
+164 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_local_syshpux.h
+165 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_local_syshpux.h', 420, 438 ]
+166 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_local_sysosf1.h
+167 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_local_sysosf1.h', 420, 438 ]
+168 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_local_syssolaris.h
+169 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_local_syssolaris.h', 420, 438 ]
+170 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_osf1.h
+171 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_osf1.h', 420, 438 ]
+172 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_osf1_sysosf1.h
+173 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_osf1_sysosf1.h', 420, 438 ]
+174 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_sysaix.h
+175 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_sysaix.h', 420, 438 ]
+176 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_syshpux.h
+177 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_syshpux.h', 420, 438 ]
+178 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_sysosf1.h
+179 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_sysosf1.h', 420, 438 ]
+180 silly gunzTarPerm extractEntry deps/libiconv/lib/canonical_syssolaris.h
+181 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/canonical_syssolaris.h', 420, 438 ]
+182 silly gunzTarPerm extractEntry deps/libiconv/lib/ces_big5.h
+183 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ces_big5.h', 420, 438 ]
+184 silly gunzTarPerm extractEntry deps/libiconv/lib/ces_gbk.h
+185 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ces_gbk.h', 420, 438 ]
+186 silly gunzTarPerm extractEntry deps/libiconv/lib/cjk_variants.h
+187 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cjk_variants.h', 420, 438 ]
+188 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643.h
+189 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643.h', 420, 438 ]
+190 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_1.h
+191 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_1.h', 420, 438 ]
+192 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_15.h
+193 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_15.h', 420, 438 ]
+194 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_2.h
+195 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_2.h', 420, 438 ]
+196 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_3.h
+197 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_3.h', 420, 438 ]
+198 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_4.h
+199 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_4.h', 420, 438 ]
+200 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_4a.h
+201 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_4a.h', 420, 438 ]
+202 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_4b.h
+203 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_4b.h', 420, 438 ]
+204 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_5.h
+205 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_5.h', 420, 438 ]
+206 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_6.h
+207 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_6.h', 420, 438 ]
+208 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_7.h
+209 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_7.h', 420, 438 ]
+210 silly gunzTarPerm extractEntry deps/libiconv/lib/cns11643_inv.h
+211 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cns11643_inv.h', 420, 438 ]
+212 silly gunzTarPerm extractEntry deps/libiconv/lib/converters.h
+213 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/converters.h', 420, 438 ]
+214 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1046.h
+215 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1046.h', 420, 438 ]
+216 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1124.h
+217 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1124.h', 420, 438 ]
+218 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1125.h
+219 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1125.h', 420, 438 ]
+220 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1129.h
+221 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1129.h', 420, 438 ]
+222 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1131.h
+223 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1131.h', 420, 438 ]
+224 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1133.h
+225 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1133.h', 420, 438 ]
+226 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1161.h
+227 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1161.h', 420, 438 ]
+228 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1162.h
+229 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1162.h', 420, 438 ]
+230 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1163.h
+231 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1163.h', 420, 438 ]
+232 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1250.h
+233 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1250.h', 420, 438 ]
+234 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1251.h
+235 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1251.h', 420, 438 ]
+236 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1252.h
+237 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1252.h', 420, 438 ]
+238 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1253.h
+239 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1253.h', 420, 438 ]
+240 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1254.h
+241 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1254.h', 420, 438 ]
+242 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1255.h
+243 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1255.h', 420, 438 ]
+244 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1256.h
+245 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1256.h', 420, 438 ]
+246 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1257.h
+247 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1257.h', 420, 438 ]
+248 silly gunzTarPerm extractEntry deps/libiconv/lib/cp1258.h
+249 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp1258.h', 420, 438 ]
+250 silly gunzTarPerm extractEntry deps/libiconv/lib/cp437.h
+251 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp437.h', 420, 438 ]
+252 silly gunzTarPerm extractEntry deps/libiconv/lib/cp50221_0208_ext.h
+253 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp50221_0208_ext.h', 420, 438 ]
+254 silly gunzTarPerm extractEntry deps/libiconv/lib/cp50221_0212_ext.h
+255 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp50221_0212_ext.h', 420, 438 ]
+256 silly gunzTarPerm extractEntry deps/libiconv/lib/cp737.h
+257 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp737.h', 420, 438 ]
+258 silly gunzTarPerm extractEntry deps/libiconv/lib/cp775.h
+259 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp775.h', 420, 438 ]
+260 silly gunzTarPerm extractEntry deps/libiconv/lib/cp850.h
+261 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp850.h', 420, 438 ]
+262 silly gunzTarPerm extractEntry deps/libiconv/lib/cp852.h
+263 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp852.h', 420, 438 ]
+264 silly gunzTarPerm extractEntry deps/libiconv/lib/cp853.h
+265 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp853.h', 420, 438 ]
+266 silly gunzTarPerm extractEntry deps/libiconv/lib/cp855.h
+267 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp855.h', 420, 438 ]
+268 silly gunzTarPerm extractEntry deps/libiconv/lib/cp856.h
+269 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp856.h', 420, 438 ]
+270 silly gunzTarPerm extractEntry deps/libiconv/lib/cp857.h
+271 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp857.h', 420, 438 ]
+272 silly gunzTarPerm extractEntry deps/libiconv/lib/cp858.h
+273 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp858.h', 420, 438 ]
+274 silly gunzTarPerm extractEntry deps/libiconv/lib/cp860.h
+275 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp860.h', 420, 438 ]
+276 silly gunzTarPerm extractEntry deps/libiconv/lib/cp861.h
+277 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp861.h', 420, 438 ]
+278 silly gunzTarPerm extractEntry deps/libiconv/lib/cp862.h
+279 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp862.h', 420, 438 ]
+280 silly gunzTarPerm extractEntry deps/libiconv/lib/cp863.h
+281 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp863.h', 420, 438 ]
+282 silly gunzTarPerm extractEntry deps/libiconv/lib/cp864.h
+283 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp864.h', 420, 438 ]
+284 silly gunzTarPerm extractEntry deps/libiconv/lib/cp865.h
+285 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp865.h', 420, 438 ]
+286 silly gunzTarPerm extractEntry deps/libiconv/lib/cp866.h
+287 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp866.h', 420, 438 ]
+288 silly gunzTarPerm extractEntry deps/libiconv/lib/cp869.h
+289 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp869.h', 420, 438 ]
+290 silly gunzTarPerm extractEntry deps/libiconv/lib/cp874.h
+291 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp874.h', 420, 438 ]
+292 silly gunzTarPerm extractEntry deps/libiconv/lib/cp922.h
+293 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp922.h', 420, 438 ]
+294 silly gunzTarPerm extractEntry deps/libiconv/lib/cp932.h
+295 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp932.h', 420, 438 ]
+296 silly gunzTarPerm extractEntry deps/libiconv/lib/cp932ext.h
+297 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp932ext.h', 420, 438 ]
+298 silly gunzTarPerm extractEntry deps/libiconv/lib/cp936.h
+299 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp936.h', 420, 438 ]
+300 silly gunzTarPerm extractEntry deps/libiconv/lib/cp936ext.h
+301 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp936ext.h', 420, 438 ]
+302 silly gunzTarPerm extractEntry deps/libiconv/lib/cp943.h
+303 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp943.h', 420, 438 ]
+304 silly gunzTarPerm extractEntry deps/libiconv/lib/cp949.h
+305 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp949.h', 420, 438 ]
+306 silly gunzTarPerm extractEntry deps/libiconv/lib/cp950.h
+307 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp950.h', 420, 438 ]
+308 silly gunzTarPerm extractEntry deps/libiconv/lib/cp950ext.h
+309 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/cp950ext.h', 420, 438 ]
+310 silly gunzTarPerm extractEntry deps/libiconv/lib/dec_hanyu.h
+311 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/dec_hanyu.h', 420, 438 ]
+312 silly gunzTarPerm extractEntry deps/libiconv/lib/dec_kanji.h
+313 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/dec_kanji.h', 420, 438 ]
+314 silly gunzTarPerm extractEntry deps/libiconv/lib/encodings.def
+315 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/encodings.def', 420, 438 ]
+316 silly gunzTarPerm extractEntry deps/libiconv/lib/encodings_aix.def
+317 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/encodings_aix.def', 420, 438 ]
+318 silly gunzTarPerm extractEntry deps/libiconv/lib/encodings_dos.def
+319 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/encodings_dos.def', 420, 438 ]
+320 silly gunzTarPerm extractEntry deps/libiconv/lib/encodings_extra.def
+321 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/encodings_extra.def', 420, 438 ]
+322 silly gunzTarPerm extractEntry deps/libiconv/lib/encodings_local.def
+323 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/encodings_local.def', 420, 438 ]
+324 silly gunzTarPerm extractEntry deps/libiconv/lib/encodings_osf1.def
+325 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/encodings_osf1.def', 420, 438 ]
+326 silly gunzTarPerm extractEntry deps/libiconv/lib/euc_cn.h
+327 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/euc_cn.h', 420, 438 ]
+328 silly gunzTarPerm extractEntry deps/libiconv/lib/euc_jisx0213.h
+329 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/euc_jisx0213.h', 420, 438 ]
+330 silly gunzTarPerm extractEntry deps/libiconv/lib/aliases2.h
+331 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/aliases2.h', 420, 438 ]
+332 silly gunzTarPerm extractEntry deps/libiconv/lib/euc_kr.h
+333 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/euc_kr.h', 420, 438 ]
+334 silly gunzTarPerm extractEntry deps/libiconv/lib/euc_tw.h
+335 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/euc_tw.h', 420, 438 ]
+336 silly gunzTarPerm extractEntry deps/libiconv/lib/flags.h
+337 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/flags.h', 420, 438 ]
+338 silly gunzTarPerm extractEntry deps/libiconv/lib/flushwc.h
+339 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/flushwc.h', 420, 438 ]
+340 silly gunzTarPerm extractEntry deps/libiconv/lib/gb12345.h
+341 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gb12345.h', 420, 438 ]
+342 silly gunzTarPerm extractEntry deps/libiconv/lib/gb12345ext.h
+343 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gb12345ext.h', 420, 438 ]
+344 silly gunzTarPerm extractEntry deps/libiconv/lib/gb18030.h
+345 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gb18030.h', 420, 438 ]
+346 silly gunzTarPerm extractEntry deps/libiconv/lib/gb18030ext.h
+347 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gb18030ext.h', 420, 438 ]
+348 silly gunzTarPerm extractEntry deps/libiconv/lib/gb18030uni.h
+349 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gb18030uni.h', 420, 438 ]
+350 silly gunzTarPerm extractEntry deps/libiconv/lib/gb2312.h
+351 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gb2312.h', 420, 438 ]
+352 silly gunzTarPerm extractEntry deps/libiconv/lib/gbk.h
+353 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gbk.h', 420, 438 ]
+354 silly gunzTarPerm extractEntry deps/libiconv/lib/gbkext1.h
+355 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gbkext1.h', 420, 438 ]
+356 silly gunzTarPerm extractEntry deps/libiconv/lib/gbkext2.h
+357 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gbkext2.h', 420, 438 ]
+358 silly gunzTarPerm extractEntry deps/libiconv/lib/gbkext_inv.h
+359 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/gbkext_inv.h', 420, 438 ]
+360 silly gunzTarPerm extractEntry deps/libiconv/lib/georgian_academy.h
+361 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/georgian_academy.h', 420, 438 ]
+362 silly gunzTarPerm extractEntry deps/libiconv/lib/georgian_ps.h
+363 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/georgian_ps.h', 420, 438 ]
+364 silly gunzTarPerm extractEntry deps/libiconv/lib/hkscs1999.h
+365 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/hkscs1999.h', 420, 438 ]
+366 silly gunzTarPerm extractEntry deps/libiconv/lib/hkscs2001.h
+367 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/hkscs2001.h', 420, 438 ]
+368 silly gunzTarPerm extractEntry deps/libiconv/lib/hkscs2004.h
+369 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/hkscs2004.h', 420, 438 ]
+370 silly gunzTarPerm extractEntry deps/libiconv/lib/hkscs2008.h
+371 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/hkscs2008.h', 420, 438 ]
+372 silly gunzTarPerm extractEntry deps/libiconv/lib/hp_roman8.h
+373 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/hp_roman8.h', 420, 438 ]
+374 silly gunzTarPerm extractEntry deps/libiconv/lib/hz.h
+375 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/hz.h', 420, 438 ]
+376 silly gunzTarPerm extractEntry deps/libiconv/lib/iconv.c
+377 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iconv.c', 420, 438 ]
+378 silly gunzTarPerm extractEntry deps/libiconv/lib/iconv_open1.h
+379 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iconv_open1.h', 420, 438 ]
+380 silly gunzTarPerm extractEntry deps/libiconv/lib/iconv_open2.h
+381 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iconv_open2.h', 420, 438 ]
+382 silly gunzTarPerm extractEntry deps/libiconv/lib/iso2022_cn.h
+383 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso2022_cn.h', 420, 438 ]
+384 silly gunzTarPerm extractEntry deps/libiconv/lib/iso2022_cnext.h
+385 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso2022_cnext.h', 420, 438 ]
+386 silly gunzTarPerm extractEntry deps/libiconv/lib/iso2022_jp.h
+387 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso2022_jp.h', 420, 438 ]
+388 silly gunzTarPerm extractEntry deps/libiconv/lib/iso2022_jp1.h
+389 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso2022_jp1.h', 420, 438 ]
+390 silly gunzTarPerm extractEntry deps/libiconv/lib/iso2022_jp2.h
+391 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso2022_jp2.h', 420, 438 ]
+392 silly gunzTarPerm extractEntry deps/libiconv/lib/iso2022_jp3.h
+393 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso2022_jp3.h', 420, 438 ]
+394 silly gunzTarPerm extractEntry deps/libiconv/lib/iso2022_jpms.h
+395 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso2022_jpms.h', 420, 438 ]
+396 silly gunzTarPerm extractEntry deps/libiconv/lib/iso2022_kr.h
+397 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso2022_kr.h', 420, 438 ]
+398 silly gunzTarPerm extractEntry deps/libiconv/lib/iso646_cn.h
+399 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso646_cn.h', 420, 438 ]
+400 silly gunzTarPerm extractEntry deps/libiconv/lib/iso646_jp.h
+401 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso646_jp.h', 420, 438 ]
+402 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_1.h
+403 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_1.h', 420, 438 ]
+404 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_10.h
+405 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_10.h', 420, 438 ]
+406 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_11.h
+407 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_11.h', 420, 438 ]
+408 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_13.h
+409 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_13.h', 420, 438 ]
+410 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_14.h
+411 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_14.h', 420, 438 ]
+412 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_15.h
+413 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_15.h', 420, 438 ]
+414 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_16.h
+415 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_16.h', 420, 438 ]
+416 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_2.h
+417 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_2.h', 420, 438 ]
+418 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_3.h
+419 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_3.h', 420, 438 ]
+420 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_4.h
+421 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_4.h', 420, 438 ]
+422 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_5.h
+423 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_5.h', 420, 438 ]
+424 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_6.h
+425 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_6.h', 420, 438 ]
+426 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_7.h
+427 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_7.h', 420, 438 ]
+428 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_8.h
+429 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_8.h', 420, 438 ]
+430 silly gunzTarPerm extractEntry deps/libiconv/lib/iso8859_9.h
+431 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/iso8859_9.h', 420, 438 ]
+432 silly gunzTarPerm extractEntry deps/libiconv/lib/isoir165.h
+433 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/isoir165.h', 420, 438 ]
+434 silly gunzTarPerm extractEntry deps/libiconv/lib/isoir165ext.h
+435 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/isoir165ext.h', 420, 438 ]
+436 silly gunzTarPerm extractEntry deps/libiconv/lib/java.h
+437 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/java.h', 420, 438 ]
+438 silly gunzTarPerm extractEntry deps/libiconv/lib/jisx0201.h
+439 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/jisx0201.h', 420, 438 ]
+440 silly gunzTarPerm extractEntry deps/libiconv/lib/jisx0208.h
+441 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/jisx0208.h', 420, 438 ]
+442 silly gunzTarPerm extractEntry deps/libiconv/lib/jisx0212.h
+443 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/jisx0212.h', 420, 438 ]
+444 silly gunzTarPerm extractEntry deps/libiconv/lib/jisx0213.h
+445 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/jisx0213.h', 420, 438 ]
+446 silly gunzTarPerm extractEntry deps/libiconv/lib/johab.h
+447 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/johab.h', 420, 438 ]
+448 silly gunzTarPerm extractEntry deps/libiconv/lib/johab_hangul.h
+449 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/johab_hangul.h', 420, 438 ]
+450 silly gunzTarPerm extractEntry deps/libiconv/lib/koi8_r.h
+451 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/koi8_r.h', 420, 438 ]
+452 silly gunzTarPerm extractEntry deps/libiconv/lib/koi8_ru.h
+453 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/koi8_ru.h', 420, 438 ]
+454 silly gunzTarPerm extractEntry deps/libiconv/lib/koi8_t.h
+455 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/koi8_t.h', 420, 438 ]
+456 silly gunzTarPerm extractEntry deps/libiconv/lib/koi8_u.h
+457 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/koi8_u.h', 420, 438 ]
+458 silly gunzTarPerm extractEntry deps/libiconv/lib/ksc5601.h
+459 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ksc5601.h', 420, 438 ]
+460 silly gunzTarPerm extractEntry deps/libiconv/lib/loop_unicode.h
+461 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/loop_unicode.h', 420, 438 ]
+462 silly gunzTarPerm extractEntry deps/libiconv/lib/loop_wchar.h
+463 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/loop_wchar.h', 420, 438 ]
+464 silly gunzTarPerm extractEntry deps/libiconv/lib/loops.h
+465 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/loops.h', 420, 438 ]
+466 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_arabic.h
+467 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_arabic.h', 420, 438 ]
+468 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_centraleurope.h
+469 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_centraleurope.h', 420, 438 ]
+470 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_croatian.h
+471 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_croatian.h', 420, 438 ]
+472 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_cyrillic.h
+473 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_cyrillic.h', 420, 438 ]
+474 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_greek.h
+475 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_greek.h', 420, 438 ]
+476 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_hebrew.h
+477 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_hebrew.h', 420, 438 ]
+478 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_iceland.h
+479 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_iceland.h', 420, 438 ]
+480 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_roman.h
+481 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_roman.h', 420, 438 ]
+482 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_romania.h
+483 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_romania.h', 420, 438 ]
+484 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_thai.h
+485 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_thai.h', 420, 438 ]
+486 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_turkish.h
+487 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_turkish.h', 420, 438 ]
+488 silly gunzTarPerm extractEntry deps/libiconv/lib/mac_ukraine.h
+489 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mac_ukraine.h', 420, 438 ]
+490 silly gunzTarPerm extractEntry deps/libiconv/lib/mulelao.h
+491 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/mulelao.h', 420, 438 ]
+492 silly gunzTarPerm extractEntry deps/libiconv/lib/nextstep.h
+493 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/nextstep.h', 420, 438 ]
+494 silly gunzTarPerm extractEntry deps/libiconv/lib/pt154.h
+495 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/pt154.h', 420, 438 ]
+496 silly gunzTarPerm extractEntry deps/libiconv/lib/riscos1.h
+497 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/riscos1.h', 420, 438 ]
+498 silly gunzTarPerm extractEntry deps/libiconv/lib/rk1048.h
+499 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/rk1048.h', 420, 438 ]
+500 silly gunzTarPerm extractEntry deps/libiconv/lib/shift_jisx0213.h
+501 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/shift_jisx0213.h', 420, 438 ]
+502 silly gunzTarPerm extractEntry deps/libiconv/lib/sjis.h
+503 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/sjis.h', 420, 438 ]
+504 silly gunzTarPerm extractEntry deps/libiconv/lib/tcvn.h
+505 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/tcvn.h', 420, 438 ]
+506 silly gunzTarPerm extractEntry deps/libiconv/lib/tds565.h
+507 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/tds565.h', 420, 438 ]
+508 silly gunzTarPerm extractEntry deps/libiconv/lib/tis620.h
+509 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/tis620.h', 420, 438 ]
+510 silly gunzTarPerm extractEntry deps/libiconv/lib/translit.h
+511 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/translit.h', 420, 438 ]
+512 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs2.h
+513 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs2.h', 420, 438 ]
+514 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs2be.h
+515 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs2be.h', 420, 438 ]
+516 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs2internal.h
+517 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs2internal.h', 420, 438 ]
+518 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs2le.h
+519 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs2le.h', 420, 438 ]
+520 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs2swapped.h
+521 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs2swapped.h', 420, 438 ]
+522 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs4.h
+523 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs4.h', 420, 438 ]
+524 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs4be.h
+525 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs4be.h', 420, 438 ]
+526 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs4internal.h
+527 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs4internal.h', 420, 438 ]
+528 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs4le.h
+529 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs4le.h', 420, 438 ]
+530 silly gunzTarPerm extractEntry deps/libiconv/lib/ucs4swapped.h
+531 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/ucs4swapped.h', 420, 438 ]
+532 silly gunzTarPerm extractEntry deps/libiconv/lib/uhc_1.h
+533 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/uhc_1.h', 420, 438 ]
+534 silly gunzTarPerm extractEntry deps/libiconv/lib/uhc_2.h
+535 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/uhc_2.h', 420, 438 ]
+536 silly gunzTarPerm extractEntry deps/libiconv/lib/utf16.h
+537 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/utf16.h', 420, 438 ]
+538 silly gunzTarPerm extractEntry deps/libiconv/lib/utf16be.h
+539 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/utf16be.h', 420, 438 ]
+540 silly gunzTarPerm extractEntry deps/libiconv/lib/utf16le.h
+541 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/utf16le.h', 420, 438 ]
+542 silly gunzTarPerm extractEntry deps/libiconv/lib/utf32.h
+543 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/utf32.h', 420, 438 ]
+544 silly gunzTarPerm extractEntry deps/libiconv/lib/utf32be.h
+545 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/utf32be.h', 420, 438 ]
+546 silly gunzTarPerm extractEntry deps/libiconv/lib/utf32le.h
+547 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/utf32le.h', 420, 438 ]
+548 silly gunzTarPerm extractEntry deps/libiconv/lib/utf7.h
+549 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/utf7.h', 420, 438 ]
+550 silly gunzTarPerm extractEntry deps/libiconv/lib/utf8.h
+551 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/utf8.h', 420, 438 ]
+552 silly gunzTarPerm extractEntry deps/libiconv/lib/vietcomb.h
+553 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/vietcomb.h', 420, 438 ]
+554 silly gunzTarPerm extractEntry deps/libiconv/lib/viscii.h
+555 silly gunzTarPerm modified mode [ 'deps/libiconv/lib/viscii.h', 420, 438 ]
+556 silly gunzTarPerm extractEntry lib/iconv.js
+557 silly gunzTarPerm modified mode [ 'lib/iconv.js', 420, 438 ]
+558 silly gunzTarPerm extractEntry src/binding.cc
+559 silly gunzTarPerm modified mode [ 'src/binding.cc', 420, 438 ]
+560 silly gunzTarPerm extractEntry support/config.h
+561 silly gunzTarPerm modified mode [ 'support/config.h', 420, 438 ]
+562 silly gunzTarPerm extractEntry support/iconv.h
+563 silly gunzTarPerm modified mode [ 'support/iconv.h', 420, 438 ]
+564 silly gunzTarPerm extractEntry support/localcharset.c
+565 silly gunzTarPerm modified mode [ 'support/localcharset.c', 420, 438 ]
+566 silly gunzTarPerm extractEntry support/localcharset.h
+567 silly gunzTarPerm modified mode [ 'support/localcharset.h', 420, 438 ]
+568 silly gunzTarPerm extractEntry test/run-tests.js
+569 silly gunzTarPerm modified mode [ 'test/run-tests.js', 420, 438 ]
+570 silly gunzTarPerm extractEntry test/test-basic.js
+571 silly gunzTarPerm modified mode [ 'test/test-basic.js', 420, 438 ]
+572 silly gunzTarPerm extractEntry test/test-big-buffer.js
+573 silly gunzTarPerm modified mode [ 'test/test-big-buffer.js', 420, 438 ]
+574 silly gunzTarPerm extractEntry test/test-stream.js
+575 silly gunzTarPerm modified mode [ 'test/test-stream.js', 420, 438 ]
+576 silly gunzTarPerm extractEntry test/fixtures/lorem-ipsum.txt
+577 silly gunzTarPerm modified mode [ 'test/fixtures/lorem-ipsum.txt', 420, 438 ]
+578 silly gentlyRm D:\Projects\Meteor\groupware_project\node_modules\.staging\iconv-eb6db9aa\node_modules is being purged
+579 verbose gentlyRm don't care about contents; nuking D:\Projects\Meteor\groupware_project\node_modules\.staging\iconv-eb6db9aa\node_modules
+580 silly doParallel preinstall 1
+581 silly preinstall iconv@2.3.0 D:\Projects\Meteor\groupware_project\node_modules\.staging\iconv-eb6db9aa
+582 info lifecycle iconv@2.3.0~preinstall: iconv@2.3.0
+583 silly lifecycle iconv@2.3.0~preinstall: no script for preinstall, continuing
+584 silly doReverseSerial remove 1
+585 silly remove D:\Projects\Meteor\groupware_project\node_modules\iconv
+586 verbose unbuild node_modules\iconv
+587 info lifecycle iconv@2.3.0~preuninstall: iconv@2.3.0
+588 silly lifecycle iconv@2.3.0~preuninstall: no script for preuninstall, continuing
+589 info lifecycle iconv@2.3.0~uninstall: iconv@2.3.0
+590 silly lifecycle iconv@2.3.0~uninstall: no script for uninstall, continuing
+591 verbose unbuild rmStuff iconv@2.3.0 from D:\Projects\Meteor\groupware_project\node_modules
+592 info lifecycle iconv@2.3.0~postuninstall: iconv@2.3.0
+593 silly lifecycle iconv@2.3.0~postuninstall: no script for postuninstall, continuing
+594 silly gentlyRm D:\Projects\Meteor\groupware_project\node_modules\iconv is being purged from base D:\Projects\Meteor\groupware_project
+595 verbose gentlyRm don't care about contents; nuking D:\Projects\Meteor\groupware_project\node_modules\iconv
+596 silly vacuum-fs purging D:\Projects\Meteor\groupware_project\node_modules\iconv
+597 silly vacuum-fs quitting because other entries in D:\Projects\Meteor\groupware_project\node_modules
+598 silly doSerial move 0
+599 silly doSerial finalize 1
+600 silly finalize D:\Projects\Meteor\groupware_project\node_modules\iconv
+601 silly doSerial build 1
+602 silly build iconv@2.3.0
+603 info linkStuff iconv@2.3.0
+604 silly linkStuff iconv@2.3.0 has D:\Projects\Meteor\groupware_project\node_modules as its parent node_modules
+605 verbose linkBins iconv@2.3.0
+606 verbose linkMans iconv@2.3.0
+607 silly doSerial global-link 0
+608 silly doParallel update-linked 0
+609 silly doSerial install 1
+610 silly install iconv@2.3.0 D:\Projects\Meteor\groupware_project\node_modules\.staging\iconv-eb6db9aa
+611 info lifecycle iconv@2.3.0~install: iconv@2.3.0
+612 verbose lifecycle iconv@2.3.0~install: unsafe-perm in lifecycle true
+613 verbose lifecycle iconv@2.3.0~install: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;D:\Projects\Meteor\groupware_project\node_modules\iconv\node_modules\.bin;D:\Projects\Meteor\groupware_project\node_modules\.bin;C:\Program Files (x86)\ConEmu\ConEmu\Scripts;C:\Program Files (x86)\ConEmu;C:\Program Files (x86)\ConEmu\ConEmu;c:\program files\graphicsmagick-1.3.27-q16;D:\app\rndvr\product\11.2.0\dbhome_1\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\rndvr\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\MySQL\MySQL Utilities 1.3.6\;C:\Program Files\nodejs\;C:\Users\rndvr\AppData\Local\Programs\Python\Python36-32;C:\Users\rndvr\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\rndvr\AppData\Local\Programs\Python\Python36-32\;C:\Users\rndvr\AppData\Roaming\npm;C:\Users\rndvr\AppData\Local\.meteor\;C:\Users\rndvr\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Java\jdk1.8.0_151\bin;
+614 verbose lifecycle iconv@2.3.0~install: CWD: D:\Projects\Meteor\groupware_project\node_modules\iconv
+615 silly lifecycle iconv@2.3.0~install: Args: [ '/d /s /c', 'node-gyp rebuild' ]
+616 silly lifecycle iconv@2.3.0~install: Returned: code: 1  signal: null
+617 info lifecycle iconv@2.3.0~install: Failed to exec install script
+618 verbose unlock done using C:\Users\rndvr\AppData\Roaming\npm-cache\_locks\staging-54396f4d56b90b3b.lock for D:\Projects\Meteor\groupware_project\node_modules\.staging
+619 silly rollbackFailedOptional Starting
+620 silly rollbackFailedOptional Finishing
+621 silly runTopLevelLifecycles Finishing
+622 silly install printInstalled
+623 verbose stack Error: iconv@2.3.0 install: `node-gyp rebuild`
+623 verbose stack Exit status 1
+623 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
+623 verbose stack     at emitTwo (events.js:106:13)
+623 verbose stack     at EventEmitter.emit (events.js:191:7)
+623 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+623 verbose stack     at emitTwo (events.js:106:13)
+623 verbose stack     at ChildProcess.emit (events.js:191:7)
+623 verbose stack     at maybeClose (internal/child_process.js:877:16)
+623 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+624 verbose pkgid iconv@2.3.0
+625 verbose cwd D:\Projects\Meteor\groupware_project
+626 error Windows_NT 6.1.7601
+627 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "iconv"
+628 error node v6.9.5
+629 error npm  v3.10.10
+630 error code ELIFECYCLE
+631 error iconv@2.3.0 install: `node-gyp rebuild`
+631 error Exit status 1
+632 error Failed at the iconv@2.3.0 install script 'node-gyp rebuild'.
+632 error Make sure you have the latest version of node.js and npm installed.
+632 error If you do, this is most likely a problem with the iconv package,
+632 error not with npm itself.
+632 error Tell the author that this fails on your system:
+632 error     node-gyp rebuild
+632 error You can get information on how to open an issue for this project with:
+632 error     npm bugs iconv
+632 error Or if that isn't available, you can get their info via:
+632 error     npm owner ls iconv
+632 error There is likely additional logging output above.
+633 verbose exit [ 1, true ]

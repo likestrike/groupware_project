@@ -258,6 +258,13 @@ Template.blindModal.events({
 		}
 		e.originalEvent.dataTransfer.dropEffect = 'copy';
 	},
+	'dragleave #fileuploadArea'(e){
+		e.preventDefault();
+		e.stopPropagation();
+		if($('#blindform').hasClass('file-over')){
+			$('#blindform').removeClass('file-over');
+		}
+	},
 	'drop #blindform.file-over'(e, template) {
 		e.preventDefault();
 		e.stopPropagation();

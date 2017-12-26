@@ -254,9 +254,11 @@
 .fileover-area > span{
   font-size: 22px;
 }
-.post-upload-form.file-over .fileover-area{
+
+.post-upload-form.file-over .fileover-area, .blind-upload-form.file-over .fileover-area{
   display: block;
 }
+
 
 .textcontext-area{
   min-height: 100px;
@@ -359,6 +361,13 @@ ul.post_image_ul>div{
   display: inline-block;
   position: relative;
 }
+.in_block.ui-sortable-helper{
+  display: block;
+}
+.in_block.ui-sortable-placeholder{
+  display:inline-block;
+  position: relative;
+}
 img.post_uploaded_image{
   height: 180px;
   widows: auto;
@@ -388,7 +397,16 @@ img.comment_uploaded_image{
   margin-left: -1px;
 }
 
+.file-wrapper.dragable{
+  z-index: 1;
+  position: absolute;
+}
 
+.sortable_image{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 
 .remove_image{
   position: absolute;
@@ -591,6 +609,9 @@ img.comment_uploaded_image{
 }
 
 /* tag viewer ogtag view*/
+.post-ogtag-area{
+  position: relative;
+}
 .tagviewer_wrapper{
 
 }

@@ -207,7 +207,7 @@ Template.postModal.events({
 					console.error('err while extracting metas', err);
 				} else {
 					if(jQuery.isEmptyObject(res))return;
-					Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".modal-body")[0])
+					Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".post-ogtag-area")[0])
 				}
 			});
 		}
@@ -279,6 +279,14 @@ Template.postModal.events({
 			uf.className += ' file-over';
 		}
 		e.originalEvent.dataTransfer.dropEffect = 'copy';
+	},
+	'dragleave #fileuploadArea'(e){
+		e.preventDefault();
+		e.stopPropagation();
+		const uf = document.getElementById('postform');
+		if($('#postform').hasClass('file-over')){
+			$('#postform').removeClass('file-over');
+		}
 	},
 	'drop #postform.file-over'(e, template) {
 		e.preventDefault();

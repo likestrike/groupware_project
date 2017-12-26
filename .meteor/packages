@@ -56,3 +56,5 @@ acemtp:meta-extractor
 ostrio:cstorage
 loftsteinn:photoswipe
 mrt:filesize
+mrt:jquery-ui-sortable
+dbernhard:jquery-ui-draggable

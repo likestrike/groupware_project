@@ -210,6 +210,27 @@ Template.postEditModal.events({
 	    //   }
 	    // });
 	  },
+	'click #fakeUpload'(e, template) {
+		if (!_app.isiOS) {
+		  e.preventDefault();
+		}
+		template.$('#userfile').trigger('click');
+		if (!_app.isiOS) {
+		  return false;
+		}
+	},
+	'change #userfile'(e, template) {
+		if($('#submit').hasClass('disabled')){
+			$('#submit').removeClass('disabled');
+		}
+		template.$('form#postform').submit();
+	},
+	'submit form#postform'(e, template) {
+		e.preventDefault();
+		template.error.set(false);
+		template.initiateUpload(e, e.currentTarget.userfile.files);
+		return false;
+	},
 	  'dragover #postform, dragenter #postform'(e) {
 			e.preventDefault();
 			e.stopPropagation();

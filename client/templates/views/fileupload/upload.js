@@ -28,6 +28,36 @@ Template.postFile.helpers({
     return Collections.files.findOne(this.itemId);
   },
 });
+Template.postFile.onCreated(function(){
+  this.dragable = false;
+  this.startX = 0;
+  this.moveTarget;
+  // $("div.file-wrapper").draggable({
+  //   axis: "x",
+  //   handle: "div.sortable_image",
+  //   drag: function( event, ui ) {
+  //     console.log(ui.position.left);
+  //     if(ui.position.left > 100){
+        
+  //       console.log($(ui));
+  //       // $data = $(ui);
+  //       // $data.insertAfter($(ui).parent().find(".file-wrapper").eq(index+1));
+  //     }
+  //   }
+
+  // });
+  $("#upload-file").sortable({
+      axis : "x",
+      containment : "#upload-file",
+      handle : ".sortable_image",
+      items: "> div.file-wrapper",
+
+      // handle: ".portlet-header",
+      // cancel: ".portlet-toggle",
+      // placeholder: "portlet-placeholder ui-corner-all"
+    });
+  $( "#sortable" ).disableSelection();
+});
 
 Template.postFile.events({
   'click #file_remove':function(e, t){
@@ -43,6 +73,7 @@ Template.postFile.events({
       }
     });
   },
+ 
 });
 
 

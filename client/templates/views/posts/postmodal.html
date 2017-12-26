@@ -1,9 +1,9 @@
 <template name="postModal">
-    <form class="post-upload-form" id="postform">
     <div class="modal fade" tabindex='-1'>
         <div class="modal-dialog" {{attribute}}>
             <div class="modal-content">
-                <div class="fileover-area" style="">
+                <form class="post-upload-form" id="postform">
+                <div class="fileover-area" style="" id="fileuploadArea">
                     <i class="fa fa-fw fa-file-picture-o"></i>
                     <span>여기로 사진을 올려서 보세요</span>
                 </div>
@@ -31,6 +31,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="post-ogtag-area">
+                            
+                    </div>
                     <div class='post-modal-tools-box'>
                         <input class="invisible" id="userfile" type="file" name="userfile" required="" multiple="">
                         <div class="post-camera" id="fakeUpload" data-toggle="tooltip" title="사진 올리기">
@@ -53,8 +56,8 @@
                     <button type="submit" class="btn btn-primary disabled" id="submit" name="submit">저장하기</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
-    </form>
 </template>

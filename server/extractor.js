@@ -4,14 +4,16 @@ if (Meteor.isServer) {
 	Extractor_meta = function (params) {
 		var html;
 		var meta = {};
+
 		if(params.substr(0, 4) === 'http') {
 	      try {
-	        var result = HTTP.call('GET', params);
+	        var result = HTTP.call('GET', params, {encoding : 'binary'});
 	        if(result.statusCode !== 200) {
 	          console.log('bad status', result);
 	          return meta;
 	        }
 	        html = result.content;
+	        var contentType = result.headers['content-type'];
 	        // console.log('result', result);
 	      } catch (e) {
 	        console.log('catch error', e);
@@ -34,7 +36,7 @@ if (Meteor.isServer) {
 	      if (m.index === re.lastIndex) {
 	          re.lastIndex++;
 	      }
-	      console.log(m[1]);
+	      // console.log(m[1]);
 	      if(m[1].trim() === 'description' || m[1].trim() === 'og:description') meta.description = m[2].trim();
 	      if(m[1].trim() === 'og:image') meta.image = m[2].trim();
 	      if(m[1].trim() === 'twitter:image') meta.twitterimage = m[2].trim();
@@ -43,7 +45,8 @@ if (Meteor.isServer) {
 	      if(m[1].trim() === 'og:image:height') meta.height = m[2].trim();
 	      if(m[1].trim() === 'og:url') meta.url = m[2].trim();
 	    }
-	    // console.log(meta);
+	    console.log(meta.title);
+	    console.log(decodeURIComponent(meta.title));
 
 	    return meta;
 	}

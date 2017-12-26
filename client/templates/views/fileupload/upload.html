@@ -38,8 +38,13 @@
 
 <template name="postFile">
   {{#with objFile}}
-  <div class="in_block">
+  <div class="in_block file-wrapper">
     {{#if isImage}}
+      <div class="sortable_image cubebox" data-value="{{_id}}">
+        <div class="icon_circle">
+          <i class="fa fa-fw fa-reorder"></i>
+        </div>
+      </div>
       <li>
         <img src="{{link}}" alt="{{name}}" data-value="{{_id}}" class="post_uploaded_image"/>
       </li>
