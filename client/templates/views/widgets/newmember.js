@@ -22,5 +22,9 @@ Template.newMembers.helpers({
 		console.log(data);
 		return Meteor.users.find({'creationTime' : {$gt : new Date(firstDay), $lt : new Date(lastDay)}});
 		
-	}
+	},
+	formattedDate: function(){
+    	moment.locale('ko');
+	    return moment(this.creationTime).from(moment(new Date() ));
+	  },
 });

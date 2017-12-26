@@ -11,7 +11,15 @@
 	</section>
 	<!-- Main content -->
     <section class="content">
-			{{> newMembers}}
+    	<div class="row">
+    		<div class="col-md-8">
+    			<div class="row">
+    				{{> todayPosts}}
+    				{{> newMembers}}		
+    			</div>
+    		</div>
+    	</div>
+			
 			{{> calendarWidget}}
     </section>
 </div>
