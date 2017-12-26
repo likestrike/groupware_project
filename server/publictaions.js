@@ -39,6 +39,10 @@ Meteor.publish('faqs', function() {
 Meteor.publish('blinds', function() {
   return Blinds.find();
 });
+Meteor.publish('singleBlind', function (param) {
+  check(param, Object);
+  return Blinds.find({_id : param._id});
+});
 // 블라인드 댓글 구독
 Meteor.publish('blind_comments', function(blindId) {
   check(blindId, String);

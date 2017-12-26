@@ -41,20 +41,20 @@ Template.commentItem.events({
 		var itemId = this._id;
 		var commentObj = {
 			itemId : this._id,
-			target : $(e.target).parents('.box-comments'),
+			parentTarget : $(e.target).parents('.comment-box'),
 			top : _top,
 			left : _left
 		}
 		Blaze.renderWithData(Template.commentMinipop, {commentObj: commentObj}, $("body")[0])
 
 	},
-	'click #edit_comment': function (e, t) {
-		e.preventDefault()
-		var itemId = this._id;
-		var target = $(e.target).parents('.box-comments');
-		target.children().hide()
-		Blaze.renderWithData(Template.comment_edit, Comments.findOne(itemId), $(e.target).parents('.box-comments')[0])
-	},
+	// 'click #edit_comment': function (e, t) {
+	// 	e.preventDefault()
+	// 	var itemId = this._id;
+	// 	var target = $(e.target).parents('.box-comments');
+	// 	target.children().hide()
+	// 	Blaze.renderWithData(Template.comment_edit, Comments.findOne(itemId), $(e.target).parents('.box-comments')[0])
+	// },
 
 });
 Template.comment_edit.onCreated(function() {

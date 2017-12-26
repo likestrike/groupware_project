@@ -300,7 +300,7 @@ div#post_context_div{
 }
 .modal-context-box{
   overflow-y: overlay;
-  height: 331px;
+  height: 221px;
   -webkit-box-orient: vertical;
   box-orient: vertical;
   -webkit-flex-direction: column;
@@ -382,6 +382,7 @@ img.comment_uploaded_image{
   display: inline-block;
   width: 28px;
   height: 28px;
+  color:#fff;
   border-radius: 14px;
   border: 2px solid #fff;
   background-color: #000;
@@ -438,7 +439,7 @@ img.comment_uploaded_image{
 .image-gallery a img{
     width: auto;
     /*max-width: 100%;*/
-    height: auto;
+    /*height: auto;*/
 }
 
 .gallery-pannel{
@@ -616,15 +617,57 @@ img.comment_uploaded_image{
 
 }
 .tagviewer_area{
-
+  background-color: #fff;
+  border: 1px solid #f5f5f5;
+  position: relative;
+}
+.tagviewer_box.bigsize{
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: inherit;
+    box-align: inherit;
+    -webkit-align-items: inherit;
+    align-items: inherit;
 }
 .tagviewer_box{
-
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    box-orient: horizontal;
+    width: 100%;
+    outline: none;
+    min-height: 48px;
+    -webkit-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
 }
 .tagviewer_image{
-
+    min-width: 40px;
+    position: relative;
 }
-
+.tagviewer_image.bigsize img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.tagviewer_context{
+  padding: 8px 35px 0 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+.tagviewer_context_title{
+    color: rgba(0,0,0,0.87);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 17px;
+    font-weight: 300;
+    padding: 8px 0;
+}
 /* blind */
 .blind-content {
   max-width: 1650px;

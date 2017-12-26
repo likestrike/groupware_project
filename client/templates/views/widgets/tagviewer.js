@@ -3,6 +3,13 @@ import { Blaze } from 'meteor/blaze'
 Template.tagviewer.helpers({
 	tag : function () {
 		return this.tag;
+	},
+	bigsize : function(){
+		if(this.width > 300){
+			return true;
+		}else{
+			return false;
+		}
 	}
 });
 Template.tagviewer.onCreated(function(){

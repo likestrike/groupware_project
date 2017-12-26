@@ -154,7 +154,7 @@ Template.postEditModal.events({
 		var conver_text = $('#post_context').html().replace(/\n/g, "<br />");
 
 		if(conver_text.trim() === ''){
-			Modal.hide('postModal');
+			Modal.hide('postEditModal');
 			return;
 		}
 
@@ -186,7 +186,7 @@ Template.postEditModal.events({
 	        // display the error to the user
 	        return Bert.alert(error.reason);
 	      } else {
-	      	Modal.hide('postModal');
+	      	Modal.hide('postEditModal');
 	        FlowRouter.go('/postlist');
 	      }
 	    });
@@ -199,7 +199,6 @@ Template.postEditModal.events({
 	    $(e.currentTarget).parents('.uploaded').remove();
 
 	    t.delItems.push(itemId);
-	    console.log(t.delItems);
 
 	    // remove image
 	    // Collections.files.remove({_id: itemId}, function (error) {

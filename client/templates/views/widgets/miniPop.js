@@ -22,18 +22,27 @@ Template.commentMinipop.events({
 		e.preventDefault()
 
 		var itemId = Blaze.getData().commentObj.itemId;
-		var target = Blaze.getData().commentObj.target;
+		var target = Blaze.getData().commentObj.parentTarget;
+		console.log(itemId);
+		console.log(target);
 		target.children().hide();
 		var view = Blaze.getView($("#comment-edit-box")[0]);
 		Blaze.remove(view);
 
-		Blaze.renderWithData(Template.comment_edit, Comments.findOne(itemId), Blaze.getData().commentObj.target[0])
+		Blaze.renderWithData(Template.comment_edit, Comments.findOne(itemId), target[0])
 	},
 	'click #delete_comment': function (e, t) {
 		e.preventDefault()
-		var itemId = Blaze.getData().commentObj.itemId;
-		var view = Blaze.getView($("#comment-edit-box")[0]);
-		Blaze.remove(view);
-		Comments.remove(itemId);
+
+		var myalert = new MyAlert();
+		var callback = {
+			fn: function() {
+				var itemId = Blaze.getData().commentObj.itemId;
+				var view = Blaze.getView($("#comment-edit-box")[0]);
+				Blaze.remove(view);
+				Comments.remove(itemId);
+			}
+		}
+		myalert.deleteConfirm(callback);
 	}
 });

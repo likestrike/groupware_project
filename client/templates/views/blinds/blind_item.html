@@ -7,11 +7,11 @@
 			</div>
       <!-- /.user-block -->
       <div class="box-tools btn-group pull-right">
-        <button type="button" class="btn btn-box-tool  expand-post">
-          <a href="{{pathFor '/blindlist/:id' id=_id }}">
-              <i class="fa fa-fw fa-expand"></i>
-          </a>
-        </button>
+        <button type="button" class="btn btn-box-tool expand-post">
+            <a href="{{pathFor '/blindlist/:id' id=_id }}">
+                <span class="glyphicon glyphicon-new-window" ></span>
+            </a>
+          </button>
         {{#if ownPost}}
         <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
           <i class="glyphicon glyphicon-option-vertical"></i></button>
@@ -52,12 +52,20 @@
           {{/each}}
         <!-- /.box-footer -->
         <div class="box-footer">
-        <form class="comment form">
+        <form class="comment form" id="commentform">
             <div class="input-group img-push">
-              <div class="form-control comment-form" id="comment" contenteditable="true" placeholder="댓글을 입력하세요.."></div>
-                  <span class="input-group-btn">
-                    <button type="submit" id="comment_submit" class="btn btn-primary btn-flat">Send</button>
-                  </span>
+              <ul class="comment_image_ul">
+                <div class="in_block" id="comment-upload-file"></div>
+              </ul>
+              <div style="display: table-header-group;">
+                <div class="form-control comment-form" id="comment" contenteditable="true" placeholder="댓글을 입력하세요.."></div>
+                <span class="input-group-btn">
+                  <input class="invisible" id="commentfile" type="file" name="commentfile" required="">
+                  <button id="commentUpload" class="btn btn-primary btn-flat" data-toggle="tooltip" title="" data-original-title="사진 올리기"><i class="fa fa-camera"></i></button>
+                  <button type="submit" id="comment_submit" class="btn btn-primary btn-flat disabled">Send</button>
+                </span>
+              </div>
+
             </div>
           </form>
 

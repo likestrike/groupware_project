@@ -4,7 +4,7 @@
 		{{#if isImage}}
 		<a href="{{link}}" class="image-swipe" data-size="{{meta.width}}x{{meta.height}}" data-med="{{link 'preview'}}" data-med-size="{{versions.preview.meta.width}}x{{versions.preview.meta.height}}">
 			<div>
-				<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image" style="height: 200px;">
+				<img src="{{link 'preview'}}" alt="{{name}}" class="postfile-multiple-image" {{imgattr}}>
 			</div>
 		</a>
 		{{else if isVideo}}

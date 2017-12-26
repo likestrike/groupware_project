@@ -7,7 +7,7 @@ Template.newMembers.helpers({
 		Meteor.subscribe('userAll');
 
 		var date = new Date();
-		
+
 		var getFirstDay = new Date(date.getFullYear(), date.getMonth(), 1);
 		var getLastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
@@ -17,11 +17,8 @@ Template.newMembers.helpers({
 
 		console.log(firstDay);
 		console.log(lastDay);
-
-		var data = Meteor.users.find({'creationTime' : {$gt : new Date(firstDay), $lt : new Date(lastDay)}});
-		console.log(data);
+		console.log(Meteor.users.find({'creationTime' : {$gt : new Date(firstDay), $lt : new Date(lastDay)}}).count());
 		return Meteor.users.find({'creationTime' : {$gt : new Date(firstDay), $lt : new Date(lastDay)}});
-		
 	},
 	formattedDate: function(){
     	moment.locale('ko');

@@ -615,9 +615,9 @@ Template.postfileView.helpers({
                 if(index == 1){
                     childWidth = childWidth - 140;
                     if(imgWidth < imgHeight){
-                        attribute.style = 'position: absolute;left: -6px; height : '+(parent_width - 40)+'px;';
+                        attribute.style = 'position: absolute;left: -'+(childWidth/8)+'px; height : '+(parent_width - 40)+'px;';
                     }else{
-                        attribute.style = 'position: absolute;left: -'+(childWidth/8)+'px; max-width : '+childWidth+'px; width : '+childWidth+'px;';
+                        attribute.style = 'position: absolute;left: -'+(childWidth/8)+'px; width : '+childWidth+'px;';
                     }
                 }else{
                 	if(imgWidth < imgHeight){

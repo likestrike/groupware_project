@@ -1,12 +1,11 @@
 Blinds = new Mongo.Collection('blinds');
-
 Blinds.allow({
   update: ownsDocument,
   remove: ownsDocument
 });
 Blinds.deny({
   update: function(userId, doc, fieldNames) {
-    return (_.without(fieldNames, 'context').length > 0);
+    return _.contains(fieldNames, 'userId');
   }
 });
 

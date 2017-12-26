@@ -95,7 +95,7 @@ Template.postModal.onCreated(function() {
 	  }, false).on('end', function (error, fileObj) {
 	    if (!error) {
 			Blaze.renderWithData(Template.postFile, {itemId: fileObj._id}, $("#upload-file")[0])
-	    	
+
 	      // FlowRouter.go('file', {
 	      //   _id: fileObj._id
 	      // });
@@ -201,6 +201,7 @@ Template.postModal.events({
 		var url_val = urlify($(e.target).val());
 		const url = url_val;
 		if(url != ''){
+			if($('.post_uploaded_image').length > 0)return;
 			// extract metadata ogtag
 			Meteor.call('Extractor_meta', url, (err, res) => {
 				if (err) {
@@ -367,8 +368,10 @@ Template.postEditModal.events({
 });
 
 function urlify(text) {
-    var urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-    return text.replace(urlRegex, function(url) {
-        return url;
+    var urlRegex = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+    var result = '';
+    text.replace(urlRegex, function(url) {
+    	result = url;
     })
+    return result;
 }

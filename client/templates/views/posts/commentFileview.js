@@ -7,6 +7,17 @@ Template.commentfileView.helpers({
   		}
 		return Collections.files.find({'_id' : ids, 'isImage' : true});
 	},
+    imgattr:function(){
+        var imgWidth = this.meta.width;
+        var imgHeight = this.meta.height;
+        var attribute = {};
+        if(imgWidth < imgHeight){
+            attribute.style = 'width : 140px; border-radius: 10px;';
+        }else{
+            attribute.style = 'width : 160px; border-radius: 10px;';
+        }
+        return attribute;
+    }
 });
 Template.commentfileView.events({
 	'click a.image-swipe': function (e) {

@@ -15,7 +15,8 @@ Meteor.methods({
     check(this.userId, String);
     check(commentAttributes, {
       blindId: String,
-      body: String
+      body: String,
+      fileId: String
     });
     var user = Meteor.user();
     var blind = Blinds.findOne(commentAttributes.blindId);

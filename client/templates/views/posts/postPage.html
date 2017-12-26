@@ -17,3 +17,23 @@
 		</section>
 	</div>
 </template>
+
+<template name='blindpage'>
+	<div class="content-wrapper" style="min-height: {{getHeight}}px;">
+		{{> notice}}
+		<section class="content-header">
+		<ol class="breadcrumb">
+			<li><a href="{{pathFor '/'}}"><i class="fa fa-dashboard"></i> Home</a></li>
+		</ol>
+		</section>
+		<section class="content post-content single">
+			<div class="row">
+				<div class="post-grid col-md-12  animated fadeInUp">
+					{{#each BlindData}}
+						{{> blindItem}}
+					{{/each}}
+				</div>
+			</div>
+		</section>
+	</div>
+</template>
