@@ -48,6 +48,13 @@ Meteor.publish('blind_comments', function(blindId) {
   check(blindId, String);
   return BlindComments.find({blindId: blindId});
 });
+
+// 블라인드 구독
+Meteor.publish('ogtags', function() {
+  return Ogtags.find();
+});
+
+
 // Give authorized users access to sensitive data by group
 Meteor.publish('secrets', function (group) {
   if (Roles.userIsInRole(this.userId, ['view-secrets','admin'], group)) {

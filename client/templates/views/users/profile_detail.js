@@ -7,5 +7,9 @@ Template.profileDetail.helpers({
 			}
 		}
 		return this._id === Meteor.userId();
+	},
+	recentPost : function(){
+		Meteor.subscribe('posts')
+		return Posts.find({userId : this._id}, {sort: {submitted: -1}, skip: 0, limit: 3});
 	}
 });

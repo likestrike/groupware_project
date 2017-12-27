@@ -22,7 +22,6 @@ if (Meteor.isServer) {
 	    } else {
 	      html = params;
 	    }
-	    console.log(html);
 
 	    // search and parse all <meta>
 	    // var re = /<[\s]*meta[\s]*(?:name|property)[\s]*=[\s]*["\']?([^>"\']*)["\']?[\s]*content[\s]*=[\s]*["\']?([^>"\']*)["\']?[\s]*[\/]?[\s]*>/gmi;
@@ -46,12 +45,16 @@ if (Meteor.isServer) {
 	      if(m[1].trim() === 'og:image:height') meta.height = m[2].trim();
 	      if(m[1].trim() === 'og:url') meta.url = m[2].trim();
 	    }
-	    console.log(meta.image);
-	    console.log(meta.width);
 	    if(typeof(meta.image) !== 'undefined'){
 	    	if(typeof(meta.width) === 'undefined' && typeof(meta.height) === 'undefined'){
 	    		meta.width = 80;
 	    		meta.height = 80;
+	    	}
+	    	var text = meta.url;
+	    	var videoid = text.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+	    	if(videoid != null) {
+	    		meta.width = 480;
+	    		meta.height = 360;	
 	    	}
 	    }
 

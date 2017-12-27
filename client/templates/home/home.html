@@ -1,5 +1,6 @@
 <template name="home">
-<div class="content-wrapper">
+<div class="content-wrapper" style="min-height: {{getHeight}}px;">
+
 	{{> notice}}
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
@@ -12,15 +13,123 @@
 	<!-- Main content -->
     <section class="content">
     	<div class="row">
-    		<div class="col-md-8">
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-aqua">
+					<div class="inner">
+						<h3>{{postcount}}</h3>
+						<p>게시물이 있습니다.</p>	
+					</div>
+					<div class="icon">
+						<i class="ion ion-document-text"></i>
+					</div>
+					<a href="{{pathFor '/postlist'}}" class="small-box-footer">더보기 <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-aqua">
+					<div class="inner">
+						<h3>{{blindcount}}</h3>
+						<p>블라인드 게시물이 있습니다.</p>	
+					</div>
+					<div class="icon">
+						<i class="ion ion-eye-disabled"></i>
+					</div>
+					<a href="{{pathFor '/blindlist'}}" class="small-box-footer">더보기 <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-xs-6">
+			<!-- small box -->
+				<div class="small-box bg-yellow">
+					<div class="inner">
+						<h3>{{usercount}}</h3>
+						<p>로커시안</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-person-stalker"></i>
+					</div>
+					<a href="{{pathFor '/userlist'}}" class="small-box-footer">
+						더보기 <i class="fa fa-arrow-circle-right"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-aqua">
+					<div class="inner">
+						<h3>{{faqcount}}</h3>
+						<p>FAQ 게시물이 있습니다.</p>	
+					</div>
+					<div class="icon">
+						<i class="ion ion-help-circled"></i>
+					</div>
+					<a href="{{pathFor '/faqlist'}}" class="small-box-footer">더보기 <i class="fa fa-arrow-circle-right"></i></a>
+				</div>
+			</div>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-12">
     			<div class="row">
-    				{{> todayPosts}}
-    				{{> newMembers}}		
+    				<div class="col-md-4">
+    					{{> todayPosts}}	
+    				</div>
+    				<div class="col-md-8">
+    					{{> newMembers}}
+    					<div class="box box-default">
+				            <div class="box-header with-border">
+				              <h3 class="box-title">Task 진행상황</h3>
+
+				              <div class="box-tools pull-right">
+				                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+				                </button>
+				                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+				              </div>
+				            </div>
+				            <!-- /.box-header -->
+				            <div class="box-body">
+				              <div class="row">
+				                <div class="col-md-8">
+				                  <div class="chart-responsive">
+				                    <!-- <canvas id="pieChart" height="155" width="328" style="width: 328px; height: 155px;"></canvas> -->
+				                  </div>
+				                  <!-- ./chart-responsive -->
+				                </div>
+				                <!-- /.col -->
+				                <div class="col-md-4">
+				                  <ul class="chart-legend clearfix">
+				                    <li><i class="fa fa-circle-o text-red"></i> Retake </li>
+				                    <li><i class="fa fa-circle-o text-green"></i> Working</li>
+				                    <li><i class="fa fa-circle-o text-yellow"></i> To Review</li>
+				                    <li><i class="fa fa-circle-o text-light-blue"></i> Approved</li>
+				                    <li><i class="fa fa-circle-o text-gray"></i> Open</li>
+				                  </ul>
+				                </div>
+				                <!-- /.col -->
+				              </div>
+				              <!-- /.row -->
+				            </div>
+				            <!-- /.box-body -->
+				            <div class="box-footer no-padding">
+				              <ul class="nav nav-pills nav-stacked">
+				                <li><a href="#">재검토
+				                  <span class="pull-right text-red"> 12건</span></a></li>
+				                <li><a href="#">현재 진행중 <span class="pull-right text-green"> 5건</span></a>
+				                </li>
+				                <li><a href="#">리뷰중 
+				                  <span class="pull-right text-yellow"> 10건</span></a></li>
+				              </ul>
+				            </div>
+				            <!-- /.footer -->
+				          </div>
+    				</div>
     			</div>
     		</div>
+    		
+    		<!-- <div class="col-md-4">
+    			
+    		</div> -->
     	</div>
-			
-			{{> calendarWidget}}
     </section>
 </div>
 </template>

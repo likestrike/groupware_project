@@ -17,6 +17,7 @@ Template.postModal.onCreated(function() {
 	this.error          = new ReactiveVar(false);
 	this.uploadQTY      = 0;
 	this.showSettings   = new ReactiveVar(false);
+	this.ogtag   = new ReactiveVar(false);
 
 	_app.blamed   = new ReactiveVar(ClientStorage.get('blamed'));
 	_app.unlist   = new ReactiveVar(ClientStorage.get('unlist'));
@@ -200,17 +201,50 @@ Template.postModal.events({
 		if (e.keyCode !== 13) return;
 		var url_val = urlify($(e.target).val());
 		const url = url_val;
+		console.log(url);
 		if(url != ''){
-			if($('.post_uploaded_image').length > 0)return;
+			if($('.post_uploaded_image').length > 0 || $('.tagviewer_wrapper').length > 0)return;
 			// extract metadata ogtag
-			Meteor.call('Extractor_meta', url, (err, res) => {
+			if($(".post-ogtag-area").find('#tagviewLoading').length == 0){
+				var youtube = youtubeify(url);
+				console.log(youtube);
+				Blaze.render(Template.tagviewerLoading, $(".post-ogtag-area")[0]);
+				Meteor.call('Extractor_meta', url, (err, res) => {
 				if (err) {
 					console.error('err while extracting metas', err);
 				} else {
 					if(jQuery.isEmptyObject(res))return;
-					Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".post-ogtag-area")[0])
+
+					res.isYoutube = false;
+			    	if(youtube){
+			    		res.isYoutube = true;
+			    		res.YoutubeUrl = youtube[0];
+			    		res.YoutubeId = youtube[1];
+			    	}
+			    	
+					Meteor.call('ogtagInsert', res, function(error, result) {
+						if (error)
+				        return Bert.alert(error.reason);
+				    	res._id = result._id;
+				    	
+						var view = Blaze.getView($("#tagviewLoading")[0]);
+						Blaze.remove(view);
+						Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".post-ogtag-area")[0]);
+					});
+
 				}
 			});
+			}
+			
+			// Meteor.call('Extractor_meta', url, (err, res) => {
+			// 	if (err) {
+			// 		console.error('err while extracting metas', err);
+			// 	} else {
+			// 		if(jQuery.isEmptyObject(res))return;
+			// 		t.ogtag.set(true);
+			// 		Blaze.renderWithData(Template.tagviewer, {tag: res}, $(".post-ogtag-area")[0]);
+			// 	}
+			// });
 		}
 	},
 	'click #submit' : function (e, t) {
@@ -225,6 +259,7 @@ Template.postModal.events({
 
 		// get image ids
 		var file_ids = [];
+		var tag_id = '';
 		if($('.post_uploaded_image').length >0){
 			$('.post_uploaded_image').each(function(){
 				file_ids.push($(this).data('value'));
@@ -235,9 +270,14 @@ Template.postModal.events({
 				file_ids.push($(this).data('value'));
 			});
 		}
+		if($('.tagviewer_wrapper').length > 0){
+			tag_id = $('.tagviewer_wrapper').data('value');
+		}
+		var conver_text = Linkify(conver_text);
 
 		var post = {
 			context : conver_text,
+			tagId : tag_id,
 			fileIds : file_ids
 		}
 
@@ -334,6 +374,7 @@ Template.postEditModal.events({
 			Modal.hide('postModal');
 			return;
 		}
+
 		var post = {
 			context : conver_text
 		}
@@ -374,4 +415,27 @@ function urlify(text) {
     	result = url;
     })
     return result;
+}
+function youtubeify(text){
+	var videoid = text.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/);
+	if(videoid != null) {
+		return videoid;
+	} else { 
+		return false;
+	}
+}
+function Linkify(inputText) {
+    //URLs starting with http://, https://, or ftp://
+    var replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+    var replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
+
+    //URLs starting with www. (without // before it, or it'd re-link the ones done above)
+    var replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    var replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
+
+    //Change email addresses to mailto:: links
+    var replacePattern3 = /(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})/gim;
+    var replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
+
+    return replacedText
 }

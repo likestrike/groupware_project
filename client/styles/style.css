@@ -181,7 +181,7 @@
   margin: 0 16px 16px;
   word-wrap: break-word;
 }
-.box-body.trans{
+.post-wrapper.trans{
   transition-duration:500ms;
 }
 .post-context-div.minimum:before{
@@ -418,6 +418,10 @@ img.comment_uploaded_image{
   position: relative;
   margin: 0px;
 }
+.post-ogtag-wrapper{
+  position: relative;
+  margin: 0px; 
+}
 .comment-file-wrapper{
   position: relative;
   margin: 0px;
@@ -602,6 +606,7 @@ img.comment_uploaded_image{
   display: block;
   font-weight: 200;
 }
+
 /* 가로 description*/
 .h-description{
     white-space: nowrap;
@@ -613,15 +618,15 @@ img.comment_uploaded_image{
 .post-ogtag-area{
   position: relative;
 }
-.tagviewer_wrapper{
-
+.tagviewer_wrapper, .ogtag_wrapper{
+  padding-top: 64px;
 }
-.tagviewer_area{
+.tagviewer_area, .ogtag_area{
   background-color: #fff;
-  border: 1px solid #f5f5f5;
+  border: 1px solid #d8d8d8;
   position: relative;
 }
-.tagviewer_box.bigsize{
+.tagviewer_box.bigsize, .ogtag_box.bigsize{
     -webkit-box-orient: vertical;
     box-orient: vertical;
     -webkit-flex-direction: column;
@@ -631,7 +636,7 @@ img.comment_uploaded_image{
     -webkit-align-items: inherit;
     align-items: inherit;
 }
-.tagviewer_box{
+.tagviewer_box, .ogtag_box{
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
@@ -645,21 +650,25 @@ img.comment_uploaded_image{
     -webkit-align-items: center;
     align-items: center;
 }
-.tagviewer_image{
+.tagviewer_image, .ogtag_image{
     min-width: 40px;
     position: relative;
 }
-.tagviewer_image.bigsize img{
+.tagviewer_image.bigsize img, .ogtag_image.bigsize img{
     width: 100%;
     height: auto;
     display: block;
 }
-.tagviewer_context{
+.tagviewer_context, .ogtag_context{
   padding: 8px 35px 0 8px;
   min-width: 0;
   overflow: hidden;
 }
-.tagviewer_context_title{
+.tagviewer_context_description, .ogtag_context_description{
+    overflow-x: hidden;
+    white-space: pre;
+}
+.tagviewer_context_title, .ogtag_context_title{
     color: rgba(0,0,0,0.87);
     white-space: nowrap;
     overflow: hidden;
@@ -836,4 +845,46 @@ i.custom-like.press {
 /*notice*/
 .notice-wrapper{
   padding: 20px 30px; background: rgb(243, 156, 18); z-index: 999999; font-size: 16px; font-weight: 600; display: none;
+}
+
+/*user list*/
+#search_user{
+    color: #666;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    box-shadow: none;
+    border: 1px solid transparent;
+    height: 35px;
+}
+.padded.examples{
+  padding: 4px;
+  font-size: 16px;
+  margin-left : 16px;
+}
+.playicon{
+  cursor: pointer;
+    margin: auto auto;
+    width: 56px;
+    height: 56px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.2);
+    background-image: url(/images/play_circle_filled_white_48dp.png);
+    background-position: center;
+    -webkit-background-size: 48px 48px;
+    background-size: 48px 48px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.tag-youtube-iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }

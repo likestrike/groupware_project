@@ -99,6 +99,9 @@ Template.postItem.helpers({
   	},
   	getdata: function(){
   		return this.fileIds;
+  	},
+  	getTagId: function(){
+  		return this.tagId;
   	}
 });
 
@@ -214,7 +217,7 @@ Template.postItem.events({
 
 Template.postItem.onCreated(function(){
 	var self = this;
-	$('.post-context-div').addClass('minimum');
+	// $('.post-context-div').addClass('minimum');
 
 	this.initiateUpload = (event, files, formTarget) => {
 		const self          = this;

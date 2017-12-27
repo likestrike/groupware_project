@@ -15,6 +15,7 @@ Meteor.methods({
     check(this.userId, String);
     check(postAttributes, {
       context: String,
+      tagId : String,
       fileIds: Array
     });
 

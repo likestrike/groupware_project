@@ -67,26 +67,26 @@ Template.postlist.events({
 		Modal.show('postModal');
 	},
 	'click .box-widget' : function(e, t){
-		$box = $(e.currentTarget).find('.box-body');
+		$box = $(e.currentTarget).find('.post-wrapper');
 		$child = $box.find('.post-context-div');
-		// if(!$child.hasClass('minimum')){
-		// 	$child.addClass('minimum');
-		// }else{
-		// 	$child.removeClass('minimum')
-		// 	$box.addClass('trans')
-		// 	minimumHeight = 180;
+		if(!$child.hasClass('minimum')){
+			$child.addClass('minimum');
+		}else{
+			$child.removeClass('minimum')
+			$box.addClass('trans')
+			minimumHeight = 180;
 
-	 //        // get current height
-	 //        currentHeight = $box.innerHeight();
+	        // get current height
+	        currentHeight = $box.innerHeight();
 
-	 //        // get height with auto applied
-	 //        autoHeight = $box.find('.post-context').css('height', 'auto').innerHeight();
+	        // get height with auto applied
+	        autoHeight = $box.find('.post-context').css('height', 'auto').innerHeight();
 
-	 //        // reset height and revert to original if current and auto are equal
-	 //        $box.css('max-height', currentHeight).animate({
-	 //            'max-height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
-	 //        })
-		// }
+	        // reset height and revert to original if current and auto are equal
+	        $box.css('height', currentHeight).animate({
+	            'height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
+	        })
+		}
 
 
 	}
@@ -109,6 +109,7 @@ Template.postlist.onCreated(function(){
 	  });
 	$(window).on('scroll', function(){
 		if($('html, body')[0].scrollHeight - $('html, body').scrollTop() === $('html, body')[0].clientHeight){
+			console.log('ddd');
 			var postcount = Posts.find().count();
 			var current = Session.get("inc_limit");
 			if(postcount > current){
@@ -117,6 +118,6 @@ Template.postlist.onCreated(function(){
 		}
 	});
 
-
+	// $('section.post-content').addClass('animated fadeInUp m-t-xs');
 
 })

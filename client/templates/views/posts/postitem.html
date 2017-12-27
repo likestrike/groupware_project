@@ -31,10 +31,13 @@
           <!-- post text -->
           <div class="post-wrapper">
             <div class="post-context-wrapper">
-              <div class="post-context-div">
+              <div class="post-context-div minimum">
                   <div class="post-context">{{{context}}}</div>
                 </div>
             </div>
+          </div>
+          <div class="post-ogtag-wrapper" id='mytagarea'>
+            {{> Template.dynamic template="postTagView" data=getTagId}}
           </div>
           <div class="post-file-wrapper row" id='myarea'>
             {{> Template.dynamic template="postfileView" data=getdata}}

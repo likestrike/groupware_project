@@ -1,12 +1,11 @@
 <template name='newMembers'>
-<div class="col-md-6">
       <!-- USERS LIST -->
       <div class="box box-danger">
         <div class="box-header with-border">
           <h3 class="box-title">{{currenMonth}}월 신규 입사자</h3>
 
           <div class="box-tools pull-right">
-            <span class="label label-danger"> 신규 입사자가 있습니다.</span>
+            <span class="label label-danger">{{usercount}} 신규 입사자가 있습니다.</span>
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
             </button>
             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
@@ -33,5 +32,4 @@
         <!-- /.box-footer -->
       </div>
       <!--/.box -->
-    </div>
 </template>

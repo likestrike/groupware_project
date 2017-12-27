@@ -369,7 +369,6 @@ Template.postfileView.helpers({
 	wrapperAttr : function(){
 		Session.set("post_width", $('.box-widget:eq(0)').width());
         parent_width = Session.get('post_width');
-        console.log(parent_width);
 
 		var child_width = parent_width - 20;
 		var attribute = {};

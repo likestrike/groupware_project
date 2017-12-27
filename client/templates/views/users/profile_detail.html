@@ -2,16 +2,24 @@
 	<div class="col-md-9">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#location" data-toggle="tab">자리위치</a></li>
-              {{#if ownUserInfo}}
+              <li class="active"><a href="#activity" data-toggle="tab">활동</a></li>
+              <li><a href="#location" data-toggle="tab">자리위치</a></li>
+              <!-- {{#if ownUserInfo}}
               <li><a href="#settings" data-toggle="tab">설정</a></li>
-              {{/if}}
+              {{/if}} -->
             </ul>
             <div class="tab-content">
-              <div class="active tab-pane" id="location">
+              <div class="tab-pane" id="location">
                 <div>
                   <img class="img-responsive pad" src="/locations/seongsu_location_1.png">
                 </div>
+              </div>
+              <div class="active tab-pane" id="activity">
+                {{#each recentPost}}
+                <div class="post">
+                  {{> postItem}}
+                </div>
+                {{/each}}
               </div>
               <!-- /.tab-pane -->
               {{> editProfile}}

@@ -1,4 +1,10 @@
 Template.profile.helpers({
+	getWidth:function(){
+		return Session.get('window_width');
+	},
+	getHeight:function(){
+		return Session.get('window_height');
+	},
 	user: function() {
 	    var userId = FlowRouter.getParam('_id');
 	    console.log(userId);

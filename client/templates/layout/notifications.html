@@ -22,7 +22,7 @@
 
 <template name="notificationItem">
   <li>
-    <a href="{{notificationPostPath}}">
+    <a href="{{pathFor '/postlist/:id' id=postId}}">
       <div class="pull-left">
         <img src="{{writer.profile.thumbnail}}" class="img-circle" alt="User Image">
       </div>
