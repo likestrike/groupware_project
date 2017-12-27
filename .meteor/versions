@@ -83,9 +83,9 @@ mongo@1.2.2
 mongo-dev-server@1.0.1
 mongo-id@1.0.6
 mrt:filesize@2.0.3
+mrt:firebase@0.6.15
 mrt:jquery-ui-sortable@1.10.3
 natestrauser:animate-css@3.5.1
-nodexpert:d3piechart@1.0.0
 npm-bcrypt@0.9.3
 npm-mongo@2.2.31
 oauth@1.1.13
