@@ -3,7 +3,8 @@ import { FilesCollection }   from 'meteor/ostrio:files';
 
 Collections.files = new FilesCollection({
   // debug: true,
-  storagePath : 'D:/contents',
+  // storagePath : 'D:/contents',
+  storagePath : '/temp',
   collectionName: 'uploadedFiles',
   allowClientCode: true,
   // disableUpload: true,

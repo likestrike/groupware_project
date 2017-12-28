@@ -49,10 +49,15 @@ Meteor.publish('blind_comments', function(blindId) {
   return BlindComments.find({blindId: blindId});
 });
 
-// 블라인드 구독
+// ogtag
 Meteor.publish('ogtags', function() {
   return Ogtags.find();
 });
+// fcmtoken
+Meteor.publish('fcmtoken', function() {
+  return FcmTokens.find();
+});
+
 
 
 // Give authorized users access to sensitive data by group

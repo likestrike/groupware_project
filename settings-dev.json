@@ -1,0 +1,12 @@
+{
+  "public" : {
+  	"config" : {
+  		"apiKey": "AIzaSyCRCiciBUAQ7nwHUoqe2X7B0X0UEN3cnQw",
+	    "authDomain": "meteor-project-177107.firebaseapp.com",
+	    "databaseURL": "https://meteor-project-177107.firebaseio.com",
+	    "projectId": "meteor-project-177107",
+	    "storageBucket": "meteor-project-177107.appspot.com",
+	    "messagingSenderId": "1000699696059"
+  	}
+  }
+}

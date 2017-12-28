@@ -4,5 +4,15 @@
 		"ROOT_URL": "http://likestrike.meteorapp.com", 
        "MONGO_URL": "mongodb://root:sesim5351@ds127993.mlab.com:27993/likestrike"
      }
-   }
+   },
+   "public" : {
+  	"config" : {
+  		"apiKey": "AIzaSyCy-N3MH75CWRAjnJ-ehlh2lt6tlzMdUs8",
+	    "authDomain": "locman01-157605.firebaseapp.com",
+	    "databaseURL": "https://locman01-157605.firebaseio.com",
+	    "projectId": "locman01-157605",
+	    "storageBucket": "locman01-157605.appspot.com",
+	    "messagingSenderId": "722330995079"
+  	}
+  }
 }

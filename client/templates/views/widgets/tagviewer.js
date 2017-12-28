@@ -19,7 +19,6 @@ Template.tagviewer.onCreated(function(){
 Template.tagviewer.events({
 	'click #tag_remove':function(e, t){
 		var id = $(e.currentTarget).data('value');
-		console.log(id);
 		Ogtags.remove(id);
 		Blaze.remove(Blaze.currentView);
 	}
@@ -44,7 +43,6 @@ Template.postTagView.helpers({
 });
 Template.postTagView.events({
 	'click #tagYoutube': function (e, t) {
-		console.log(this._id);
 		var $target = $(e.currentTarget).parent();
 		var data = Ogtags.findOne({'_id' : this._id});
 		var youtubeId = data.YoutubeId;

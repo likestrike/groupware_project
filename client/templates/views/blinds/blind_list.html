@@ -28,7 +28,6 @@
 								</div>
 							</div>
 						</div>
-
 						{{#each blindData}}
 			                {{#if col1}}
 			                   	{{> blindItem}}
@@ -52,13 +51,17 @@
 				{{else}}
 					{{#if condition2}}
 						<div class="blindItem-grid col-md-6">
-							<div class="row">
-								<div class="col-lg-6">
-									<button type="button" class="btn btn-primary btn-block" id="blind-modal">
-										<i class="fa fa-fw fa-user-secret"></i>
-									작성하기</button>
+							<div class="box box-widget" id="blind-modal">
+								<div class="box-body">
+									<span class="blind-icon direct-chat-img">
+										<i class="fa fa-fw fa-user-secret"></i><!-- /.direct-chat-img -->
+									</span>
+									<div class="direct-post">
+										<span tabindex="0">블라인드 작성하기.</span>
+									</div>
 								</div>
 							</div>
+
 						{{#each blindData}}
 			                {{#if even}}
 			                   	{{> blindItem}}
@@ -75,11 +78,14 @@
 					{{else}}
 						{{#if condition3}}
 						<div class="blindItem-grid col-md-12">
-							<div class="row">
-								<div class="col-lg-6">
-									<button type="button" class="btn btn-primary btn-block" id="blind-modal">
-										<i class="fa fa-fw fa-user-secret"></i>
-									작성하기</button>
+							<div class="box box-widget" id="blind-modal">
+								<div class="box-body">
+									<span class="blind-icon direct-chat-img">
+										<i class="fa fa-fw fa-user-secret"></i><!-- /.direct-chat-img -->
+									</span>
+									<div class="direct-post">
+										<span tabindex="0">블라인드 작성하기.</span>
+									</div>
 								</div>
 							</div>
 							{{#each blindData}}
