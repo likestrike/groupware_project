@@ -9,6 +9,7 @@ Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
 
 	Meteor.subscribe('fcmtoken');
 	var configdata = Meteor.settings.public.config;
+	console.log(configdata);
 	var firebase = require("firebase");
 	var token_str = '';
 
@@ -21,7 +22,6 @@ Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
 	})
 	.then(function(token){
 		token_str = token;
-		
 		// console.log('user Id : '+Meteor.user()._id);
 		var userId = Meteor.userId();
 		var token_cnt = FcmTokens.find({'userId': userId}).count();
@@ -31,12 +31,26 @@ Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
 		        return Bert.alert(error.reason);
 		    });
 		}else{
-			FcmTokens.update({'userId' : Meteor.userId()}, {$set: {'token' : token_str}}, function(error) {
-		      if (error) {
-		        // display the error to the user
-		        return Bert.alert(error.reason);
-		      }
-		    });
+			if(token_cnt > 1){
+				var fcmids = [];
+				FcmTokens.find({'userId': userId}).forEach(function(p) {
+					fcmids.push(p._id);
+				});
+				FcmTokens.remove({_id: {"$in": fcmids}}, function (error) {
+			      if (error) {
+			        console.error("remove Error");
+			      }
+			    });
+			}
+			var fcmdata = FcmTokens.findOne({'userId': userId});
+			if(fcmdata.token != token_str){
+				FcmTokens.update(data._id, {$set: {'token' : token_str}}, function(error) {
+			      if (error) {
+			        // display the error to the user
+			        return Bert.alert(error.reason);
+			      }
+			    });
+			}
 		}
 	})
 	.catch(function(err){
@@ -45,11 +59,11 @@ Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
 
 
 	// requestPermission();
-	messaging.onMessage(function(payload){	
+	messaging.onMessage(function(payload){
 		console.log(payload);
 	})
 
-	
+
 
 	// function requestPermission() {
 	//     console.log('Requesting permission...');
@@ -141,5 +155,5 @@ Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
 	// 	  console.error(error);
 	// 	})
 	//   }
-	  
+
 

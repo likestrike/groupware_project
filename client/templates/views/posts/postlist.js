@@ -15,6 +15,7 @@ Template.postlist.helpers({
 		var posts = [];
 		var _i = 0;
 		var _limit = Session.get("inc_limit");
+		var test = Posts.find();
 
 		Posts.find({}, {sort: {submitted: -1}, skip: 0, limit: _limit}).forEach(function(p) {
 	  		p.index = _i;
@@ -67,28 +68,26 @@ Template.postlist.events({
 		Modal.show('postModal');
 	},
 	'click .box-widget' : function(e, t){
-		$box = $(e.currentTarget).find('.post-wrapper');
-		$child = $box.find('.post-context-div');
-		if(!$child.hasClass('minimum')){
-			$child.addClass('minimum');
-		}else{
-			$child.removeClass('minimum')
-			$box.addClass('trans')
-			minimumHeight = 180;
+		// $box = $(e.currentTarget).find('.post-wrapper');
+		// $child = $box.find('.post-context-div');
+		// if(!$child.hasClass('minimum')){
+		// 	$child.addClass('minimum');
+		// }else{
+		// 	$child.removeClass('minimum')
+		// 	$box.addClass('trans')
+		// 	minimumHeight = 180;
 
-	        // get current height
-	        currentHeight = $box.innerHeight();
+	 //        // get current height
+	 //        currentHeight = $box.innerHeight();
 
-	        // get height with auto applied
-	        autoHeight = $box.find('.post-context').css('height', 'auto').innerHeight();
+	 //        // get height with auto applied
+	 //        autoHeight = $box.find('.post-context').css('height', 'auto').innerHeight();
 
-	        // reset height and revert to original if current and auto are equal
-	        $box.css('height', currentHeight).animate({
-	            'height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
-	        })
-		}
-
-
+	 //        // reset height and revert to original if current and auto are equal
+	 //        $box.css('height', currentHeight).animate({
+	 //            'height': (currentHeight == autoHeight ? minimumHeight : autoHeight)
+	 //        })
+		// }
 	}
 });
 

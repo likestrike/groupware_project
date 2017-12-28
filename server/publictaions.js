@@ -11,7 +11,6 @@ Meteor.publish('userProfile', function (param) {
 });
 Meteor.publish('userCount', function (param) {
   check(param, String);
-  console.log(paran);
   return Meteor.users.find({'emails.address' : param}).count();
 });
 Meteor.publish('singlePost', function (param) {
@@ -57,6 +56,7 @@ Meteor.publish('ogtags', function() {
 Meteor.publish('fcmtoken', function() {
   return FcmTokens.find();
 });
+
 
 
 

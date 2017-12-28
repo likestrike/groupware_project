@@ -68,10 +68,8 @@ Template.google_api.events({
                 return alert(error.reason);
             });
         }
-        
       }
     }
-
   }
 });
 function callGoogle() {

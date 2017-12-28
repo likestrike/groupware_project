@@ -7,7 +7,7 @@ FcmTokens.allow({
 })
 FcmTokens.deny({
   update: function(userId, doc, fieldNames) {
-    return _.contains(fieldNames, 'userId');
+    return true;
   },
   remove : function(){
     return false;
