@@ -1,4 +1,3 @@
-import {PieChart} from "meteor/nodexpert:d3piechart";
 
 Template.home.helpers({
 	getWidth:function(){
@@ -27,33 +26,5 @@ Template.home.helpers({
 
 Template.home.onCreated(function(){
 	console.log('created');
-	
-	const data = [
-                   {
-                      "type":"organic",
-                      "qty":45
-                   },
-                   {
-                      "type":"ads",
-                      "qty":30
-                   },
-                   {
-                      "type":"info",
-                      "qty":20
-                   },
-                   {
-                      "type":"maps",
-                      "qty":50
-                   },
-                   {
-                      "type":"images",
-                      "qty":10
-                   }
-                ];
-    const objPieChart = new PieChart();
-    objPieChart.setPieChartElement(".chart-responsive"); 
-    objPieChart.setData(data); 
-    objPieChart.setHeight(300); 
-    objPieChart.setAnimationDuration(300);
-    objPieChart.createPieChart(); 
+
 });
