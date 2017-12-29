@@ -4,7 +4,7 @@ import { FilesCollection }   from 'meteor/ostrio:files';
 Collections.files = new FilesCollection({
   // debug: true,
   // storagePath : 'D:/contents',
-  storagePath : '/temp',
+  storagePath : Meteor.settings.public.filepath,
   collectionName: 'uploadedFiles',
   allowClientCode: true,
   // disableUpload: true,

@@ -1,18 +1,17 @@
 FcmTokens = new Mongo.Collection('fcmtokens');
 
 FcmTokens.allow({
-  remove : function(){
-    return true;
-  }
-})
-FcmTokens.deny({
-  update: function(userId, doc, fieldNames) {
-    return true;
-  },
-  remove : function(){
-    return false;
-  }
+  update: function () { return true; },
+  remove: function () { return true; }
 });
+// FcmTokens.deny({
+//   update: function(userId, doc, fieldNames) {
+//     return true;
+//   },
+//   remove : function(){
+//     return true;
+//   }
+// });
 
 Meteor.methods({
   fcmInsert: function(Attribute) {

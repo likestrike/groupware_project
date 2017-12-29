@@ -159,31 +159,39 @@ Template.postItem.events({
 
 	    // send Notification
 		Meteor.subscribe('fcmtoken');
-		var myTokenData = FcmTokens.findOne({'userId' : Meteor.userId()});
+		
+		console.log(myTokenData);
+		console.log(Meteor.settings.public.config.apiKey);
 
-		var userId = Posts.findOne({'_id' : this._id}, {fields: 'userId'});
-		console.log(userId);
-		var notification = {
-		'title': 'LOCUS Groupware Mesage',
-		'body': '메세지가 도착했습니다.',
-		'icon': '/images/favicon.png',
-		'click_action': 'http://likestrike.meteorapp.com/postlist'
-		};
-		fetch('https://fcm.googleapis.com/fcm/send', {
-		'method': 'POST',
-		'headers': {
-		  'Authorization': 'key=' + Meteor.settings.public.config.apiKey,
-		  'Content-Type': 'application/json'
-		},
-		'body': JSON.stringify({
-		  'notification': notification,
-		  'to': myTokenData.token
-		})
-		}).then(function(response) {
-		console.log(response);
-		}).catch(function(error) {
-		console.error(error);
-		})
+		var userData = Posts.findOne({'_id' : this._id});
+		var userId = userData.userId;
+
+		var myTokenData = FcmTokens.findOne({'userId' : userId});
+
+		if(myTokenData){
+			var notification = {
+			'title': 'LOCUS Groupware Mesage',
+			'body': '메세지가 도착했습니다.',
+			'icon': '/images/favicon.png',
+			'click_action': 'http://likestrike.meteorapp.com/postlist'
+			};
+			fetch('https://fcm.googleapis.com/fcm/send', {
+			'method': 'POST',
+			'headers': {
+			  'Authorization': 'key=' + Meteor.settings.public.config.apiKey,
+			  'Content-Type': 'application/json'
+			},
+			'body': JSON.stringify({
+			  'notification': notification,
+			  'to': myTokenData.token
+			})
+			}).then(function(response) {
+			console.log(response);
+			}).catch(function(error) {
+			console.error(error);
+			})	
+		}
+		
 	},
 	'click #edit_post':function(e, t){
 		e.preventDefault()
@@ -209,7 +217,6 @@ Template.postItem.events({
 		e.preventDefault();
 		var currentPostId = this._id;
 	},
-
 	'click .custom-like':function(e, t){
 		var postId = this._id;
 		// $(e.target).toggleClass("press");

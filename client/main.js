@@ -4,60 +4,56 @@ Accounts.ui.config({
 });
 // google login 의 계정을 locus.com 으로 제한 한다. config
 Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
-
-
-
-	Meteor.subscribe('fcmtoken');
-	var configdata = Meteor.settings.public.config;
-	console.log(configdata);
+	
 	var firebase = require("firebase");
 	var token_str = '';
+	var configdata = Meteor.settings.public.config;
 
 	firebase.initializeApp(configdata);
 	const messaging = firebase.messaging();
 
-	messaging.requestPermission()
-	.then(function(){
-		return messaging.getToken();
-	})
-	.then(function(token){
-		token_str = token;
-		// console.log('user Id : '+Meteor.user()._id);
-		var userId = Meteor.userId();
-		var token_cnt = FcmTokens.find({'userId': userId}).count();
-		if(token_cnt == 0){
-			Meteor.call('fcmInsert', {'token' : token_str}, function(error, result) {
-		      if (error)
-		        return Bert.alert(error.reason);
-		    });
-		}else{
-			if(token_cnt > 1){
-				var fcmids = [];
-				FcmTokens.find({'userId': userId}).forEach(function(p) {
-					fcmids.push(p._id);
-				});
-				FcmTokens.remove({_id: {"$in": fcmids}}, function (error) {
-			      if (error) {
-			        console.error("remove Error");
-			      }
-			    });
-			}
-			var fcmdata = FcmTokens.findOne({'userId': userId});
-			if(fcmdata.token != token_str){
-				FcmTokens.update(data._id, {$set: {'token' : token_str}}, function(error) {
-			      if (error) {
-			        // display the error to the user
-			        return Bert.alert(error.reason);
-			      }
-			    });
-			}
-		}
-	})
-	.catch(function(err){
-		console.log('err');
-	});
+	// messaging.requestPermission()
+	// .then(function(){
+	// 	return messaging.getToken();
+	// })
+	// .then(function(token){
+	// 	token_str = token;
+	// })
+	// .catch(function(err){
+	// 	console.log(err);
+	// 	console.log('err');
+	// });
 
-
+	// const handle = Meteor.subscribe('fcmtoken');
+	// Tracker.autorun(() => {
+	//   const isReady = handle.ready();
+	//   console.log(`Handle is ${isReady ? 'ready' : 'not ready'}`);  
+	//   console.log(token_str)
+	//   if(isReady){
+	//   		var userId = Meteor.userId();
+	// 		var userToken = FcmTokens.findOne({'userId': userId});
+	// 		console.log(userToken);
+	// 		if(typeof(userToken) !== 'undefined'){
+	// 			if(token_str !== ''){
+	// 				FcmTokens.update(userToken._id, {$set: {'token' : token_str}}, function(error) {
+	// 			      if (error) {
+	// 			        // display the error to the user
+	// 			        return Bert.alert(error.reason);
+	// 			      }
+	// 			    });
+	// 			}
+	// 		}else{
+	// 			console.log('insert token');
+	// 			Meteor.call('fcmInsert', {'token' : token_str}, function(error, result) {
+	// 		      if (error)
+	// 		        return Bert.alert(error.reason);
+	// 		    });
+	// 		}
+	// 	}
+	// });
+	// return;
+	
+	
 	// requestPermission();
 	messaging.onMessage(function(payload){
 		console.log(payload);
