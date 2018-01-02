@@ -1,6 +1,5 @@
 import { ClientStorage }     from 'meteor/ostrio:cstorage';
 var firebase = require("firebase");
-var token_str = '';
 var configdata = Meteor.settings.public.config;
 
 Template.controles.onCreated(function () {
@@ -8,18 +7,43 @@ Template.controles.onCreated(function () {
 	self.isReady = new ReactiveVar(false);
 	self.token = '';
 
-	this.autorun(function () {
-	    if (self.isReady.get()) {
-	    	console.log('ready');
-	    	console.log(token_str);
-	    }
-	});
+	// this.autorun(function () {
+	//     if (self.isReady.get()) {
+	//     	console.log('ready');
+	//     	console.log(token_str);
+	//     }
+	// });
+	Meteor.subscribe('fcmtoken');
 });
 Template.controles.events({
 	'click #requeset-push': function (e, t) {
-		requestPermission();
-
-		console.log(token_str);
+		self.loaded = waitOnFCMToken();
+		Tracker.autorun(() => {
+			if (self.loaded.ready()){
+				console.log('is ready');
+				console.log(self.loaded.token_str());
+				var token_str = self.loaded.token_str();
+				var userId = Meteor.userId();
+				var userToken = FcmTokens.findOne({'userId': userId});
+				console.log(userToken);
+				if(typeof(userToken) !== 'undefined'){
+					if(token_str !== ''){
+						FcmTokens.update(userToken._id, {$set: {'token' : token_str}}, function(error) {
+					      if (error) {
+					        // display the error to the user
+					        return Bert.alert(error.reason);
+					      }
+					    });
+					}
+				}else{
+					console.log('insert token');
+					Meteor.call('fcmInsert', {'token' : token_str}, function(error, result) {
+				      if (error)
+				        return Bert.alert(error.reason);
+				    });
+				}
+			}
+		});
 
 		// const handle = Meteor.subscribe('fcmtoken');
 		// Tracker.autorun(() => {
@@ -50,10 +74,59 @@ Template.controles.events({
 		// });
 	}
 });
-
-
 firebase.initializeApp(configdata);
+// if (!firebase.apps.length) {
+//     firebase.initializeApp(configdata);
+// }
+
 const messaging = firebase.messaging();
+messaging.onMessage(function(payload){
+	console.log(payload);
+})
+function waitOnFCMToken(){
+	var isLoaded = new ReactiveVar(false);
+	var token = '';
+	console.log('Requesting permission...');
+	messaging.requestPermission()
+    .then(function() {
+    	console.log('loading...');
+    	messaging.getToken()
+    	.then(function(currentToken) {
+			if (currentToken) {
+				console.log('Toke : ' + currentToken);
+
+				token = currentToken;
+				if (!isTokenSentToServer()) {
+			      console.log('Sending token to server...');
+			      // TODO(developer): Send the current token to your server.
+			      setTokenSentToServer(true);
+			      isLoaded.set(true);
+			    } else {
+			      console.log('Token already sent to server so won\'t send it again ' +
+			          'unless it changes');
+			      isLoaded.set(true);
+			    }
+			} else {
+				// Show permission request.
+				console.log('No Instance ID token available. Request permission to generate one.');
+				// Show permission UI.
+				setTokenSentToServer(false);
+			}
+		})
+    })
+    .catch(function(err) {
+      console.log('Unable to get permission to notify.', err);
+    });
+    return {
+    	ready: function () {
+	      return isLoaded.get();
+	    },
+	    token_str : function(){
+	      return token;
+	    }
+	};
+
+}
 
 function requestPermission() {
 	    console.log('Requesting permission...');
@@ -79,7 +152,7 @@ function requestPermission() {
 	    .then(function(currentToken) {
 	      if (currentToken) {
 	      	console.log('Toke : ' + currentToken);
-	      	Template.instance().isReady.set(true);
+	      	// Template.instance().isReady.set(true);
 	      	token_str = currentToken;
 	        sendTokenToServer(currentToken);
 	      } else {
@@ -103,8 +176,7 @@ function requestPermission() {
 	    } else {
 	      console.log('Token already sent to server so won\'t send it again ' +
 	          'unless it changes');
-	    }
-
+	    }	    
 	  }
 	  function isTokenSentToServer() {
 	    return window.localStorage.getItem('sentToServer') == 1;

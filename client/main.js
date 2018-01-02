@@ -5,12 +5,12 @@ Accounts.ui.config({
 // google login 의 계정을 locus.com 으로 제한 한다. config
 Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
 	
-	var firebase = require("firebase");
-	var token_str = '';
-	var configdata = Meteor.settings.public.config;
+	// var firebase = require("firebase");
+	// var token_str = '';
+	// var configdata = Meteor.settings.public.config;
 
-	firebase.initializeApp(configdata);
-	const messaging = firebase.messaging();
+	// firebase.initializeApp(configdata);
+	// const messaging = firebase.messaging();
 
 	// messaging.requestPermission()
 	// .then(function(){
@@ -18,6 +18,7 @@ Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
 	// })
 	// .then(function(token){
 	// 	token_str = token;
+	// 	console.log(token);
 	// })
 	// .catch(function(err){
 	// 	console.log(err);
@@ -54,10 +55,10 @@ Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
 	// return;
 	
 	
-	// requestPermission();
-	messaging.onMessage(function(payload){
-		console.log(payload);
-	})
+	// // requestPermission();
+	// messaging.onMessage(function(payload){
+	// 	console.log(payload);
+	// })
 
 
 

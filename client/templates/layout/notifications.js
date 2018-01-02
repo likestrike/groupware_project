@@ -9,12 +9,10 @@ Template.notifications.helpers({
     var countData = Notifications.find({userId: Meteor.userId(), read: false}).count();
     if(Template.instance().current_count != countData && countData > 0){
         if(Template.instance().current_count < countData){
-          Bert.alert( '당신에게 메세지가 있어요~', 'success', 'growl-top-right', 'fa-info' );
+          Bert.alert( '당신에게 메세지가 있어요~', 'success', 'growl-bottom-right', 'fa-info' );
           Template.instance().current_count = countData;
         }
     }
-
-
     return Notifications.find({userId: Meteor.userId(), read: false}).count();
   },
 });

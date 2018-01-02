@@ -157,16 +157,16 @@ Template.postItem.events({
 
 
 
-	    // send Notification
-		Meteor.subscribe('fcmtoken');
+	    
 		
-		console.log(myTokenData);
+		
 		console.log(Meteor.settings.public.config.apiKey);
 
 		var userData = Posts.findOne({'_id' : this._id});
 		var userId = userData.userId;
-
+		console.log(userId);
 		var myTokenData = FcmTokens.findOne({'userId' : userId});
+		console.log(myTokenData);
 
 		if(myTokenData){
 			var notification = {
@@ -255,6 +255,8 @@ Template.postItem.events({
 Template.postItem.onCreated(function(){
 	var self = this;
 	// $('.post-context-div').addClass('minimum');
+
+	Meteor.subscribe('fcmtoken');
 
 	this.initiateUpload = (event, files, formTarget) => {
 		const self          = this;
