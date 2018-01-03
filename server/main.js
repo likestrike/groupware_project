@@ -6,6 +6,52 @@ Meteor.startup(() => {
   // code to run on server at startup
 });
 
+// Keep track of how many administrators are online.
+let count = 0;
+const cursor = locmanNoti.find({ sent: false});
+const handle = cursor.observeChanges({
+  added(id, notification) {
+    count += 1;
+
+    var userId = notification.userId;
+    var myTokenData = FcmTokens.findOne({'userId' : userId});
+    console.log('add notification');
+    console.log(userId);
+     if(myTokenData){
+     	console.log('myToken data : ' + myTokenData.token);
+		var notiObj = {
+		'title': notification.title,
+		'body': notification.body,
+		'icon': notification.icon,
+		'click_action': notification.url
+		};
+
+		//  fetch 가 jsonRoutes에서 돌지 않으니 reactivevar를 이용해서 해보자. 
+		fetch('https://fcm.googleapis.com/fcm/send', {
+		'method': 'POST',
+		'headers': {
+		  'Authorization': 'key=' + Meteor.settings.public.config.apiKey,
+		  'Content-Type': 'application/json'
+		},
+		'body': JSON.stringify({
+		  'notification': notiObj,
+		  'to': myTokenData.token
+		})
+		}).then(function(response) {
+		console.log(response);
+		}).catch(function(error) {
+		console.error(error);
+		})	
+	}
+  },
+  removed() {
+    count -= 1;
+    console.log('change locmannoti');
+  }
+});
+// After five seconds, stop keeping the count.
+setTimeout(() => handle.stop(), 5000);
+
 
 JsonRoutes.add("post", "/hellow/", function (req, res, next) {
   // var id = req.params.id;
@@ -18,44 +64,55 @@ JsonRoutes.add("post", "/hellow/", function (req, res, next) {
   var url = req.query.url+'?objid='+obj_id+'&recv='+recv+'&projects_id='+projects_id+'';
   var UserData = Meteor.users.findOne({'username':'essim'});
 
-  console.log(UserData._id);
-
-  if(UserData){
-  	
+  if(UserData){  	
   	var userId = UserData._id;
-	console.log(userId);
-	var myTokenData = FcmTokens.findOne({'userId' : userId});
-	console.log(myTokenData);
 
-	if(myTokenData){
-		var notification = {
-		'title': 'LOCUS LOCMAN Mesage',
-		'body': 'LOCMAN에서 Note가 남겨졌어요.',
-		'icon': '/images/favicon.png',
-		'click_action': url
-		};
+	var notification = {
+	'title': 'LOCUS LOCMAN Mesage',
+	'body': 'LOCMAN에서 Note가 남겨졌어요.',
+	'icon': '/images/favicon.png',
+	'click_action': url,
+	'userId' : userId
+	};
 
-		//  fetch 가 jsonRoutes에서 돌지 않으니 reactivevar를 이용해서 해보자. 
-		fetch('https://fcm.googleapis.com/fcm/send', {
-		'method': 'POST',
-		'headers': {
-		  'Authorization': 'key=' + Meteor.settings.public.config.apiKey,
-		  'Content-Type': 'application/json'
-		},
-		'body': JSON.stringify({
-		  'notification': notification,
-		  'to': myTokenData.token
-		})
-		}).then(function(response) {
-		console.log(response);
-		}).catch(function(error) {
-		console.error(error);
-		})	
-	}
+
+	Meteor.call('locman_notiInsert', {notification}, function(error, result) {
+      if (error)
+        console.log(error);
+    });
+
+	// if(myTokenData){
+	// 	var notification = {
+	// 	'title': 'LOCUS LOCMAN Mesage',
+	// 	'body': 'LOCMAN에서 Note가 남겨졌어요.',
+	// 	'icon': '/images/favicon.png',
+	// 	'click_action': url
+	// 	};
+
+	// 	//  fetch 가 jsonRoutes에서 돌지 않으니 reactivevar를 이용해서 해보자. 
+	// 	fetch('https://fcm.googleapis.com/fcm/send', {
+	// 	'method': 'POST',
+	// 	'headers': {
+	// 	  'Authorization': 'key=' + Meteor.settings.public.config.apiKey,
+	// 	  'Content-Type': 'application/json'
+	// 	},
+	// 	'body': JSON.stringify({
+	// 	  'notification': notification,
+	// 	  'to': myTokenData.token
+	// 	})
+	// 	}).then(function(response) {
+	// 	console.log(response);
+	// 	}).catch(function(error) {
+	// 	console.error(error);
+	// 	})	
+	// }
   }
+
 
   JsonRoutes.sendResult(res, {
     data: 'success'
   });
+
+
 });
 
