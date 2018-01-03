@@ -4,6 +4,9 @@ Accounts.ui.config({
 });
 // google login 의 계정을 locus.com 으로 제한 한다. config
 Accounts.config({ restrictCreationByEmailDomain: 'locus.com' });
+
+
+
 	
 	// var firebase = require("firebase");
 	// var token_str = '';
