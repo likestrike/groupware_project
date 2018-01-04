@@ -1,56 +1,11 @@
 import { Meteor } from 'meteor/meteor';
+import { HTTP } from 'meteor/http'
 import { Accounts } from 'meteor/accounts-base';
 
 
 Meteor.startup(() => {
   // code to run on server at startup
 });
-
-// Keep track of how many administrators are online.
-let count = 0;
-const cursor = locmanNoti.find({ sent: false});
-const handle = cursor.observeChanges({
-  added(id, notification) {
-    count += 1;
-
-    var userId = notification.userId;
-    var myTokenData = FcmTokens.findOne({'userId' : userId});
-    console.log('add notification');
-    console.log(userId);
-     if(myTokenData){
-     	console.log('myToken data : ' + myTokenData.token);
-		var notiObj = {
-		'title': notification.title,
-		'body': notification.body,
-		'icon': notification.icon,
-		'click_action': notification.url
-		};
-
-		//  fetch 가 jsonRoutes에서 돌지 않으니 reactivevar를 이용해서 해보자. 
-		fetch('https://fcm.googleapis.com/fcm/send', {
-		'method': 'POST',
-		'headers': {
-		  'Authorization': 'key=' + Meteor.settings.public.config.apiKey,
-		  'Content-Type': 'application/json'
-		},
-		'body': JSON.stringify({
-		  'notification': notiObj,
-		  'to': myTokenData.token
-		})
-		}).then(function(response) {
-		console.log(response);
-		}).catch(function(error) {
-		console.error(error);
-		})	
-	}
-  },
-  removed() {
-    count -= 1;
-    console.log('change locmannoti');
-  }
-});
-// After five seconds, stop keeping the count.
-setTimeout(() => handle.stop(), 5000);
 
 
 JsonRoutes.add("post", "/hellow/", function (req, res, next) {
@@ -75,11 +30,34 @@ JsonRoutes.add("post", "/hellow/", function (req, res, next) {
 	'userId' : userId
 	};
 
-
+	var notiId;
 	Meteor.call('locman_notiInsert', {notification}, function(error, result) {
       if (error)
         console.log(error);
+
+    	console.log(result);
+    	notiId = result._id;
     });
+    console.log(notiId);
+
+	var myTokenData = FcmTokens.findOne({'userId' : userId});
+	if(myTokenData){
+		HTTP.post( 'https://fcm.googleapis.com/fcm/send', 
+		{
+			headers: {
+				'Authorization': 'key=' + Meteor.settings.public.config.apiKey,
+				'Content-Type': 'application/json'
+			},
+			data : {
+					'notification': notification,
+					'to': myTokenData.token
+				},
+		}, function(e) {
+			console.log(e);
+			console.log('success');
+		});
+	}
+    
 
 	// if(myTokenData){
 	// 	var notification = {
